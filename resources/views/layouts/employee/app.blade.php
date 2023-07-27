@@ -27,7 +27,7 @@
 		<link href="/assets/css/themes/layout/brand/dark9cd7.css?v=7.1.5" rel="stylesheet" type="text/css" />
 		<link href="/assets/css/themes/layout/aside/dark9cd7.css?v=7.1.5" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
-		<link rel="shortcut icon" href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png" />
 		<!-- Hotjar Tracking Code for keenthemes.com -->
 		<script>(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:1070954,hjsv:6}; a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');</script>
 	</head>
@@ -4921,7 +4921,7 @@
 									<span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
 								</span>
 							</a>
-							<a href="#" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+							<a href="/employee/logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
 						</div>
 					</div>
 				</div>

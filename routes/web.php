@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/register', [AuthController::class, 'store']);
+Route::post('/check', [AuthController::class, 'check']);
+Route::get('/client/logout', [AuthController::class, 'destroyClient']);
+Route::get('/employee/logout', [AuthController::class, 'destroyEmployee']);
+
+Route::middleware('auth')->prefix('/client')->group(function() {
+
+    Route::get('/dashboard', function () {
+
+        return view('client.dashboard');
+    
+    })->name('client-dashboard');
+    
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
+Route::middleware('auth.employee')->prefix('/employee')->group(function() {
+    
+    Route::get('/dashboard', function () {
+
+        return view('employee.dashboard');
+        
+    })->name('employee-dashboard');
+
 });

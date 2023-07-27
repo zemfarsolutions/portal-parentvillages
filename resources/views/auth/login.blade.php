@@ -69,7 +69,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!--end::Aside header-->
 						<!--begin::Aside title-->
 						<h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #ffffff;">Discover Amazing Support
-						<br />and Opportunities from </br> Parent Villages.</h3>
+						<br />and Opportunities from <br /> Parent Villages.</h3>
 						<!--end::Aside title-->
 					</div>
 					<!--end::Aside Top-->
@@ -93,19 +93,22 @@ License: You must have a valid license purchased only from themeforest(the above
 									<a href="javascript:;" id="kt_login_signup" class="text-primary font-weight-bolder">Create an Account</a></span>
 								</div>
 								<!--begin::Title-->
+
+								<input type="hidden" id="l_token" value="{{ csrf_token() }}">
+
 								<!--begin::Form group-->
 								<div class="form-group">
 									<label class="font-size-h6 font-weight-bolder text-dark">Email</label>
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" name="username" autocomplete="off" />
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" id="l_email" type="text" name="username" autocomplete="off" />
 								</div>
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group">
 									<div class="d-flex justify-content-between mt-n5">
-										<label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
+										<label class="font-size-h6 font-weight-bolder text-dark pt-5" >Password</label>
 										<a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">Forgot Password ?</a>
 									</div>
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="password" name="password" autocomplete="off" />
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="password" id="l_password" name="password" autocomplete="off" />
 								</div>
 								<!--end::Form group-->
 
@@ -114,10 +117,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="col-9 col-form-label">
                                         <div class="radio-inline">
                                             <label class="radio radio-outline radio-primary">
-                                            <input type="radio" name="radios20" />
+                                            <input type="radio" name="l_radio" value="client" />
                                             <span></span>Client</label>
                                             <label class="radio radio-outline radio-primary">
-                                            <input type="radio" name="radios20" />
+                                            <input type="radio" name="l_radio" value="employee" />
                                             <span></span>Employee</label>
                                         </div>
                                         <span class="form-text text-muted">Select whom are you logging as.</span>
@@ -137,6 +140,8 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="login-form login-signup">
 							<!--begin::Form-->
 							<form class="form" novalidate="novalidate" id="kt_login_signup_form">
+
+								<input type="hidden" id="r_token" value="{{csrf_token()}}">
 								<!--begin::Title-->
 								<div class="pb-13 pt-lg-0 pt-5">
 									<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Sign Up</h3>
@@ -145,39 +150,28 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!--end::Title-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="text" placeholder="Fullname" name="fullname" autocomplete="off" />
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="text" 
+									placeholder="Fullname" id="r_fullname" name="fullname" autocomplete="off" />
 								</div>
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" />
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="email" 
+									placeholder="Email" id="r_email" name="email" autocomplete="off" />
 								</div>
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Password" name="password" autocomplete="off" />
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" 
+									placeholder="Password" id="r_password" name="password" autocomplete="off" />
 								</div>
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirm password" name="cpassword" autocomplete="off" />
+									<input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" 
+									placeholder="Confirm password" name="cpassword" autocomplete="off" />
 								</div>
 								<!--end::Form group-->
-
-                                <div class="form-group row">
-                                    <label class="col-3 col-form-label">Login as</label>
-                                    <div class="col-9 col-form-label">
-                                        <div class="radio-inline">
-                                            <label class="radio radio-outline radio-primary">
-                                            <input type="radio" name="radios20" />
-                                            <span></span>Client</label>
-                                            <label class="radio radio-outline radio-primary">
-                                            <input type="radio" name="radios20" />
-                                            <span></span>Employee</label>
-                                        </div>
-                                        <span class="form-text text-muted">Select whom are you logging as.</span>
-                                    </div>
-                                </div>
 
 								<!--begin::Form group-->
 								<div class="form-group">

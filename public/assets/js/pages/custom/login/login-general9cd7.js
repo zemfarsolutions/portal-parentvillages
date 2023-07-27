@@ -53,18 +53,67 @@ var KTLogin = function() {
             e.preventDefault();
 
             validation.validate().then(function(status) {
+
+				var email = $("#l_email").val();
+				var password = $("#l_password").val();
+				var type = $('input[name="l_radio"]:checked').val();
+				var token = $("#l_token").val();
+
+				console.log(token);
+
 		        if (status == 'Valid') {
-                    swal.fire({
-		                text: "All is cool! Now you submit this form",
-		                icon: "success",
-		                buttonsStyling: false,
-		                confirmButtonText: "Ok, got it!",
-                        customClass: {
-    						confirmButton: "btn font-weight-bold btn-light-primary"
-    					}
-		            }).then(function() {
-						KTUtil.scrollTop();
-					});
+
+                    $.ajax({
+						type:"POST",
+						url:"/check",
+						data:{
+							email: email,
+							password: password,
+							type: type,
+							_token: token
+						},
+						success: function(response) {
+
+							if (response.status == 200) {
+								swal.fire({
+									text: response.message,
+									icon: "success",
+									buttonsStyling: false,
+									confirmButtonText: "Ok, got it!",
+									customClass: {
+										confirmButton: "btn font-weight-bold btn-light-primary"
+									}
+								}).then(function(result) {
+	
+									if (result.isConfirmed) {
+	
+										if (response.type == "client") {
+											window.location.href = "/client/dashboard";
+										}else{
+											window.location.href = "/employee/dashboard";
+										}
+									}
+	
+									KTUtil.scrollTop();
+								});	
+							}
+
+							if (response.status == 500) {
+								swal.fire({
+									text: "Sorry, looks like there are some errors detected, please try again.",
+									icon: "error",
+									buttonsStyling: false,
+									confirmButtonText: "Ok, got it!",
+									customClass: {
+										confirmButton: "btn font-weight-bold btn-light-primary"
+									}
+								}).then(function() {
+									KTUtil.scrollTop();
+								});			
+							}
+						}
+					})
+
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",
@@ -159,18 +208,47 @@ var KTLogin = function() {
             e.preventDefault();
 
             validation.validate().then(function(status) {
+
+				var fullname = $("#r_fullname").val();
+				var email = $("#r_email").val();
+				var password = $("#r_password").val();
+				var token = $("#r_token").val();
+				
 		        if (status == 'Valid') {
-                    swal.fire({
-		                text: "All is cool! Now you submit this form",
-		                icon: "success",
-		                buttonsStyling: false,
-		                confirmButtonText: "Ok, got it!",
-                        customClass: {
-    						confirmButton: "btn font-weight-bold btn-light-primary"
-    					}
-		            }).then(function() {
-						KTUtil.scrollTop();
-					});
+					
+					$.ajax({
+						type:"POST",
+						url:"/register",
+						data:{
+							name: fullname,
+							email: email,
+							password: password,
+							_token: token
+						},
+						success: function(response) {
+
+							swal.fire({
+								text: response.message,
+								icon: "success",
+								buttonsStyling: false,
+								confirmButtonText: "Ok, got it!",
+								customClass: {
+									confirmButton: "btn font-weight-bold btn-light-primary"
+								}
+							}).then(function(result) {
+
+								if (result.isConfirmed) {
+									window.location.href = "/login";
+								}
+
+								KTUtil.scrollTop();
+							});
+
+
+							console.log(response);
+						}
+					})
+
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",
