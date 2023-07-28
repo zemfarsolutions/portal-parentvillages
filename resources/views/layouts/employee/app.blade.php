@@ -63,7 +63,8 @@
 					<div class="brand flex-column-auto" id="kt_brand">
 						<!--begin::Logo-->
 						<a href="index.html" class="brand-logo">
-							<img alt="Logo" width="180px" class="mt-2" src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png" />
+							{{-- <img alt="Logo" width="180px" class="mt-2" src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png" /> --}}
+							<span style="color: white; font-size:17px; font-weight:500;">Parent Villages</span>
 						</a>
 						<!--end::Logo-->
 						<!--begin::Toggle-->
