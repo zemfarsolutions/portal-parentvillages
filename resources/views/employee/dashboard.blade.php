@@ -60,7 +60,7 @@
                                 <i class="symbol-badge symbol-badge-bottom bg-success"></i>
                             </div>
                             <h4 class="font-weight-bold my-2">{{ Auth::guard('employee')->user()->name }}</h4>
-                            <div class="text-muted mb-2">Parent Villages Client</div>
+                            <div class="text-muted mb-2">Parent Villages Employee</div>
                             <span class="label label-light-warning label-inline font-weight-bold label-lg">Active</span>
                         </div>
                         <!--end::User-->

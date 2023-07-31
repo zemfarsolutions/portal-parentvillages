@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Client\{
-    DashboardController
-};
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +14,8 @@ use App\Http\Controllers\Client\{
 |
 */
 
-require __DIR__."/auth.php";
-
-require __DIR__."/employee.php";
-
-Route::middleware('auth')->prefix('/client')->group(function() {
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('client-dashboard');
-    
-});
-
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/register', [AuthController::class, 'store']);
+Route::post('/check', [AuthController::class, 'check']);
+Route::get('/client/logout', [AuthController::class, 'destroyClient']);
+Route::get('/employee/logout', [AuthController::class, 'destroyEmployee']);

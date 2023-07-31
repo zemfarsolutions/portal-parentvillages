@@ -41,4 +41,12 @@ class Employee extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function timeTrackings() {
+        return $this->hasMany(EmployeeTimeTracking::class, 'employee_id', 'id');
+    }
+
+    public function mileageLogs() {
+        return $this->hasMany(EmployeeMileageLog::class, 'employee_id', 'id');
+    }
 }
