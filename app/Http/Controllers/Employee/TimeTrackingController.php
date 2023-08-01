@@ -48,8 +48,30 @@ class TimeTrackingController extends Controller
         return redirect()->route('time-tracking.index');
     }
 
-    public function edit(EmployeeTimeTracking $employeeTimeTracking) {
+    public function edit(EmployeeTimeTracking $time_tracking) {
 
-        return view('employee.timetrackings.edit', compact('employeeTimeTracking'));
+        return view('employee.timetrackings.edit', compact('time_tracking'));
+
+    }
+
+    public function update(EmployeeTimeTracking $time_tracking, Request $request) {
+        
+        $validator = Validator::make($request->all() ,[
+            'date' => 'required',
+            'number_of_hours' => 'required',
+            'type' => 'required',
+            'description' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        // $time_tracking->update([
+        //     ''
+        // ])
+
     }
 }

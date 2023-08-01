@@ -3,7 +3,6 @@
 @section('title', 'Time Tracking')
 
 @section('section')
-@dd($employee_time_tracking);
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -47,18 +46,21 @@
                             <h3 class="card-title">Edit Record</h3>
                         </div>
                         <!--begin::Form-->
-                        <form class="form" method="POST" action="/employee/time-tracking/{{$employeeTimeTracking->id}}">
+                        <form class="form" method="POST" action="/employee/time-tracking/{{$time_tracking->id}}">
+                            
+                            @method('PUT')
                             @csrf
+
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label>Date:</label>
-                                        <input name="date" type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" placeholder="Select date" />
+                                        <input name="date" value="{{ $time_tracking->date }}" type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" placeholder="Select date" />
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Number Of Hours:</label>
-                                        <input required name="number_of_hours" type="number" class="form-control" placeholder="Enter contact number" />
+                                        <input required name="number_of_hours" value="{{ $time_tracking->number_of_hours }}" type="number" class="form-control" placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter total number of hours</span>
                                     </div>
                                 </div>
@@ -67,14 +69,16 @@
                                         <div class="form-group">
                                             <label for="typeSelect1">Type select</label>
                                             <select required name="type" class="form-control" id="typeSelect1">
-                                                <option>Event</option>
-                                                <option>Place</option>
+                                                <option {{ $time_tracking->type == "event" ? 'selected' : null }}>Event</option>
+                                                <option {{ $time_tracking->type == "place" ? 'selected' : null }}>Place</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Description:</label>
-                                        <textarea required name="description" class="form-control" id="exampleTextarea" rows="1"></textarea>
+                                        <textarea required name="description" class="form-control" id="exampleTextarea" rows="1">
+                                            {{ $time_tracking->description }}
+                                        </textarea>
                                         <span class="form-text text-muted">Please enter description</span>
                                     </div>
                                 </div>
@@ -89,8 +93,8 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <button type="submit" class="btn btn-primary mr-2">Save</button>
-                                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                                        <button type="submit" class="btn btn-primary mr-2">Update</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
                                     </div>
                                 </div>
                             </div>
