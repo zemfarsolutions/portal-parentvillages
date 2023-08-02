@@ -14,7 +14,7 @@ var KTDatatableAutoColumnHideDemo = function() {
 				source: {
 					read: {
 						method: 'GET',
-						url: HOST_URL + '/api/get-time-trackings?id=1',
+						url: HOST_URL + '/api/get-milaege-logs?id=1',
 					},
 				},
 				pageSize: 10,
@@ -52,13 +52,6 @@ var KTDatatableAutoColumnHideDemo = function() {
 					title: 'Date',
 				},
 				{
-					field: 'type',
-					title: 'Type',
-					template: function(row) {
-						return '<span class="label label-lg font-weight-bold label-light-primary label-inline">' + row.type + '</span>';
-					},
-				},
-				{
 					field: 'description',
 					title: 'Description',
 					autoHide: true
@@ -72,7 +65,7 @@ var KTDatatableAutoColumnHideDemo = function() {
 					template: function(row) {
 						return '\
 							<div style="display:flex;">\
-								<a href="/employee/time-tracking/'+row.id+'/edit" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+								<a href="/employee/milaege-logs/'+row.id+'/edit" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
 									<span class="svg-icon svg-icon-md">\
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
@@ -83,7 +76,7 @@ var KTDatatableAutoColumnHideDemo = function() {
 										</svg>\
 									</span>\
 								</a>\
-								<form action="/employee/time-tracking/'+row.id+'" method="POST">\
+								<form action="/employee/milaege-logs/'+row.id+'" method="POST">\
 									<input type="hidden" name="_method" value="DELETE">\
 									<button class="btn btn-sm btn-clean btn-icon" title="Delete">\
 										<span class="svg-icon svg-icon-md">\

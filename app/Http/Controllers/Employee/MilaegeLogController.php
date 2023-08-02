@@ -3,23 +3,22 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
+use App\Models\EmployeeMilaegeLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Models\EmployeeTimeTracking;
 
-class TimeTrackingController extends Controller
+class MilaegeLogController extends Controller
 {
     public function index()
     {
-
-        return view('employee.time_trackings.index');
+        return view('employee.mileage_logs.index');
     }
 
     public function create()
     {
 
-        return view('employee.time_trackings.create');
+        return view('employee.mileage_logs.create');
     }
 
     public function store(Request $request)
@@ -27,7 +26,6 @@ class TimeTrackingController extends Controller
         $validator = Validator::make($request->all(), [
             'date' => 'required',
             'number_of_hours' => 'required',
-            'type' => 'required',
             'description' => 'required'
         ]);
 
@@ -37,30 +35,27 @@ class TimeTrackingController extends Controller
                 ->withInput();
         }
 
-        EmployeeTimeTracking::create([
+        EmployeeMilaegeLog::create([
             'employee_id' => Auth::guard('employee')->user()->id,
             'date' => date_format(date_create($request->date), "Y-m-d"),
             'number_of_hours' => $request->number_of_hours,
-            'type' => $request->type,
             'description' => $request->description
         ]);
 
-        return redirect()->route('time-tracking.index')->with('success', 'Record added successfully.');
+        return redirect()->route('milaege-logs.index')->with('success', 'Log added successfully.');
     }
 
-    public function edit(EmployeeTimeTracking $time_tracking)
+    public function edit(EmployeeMilaegeLog $milaege_log)
     {
-
-        return view('employee.time_trackings.edit', compact('time_tracking'));
+        return view('employee.mileage_logs.edit', compact('milaege_log'));
     }
 
-    public function update(EmployeeTimeTracking $time_tracking, Request $request)
+    public function update(EmployeeMilaegeLog $milaege_log, Request $request)
     {
 
         $validator = Validator::make($request->all(), [
             'date' => 'required',
             'number_of_hours' => 'required',
-            'type' => 'required',
             'description' => 'required'
         ]);
 
@@ -70,20 +65,19 @@ class TimeTrackingController extends Controller
                 ->withInput();
         }
 
-        $time_tracking->update([
+        $milaege_log->update([
             'date' => date_format(date_create($request->date), "Y-m-d"),
             'number_of_hours' => $request->number_of_hours,
-            'type' => $request->type,
             'description' => $request->description
         ]);
 
-        return redirect()->route('time-tracking.index')->with('success', 'Record updated successfully.');
+        return redirect()->route('milaege-logs.index')->with('success', 'Log updated successfully.');
     }
 
-    public function destroy(EmployeeTimeTracking $time_tracking)
+    public function destroy(EmployeeMilaegeLog $milaege_log)
     {
-        dd($time_tracking);
-        $time_tracking->delete();
+        dd($milaege_log);
+        $milaege_log->delete();
 
         return redirect()->route('time-tracking.index')->with('success', 'Record deleted successfully.');
     }
