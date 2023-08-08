@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\{
     TimeTracking,
-    MilaegeLog
+    MilaegeLog,
+    Receipt
 };
 
 /*
@@ -24,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/get-time-trackings', [TimeTracking::class, 'index']);
 Route::get('/get-milaege-logs', [MilaegeLog::class, 'index']);
+Route::get('/get-receipts', [Receipt::class, 'index']);
+Route::get('/get-receipt-images', [Receipt::class, 'getImages']);

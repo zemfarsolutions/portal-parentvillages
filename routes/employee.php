@@ -3,7 +3,8 @@
 use App\Http\Controllers\Employee\{
     DashboardController,
     MilaegeLogController,
-    TimeTrackingController
+    TimeTrackingController,
+    ReceiptController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +15,6 @@ Route::middleware('auth.employee')->prefix('/employee')->group(function () {
 
     Route::resource('/time-tracking', TimeTrackingController::class);
     Route::resource('/milaege-logs', MilaegeLogController::class);
+    Route::resource('/receipts', ReceiptController::class);
+    Route::post('/receipts/delete/{receipt}', [ReceiptController::class, 'delete']);
 });

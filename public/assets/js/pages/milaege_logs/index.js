@@ -14,7 +14,7 @@ var KTDatatableAutoColumnHideDemo = function() {
 				source: {
 					read: {
 						method: 'GET',
-						url: HOST_URL + '/api/get-milaege-logs?id=1',
+						url: HOST_URL + '/api/get-milaege-logs?id='+user_id,
 					},
 				},
 				pageSize: 10,
@@ -34,7 +34,8 @@ var KTDatatableAutoColumnHideDemo = function() {
 			pagination: true,
 
 			search: {
-				input: $('#kt_datatable_search_query')
+				input: $('#kt_datatable_search_query'),
+				key: 'generalSearch'
 			},
 
 			// columns definition
@@ -77,6 +78,7 @@ var KTDatatableAutoColumnHideDemo = function() {
 									</span>\
 								</a>\
 								<form action="/employee/milaege-logs/'+row.id+'" method="POST">\
+									<input type="hidden" name="_token" value="">\
 									<input type="hidden" name="_method" value="DELETE">\
 									<button class="btn btn-sm btn-clean btn-icon" title="Delete">\
 										<span class="svg-icon svg-icon-md">\

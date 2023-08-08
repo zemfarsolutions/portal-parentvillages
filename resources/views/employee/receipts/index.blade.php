@@ -1,6 +1,6 @@
 @extends('layouts.employee.app')
 
-@section('title', 'Milaege Logs')
+@section('title', 'Receipts')
 
 @section('section')
 
@@ -17,12 +17,12 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                     <!--begin::Page Title-->
-                    <h5 class="text-dark font-weight-bold my-1 mr-5">Mileage Logs</h5>
+                    <h5 class="text-dark font-weight-bold my-1 mr-5">Receipts</h5>
                     <!--end::Page Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item">
-                            <a href="#" class="text-muted">View Logs</a>
+                            <a href="#" class="text-muted">View Receipts</a>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->
@@ -58,92 +58,42 @@
                     </span>
                 </div>
                 <div class="alert-text">
-                    <p>Employees use this to report how many miles they have used on their car when they use
-                        it for work.</p>
+                    <p>The receipts are for purchases made by the employees that will need to keep track of.</p>
                 </div>
             </div>
             <!--end::Notice-->
             <!--begin::Card-->
-            <div class="card card-custom">
-                <div class="card-header py-3">
+            <div class="card card-custom gutter-b">
+                <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <span class="card-icon">
-                            <span class="svg-icon svg-icon-md svg-icon-primary">
-                                <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Shopping/Chart-bar1.svg-->
+                        <h3 class="card-label">Receipts
+                            <span class="d-block text-muted pt-2 font-size-sm">View receipts history</span>
+                        </h3>
+                    </div>
+                    <div class="card-toolbar">
+                        <!--begin::Button-->
+                        <a href="/employee/receipts/create" class="btn btn-primary font-weight-bolder">
+                            <span class="svg-icon svg-icon-md">
+                                <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Flatten.svg-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <rect x="0" y="0" width="24" height="24" />
-                                        <rect fill="#000000" opacity="0.3" x="12" y="4" width="3"
-                                            height="13" rx="1.5" />
-                                        <rect fill="#000000" opacity="0.3" x="7" y="9" width="3"
-                                            height="8" rx="1.5" />
+                                        <circle fill="#000000" cx="9" cy="15" r="6" />
                                         <path
-                                            d="M5,19 L20,19 C20.5522847,19 21,19.4477153 21,20 C21,20.5522847 20.5522847,21 20,21 L4,21 C3.44771525,21 3,20.5522847 3,20 L3,4 C3,3.44771525 3.44771525,3 4,3 C4.55228475,3 5,3.44771525 5,4 L5,19 Z"
-                                            fill="#000000" fill-rule="nonzero" />
-                                        <rect fill="#000000" opacity="0.3" x="17" y="11" width="3"
-                                            height="6" rx="1.5" />
+                                            d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
+                                            fill="#000000" opacity="0.3" />
                                     </g>
                                 </svg>
                                 <!--end::Svg Icon-->
-                            </span>
-                        </span>
-                        <h3 class="card-label">Mileage Logs</h3>
-                    </div>
-                    <div class="card-toolbar">
-                        {{-- <!--begin::Dropdown-->
-                        <div class="dropdown dropdown-inline mr-2">
-                            <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="la la-download"></i>Export</button>
-                            <!--begin::Dropdown Menu-->
-                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                                <ul class="nav flex-column nav-hover">
-                                    <li class="nav-header font-weight-bolder text-uppercase text-primary pb-2">Choose an option:</li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="nav-icon la la-print"></i>
-                                            <span class="nav-text">Print</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="nav-icon la la-copy"></i>
-                                            <span class="nav-text">Copy</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="nav-icon la la-file-excel-o"></i>
-                                            <span class="nav-text">Excel</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="nav-icon la la-file-text-o"></i>
-                                            <span class="nav-text">CSV</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="nav-icon la la-file-pdf-o"></i>
-                                            <span class="nav-text">PDF</span>
-                                        </a>
-                                    </li>
-                                </ul> 
-                            </div>
-                            <!--end::Dropdown Menu-->
-                        </div>
-                        <!--end::Dropdown--> --}}
-                        <!--begin::Button-->
-                        <a href="/employee/milaege-logs/create" class="btn btn-primary font-weight-bolder">
-                            <i class="la la-plus"></i>New Log</a>
+                            </span>New Receipt</a>
                         <!--end::Button-->
                     </div>
                 </div>
                 <div class="card-body">
                     <!--begin: Search Form-->
                     <!--begin::Search Form-->
-                    <div class="mt-2 mb-7">
+                    <div class="mb-7">
                         <div class="row align-items-center">
                             <div class="col-lg-9 col-xl-8">
                                 <div class="row align-items-center">
@@ -158,9 +108,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                                <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
-                            </div> --}}
                         </div>
                     </div>
                     <!--end::Search Form-->
@@ -171,6 +118,33 @@
                 </div>
             </div>
             <!--end::Card-->
+            <!--begin::Modal-->
+            <div id="kt_datatable_modal" class="modal fade" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content" style="min-height: 590px;">
+                        <div class="modal-header py-5">
+                            <h5 class="modal-title">Receipt Images
+                                <span class="d-block text-muted font-size-sm">Here you can view receipts images with
+                                    details</span>
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i aria-hidden="true" class="ki ki-close"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex">
+                                <div id="images">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-primary font-weight-bold text-uppercase"
+                                data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--end::Container-->
     </div>
@@ -178,5 +152,5 @@
 @endsection
 
 @section('scripts')
-    <script src="/assets/js/pages/milaege_logs/index.js?v=7.1.5"></script>
+    <script src="/assets/js/pages/receipts/index.js?v=7.1.5"></script>
 @endsection

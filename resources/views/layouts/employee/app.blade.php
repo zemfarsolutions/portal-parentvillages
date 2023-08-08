@@ -73,6 +73,12 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.4/viewer.css"
+        integrity="sha512-b94fU39uRUf9usNHmk4XELfdbrkV2qxLwc+QFTbcaZ1KmOQgPQHJLsh5ZadocguSh/cPBClAChSY6L408GGmjg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.4/viewer.js"
+        integrity="sha512-xFhwJZh3jKSCty1/n+IofvQTSSME9cTJQEOKKnSkRISbX07aZvEgNcJRjldqu+B8ZoXGxmIfOHmTMRDCIbnCQw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -145,8 +151,9 @@
                         data-menu-dropdown-timeout="500">
                         <!--begin::Menu Nav-->
                         <ul class="menu-nav">
-                            <li class="menu-item menu-item-active" aria-haspopup="true">
-                                <a href="index.html" class="menu-link">
+                            <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/dashboard')) == 'integer' ? 'menu-item-active' : null }}"
+                                aria-haspopup="true">
+                                <a href="/employee/dashboard" class="menu-link">
                                     <span class="svg-icon menu-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -167,11 +174,14 @@
                                     <span class="menu-text">Dashboard</span>
                                 </a>
                             </li>
+
                             <li class="menu-section">
                                 <h4 class="menu-text">Information</h4>
                                 <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                             </li>
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+
+                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/employee/time-tracking')) == 'integer' ? 'menu-item-open' : null }}"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Files/Upload.svg-->
@@ -196,7 +206,8 @@
                                 <div class="menu-submenu">
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
-                                        <li class="menu-item" aria-haspopup="true">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/time-tracking/create')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
                                             <a href="/employee/time-tracking/create" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
@@ -204,7 +215,8 @@
                                                 <span class="menu-text">Add Records</span>
                                             </a>
                                         </li>
-                                        <li class="menu-item" aria-haspopup="true">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/time-tracking')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
                                             <a href="/employee/time-tracking" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
@@ -215,7 +227,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/employee/milaege-logs')) == 'integer' ? 'menu-item-open' : null }}"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="#" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Files/Upload.svg-->
@@ -242,7 +255,8 @@
                                 <div class="menu-submenu">
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
-                                        <li class="menu-item" aria-haspopup="true">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/milaege-logs/create')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
                                             <a href="/employee/milaege-logs/create" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
@@ -250,7 +264,8 @@
                                                 <span class="menu-text">Add Log</span>
                                             </a>
                                         </li>
-                                        <li class="menu-item" aria-haspopup="true">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/milaege-logs')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
                                             <a href="/employee/milaege-logs" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
@@ -261,7 +276,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/employee/receipts')) == 'integer' ? 'menu-item-open' : null }}"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Files/Upload.svg-->
@@ -288,31 +304,22 @@
                                 <div class="menu-submenu">
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/image-input.html" class="menu-link">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/receipts/create')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
+                                            <a href="/employee/receipts/create" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">Image Input</span>
+                                                <span class="menu-text">Add Receipt</span>
                                             </a>
                                         </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/dropzonejs.html" class="menu-link">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/receipts')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
+                                            <a href="/employee/receipts" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">DropzoneJS</span>
-                                                <span class="menu-label">
-                                                    <span class="label label-danger label-inline">new</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/uppy.html" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Uppy</span>
+                                                <span class="menu-text">View Receipts</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -375,10 +382,12 @@
                                     </ul>
                                 </div>
                             </li>
+
                             <li class="menu-section">
                                 <h4 class="menu-text">Supports</h4>
                                 <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                             </li>
+
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
@@ -2040,7 +2049,7 @@
                                     class="navi-text text-muted text-hover-primary">{{ Auth::guard('employee')->user()->email }}</span>
                             </span>
                         </a>
-                        <a href="/client/logout"
+                        <a href="/employee/logout"
                             class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
                     </div>
                 </div>
@@ -3905,6 +3914,11 @@
             }
             toastr.warning("{{ session('warning') }}");
         @endif
+    </script>
+
+    <script>
+        var user_id = {{ auth()->guard('employee')->user()->id }};
+
     </script>
     @yield('scripts')
 </body>

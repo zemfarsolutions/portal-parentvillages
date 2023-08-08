@@ -14,7 +14,7 @@ var KTDatatableAutoColumnHideDemo = function() {
 				source: {
 					read: {
 						method: 'GET',
-						url: HOST_URL + '/api/get-time-trackings?id=1',
+						url: HOST_URL + '/api/get-time-trackings?id='+user_id,
 					},
 				},
 				pageSize: 10,
