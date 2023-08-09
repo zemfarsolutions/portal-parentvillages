@@ -87,8 +87,6 @@ class ExpenseController extends Controller
         $expenses = $employee->expenses->pluck('amount')->toArray();
         $total_amount = array_sum($expenses);
 
-        $pdf = PDF::loadView('employee.expenses.report', compact('records', 'total_amount'));
-
-        return $pdf->download('expense_report.pdf');
+        return view('employee.expenses.report', compact('records', 'total_amount'));
     }
 }

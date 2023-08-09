@@ -1,44 +1,57 @@
-@extends('layouts.employee.app')
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
-@section('title')
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+            j.async = true;
+            j.src = '../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5FS8GGP');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <title>Expense Report | Parent Villages</title>
+    <meta name="description"
+        content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-@section('section')
-    <!--begin::Subheader-->
-    <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
-        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-            <!--begin::Info-->
-            <div class="d-flex align-items-center flex-wrap mr-1">
-                <!--begin::Page Heading-->
-                <div class="d-flex align-items-baseline flex-wrap mr-5">
-                    <!--begin::Page Title-->
-                    <h5 class="text-dark font-weight-bold my-1 mr-5">Expense Report</h5>
-                    <!--end::Page Title-->
-                    <!--begin::Breadcrumb-->
-                    <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
-                        <li class="breadcrumb-item">
-                            <a href="#" class="text-muted">Pages</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="#" class="text-muted">Expense Report</a>
-                        </li>
-                    </ul>
-                    <!--end::Breadcrumb-->
-                </div>
-                <!--end::Page Heading-->
-            </div>
-            <!--end::Info-->
-            <!--begin::Toolbar-->
-            <div class="d-flex align-items-center">
-                <!--begin::Actions-->
-                <a href="/employee/expenses" class="btn btn-light-primary font-weight-bolder btn-sm">Go Back</a>
-                <!--end::Actions-->
-            </div>
-            <!--end::Toolbar-->
-        </div>
-    </div>
-    <!--end::Subheader-->
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link href="/assets/plugins/custom/fullcalendar/fullcalendar.bundle9cd7.css?v=7.1.5" rel="stylesheet"
+        type="text/css" />
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="/assets/plugins/global/plugins.bundle9cd7.css?v=7.1.5" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/custom/prismjs/prismjs.bundle9cd7.css?v=7.1.5" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/style.bundle9cd7.css?v=7.1.5" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon"
+        href="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png" />
+    <!-- Hotjar Tracking Code for keenthemes.com -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+
+<body id="kt_body"
+    class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+
     <!--begin::Entry-->
-    <div class="d-flex flex-column-fluid">
+    <div class="d-flex flex-column-fluid" id="report_format">
         <!--begin::Container-->
         <div class="container">
             <!-- begin::Card-->
@@ -53,7 +66,8 @@
                                 <div class="d-flex flex-column align-items-md-end px-0">
                                     <!--begin::Logo-->
                                     <a href="#" class="mb-5">
-                                        <img src="../../../../theme/html/demo1/dist/assets/media/logos/logo-dark.png"
+                                        <img width="150px"
+                                            src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2.png"
                                             alt="" />
                                     </a>
                                     <!--end::Logo-->
@@ -90,7 +104,8 @@
                                         <tr>
                                             <th class="pl-0 font-weight-bold text-muted text-uppercase">Description</th>
                                             <th class="text-right font-weight-bold text-muted text-uppercase">Date</th>
-                                            <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">Amount
+                                            <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">
+                                                Amount
                                             </th>
                                         </tr>
                                     </thead>
@@ -137,4 +152,110 @@
         <!--end::Container-->
     </div>
     <!--end::Entry-->
-@endsection
+
+    <script>
+        var HOST_URL = "http://127.0.0.1:8000";
+    </script>
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>
+        var KTAppSettings = {
+            "breakpoints": {
+                "sm": 576,
+                "md": 768,
+                "lg": 992,
+                "xl": 1200,
+                "xxl": 1400
+            },
+            "colors": {
+                "theme": {
+                    "base": {
+                        "white": "#ffffff",
+                        "primary": "#3699FF",
+                        "secondary": "#E5EAEE",
+                        "success": "#1BC5BD",
+                        "info": "#8950FC",
+                        "warning": "#FFA800",
+                        "danger": "#F64E60",
+                        "light": "#E4E6EF",
+                        "dark": "#181C32"
+                    },
+                    "light": {
+                        "white": "#ffffff",
+                        "primary": "#E1F0FF",
+                        "secondary": "#EBEDF3",
+                        "success": "#C9F7F5",
+                        "info": "#EEE5FF",
+                        "warning": "#FFF4DE",
+                        "danger": "#FFE2E5",
+                        "light": "#F3F6F9",
+                        "dark": "#D6D6E0"
+                    },
+                    "inverse": {
+                        "white": "#ffffff",
+                        "primary": "#ffffff",
+                        "secondary": "#3F4254",
+                        "success": "#ffffff",
+                        "info": "#ffffff",
+                        "warning": "#ffffff",
+                        "danger": "#ffffff",
+                        "light": "#464E5F",
+                        "dark": "#ffffff"
+                    }
+                },
+                "gray": {
+                    "gray-100": "#F3F6F9",
+                    "gray-200": "#EBEDF3",
+                    "gray-300": "#E4E6EF",
+                    "gray-400": "#D1D3E0",
+                    "gray-500": "#B5B5C3",
+                    "gray-600": "#7E8299",
+                    "gray-700": "#5E6278",
+                    "gray-800": "#3F4254",
+                    "gray-900": "#181C32"
+                }
+            },
+            "font-family": "Poppins"
+        };
+    </script>
+    <!--end::Global Config-->
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="/assets/plugins/global/plugins.bundle9cd7.js?v=7.1.5"></script>
+    <script src="/assets/plugins/custom/prismjs/prismjs.bundle9cd7.js?v=7.1.5"></script>
+    <script src="/assets/js/scripts.bundle9cd7.js?v=7.1.5"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Vendors(used by this page)-->
+    <script src="/assets/plugins/custom/fullcalendar/fullcalendar.bundle9cd7.js?v=7.1.5"></script>
+    <!--end::Page Vendors-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="/assets/js/pages/widgets9cd7.js?v=7.1.5"></script>
+    <script>
+        window.onload = function() {
+            console.log('aaaaaaaaaaaaaaaaaaaaaaaaa')
+
+            var element = document.getElementById('report_format');
+            var opt = {
+                margin: 0,
+                top: 0,
+                filename: 'expense_report.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                },
+                html2canvas: {
+                    scale: 4
+                },
+                jsPDF: {
+                    format: 'a4',
+                    orientation: 'portrait'
+                }
+            };
+
+            // New Promise-based usage:
+            html2pdf().set(opt).from(element).save();
+
+        }
+    </script>
+</body>
+<!--end::Body-->
+
+</html>
