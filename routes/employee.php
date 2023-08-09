@@ -4,7 +4,8 @@ use App\Http\Controllers\Employee\{
     DashboardController,
     MilaegeLogController,
     TimeTrackingController,
-    ReceiptController
+    ReceiptController,
+    ExpenseController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,11 @@ Route::middleware('auth.employee')->prefix('/employee')->group(function () {
 
     Route::resource('/time-tracking', TimeTrackingController::class);
     Route::resource('/milaege-logs', MilaegeLogController::class);
+
     Route::resource('/receipts', ReceiptController::class);
     Route::post('/receipts/delete/{receipt}', [ReceiptController::class, 'delete']);
+
+    Route::resource('/expenses', ExpenseController::class);
+    Route::post('/expenses/delete/{expense}', [ExpenseController::class, 'delete']);
+    Route::get('/expenses/export/{employee}', [ExpenseController::class, 'export']);
 });

@@ -325,7 +325,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/employee/expenses')) == 'integer' ? 'menu-item-open' : null }}"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Files/Upload.svg-->
@@ -352,31 +353,22 @@
                                 <div class="menu-submenu">
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/image-input.html" class="menu-link">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/expenses/create')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
+                                            <a href="/employee/expenses/create" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">Image Input</span>
+                                                <span class="menu-text">Add Receipt</span>
                                             </a>
                                         </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/dropzonejs.html" class="menu-link">
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/employee/expenses')) == 'integer' ? 'menu-item-active' : null }}"
+                                            aria-haspopup="true">
+                                            <a href="/employee/expenses" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">DropzoneJS</span>
-                                                <span class="menu-label">
-                                                    <span class="label label-danger label-inline">new</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/uppy.html" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Uppy</span>
+                                                <span class="menu-text">View Expenses</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -3918,7 +3910,6 @@
 
     <script>
         var user_id = {{ auth()->guard('employee')->user()->id }};
-
     </script>
     @yield('scripts')
 </body>
