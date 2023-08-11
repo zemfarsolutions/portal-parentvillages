@@ -102,12 +102,6 @@
                                     <li class="nav-header font-weight-bolder text-uppercase text-primary pb-2">Choose an
                                         option:</li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="nav-icon la la-print"></i>
-                                            <span class="nav-text">Print</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="/employee/expenses/export/{{ Auth::guard('employee')->user()->id }}"
                                             class="nav-link">
                                             <i class="nav-icon la la-file-pdf-o"></i>

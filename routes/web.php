@@ -16,13 +16,13 @@ use App\Http\Controllers\Client\{
 |
 */
 
-require __DIR__."/auth.php";
+require __DIR__ . "/auth.php";
 
-require __DIR__."/employee.php";
+require __DIR__ . "/employee.php";
 
-Route::middleware('auth')->prefix('/client')->group(function() {
+Route::middleware('auth')->prefix('/client')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('client-dashboard');
-    
+    Route::get('/intake-form', [DashboardController::class, 'show']);
+    Route::post('/intake-form/submit', [DashboardController::class, 'submit']);
 });
-
