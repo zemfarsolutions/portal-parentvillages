@@ -146,7 +146,7 @@
                         <!--begin::Menu Nav-->
                         <ul class="menu-nav">
                             <li class="menu-item menu-item-active" aria-haspopup="true">
-                                <a href="index.html" class="menu-link">
+                                <a href="/client/dashboard" class="menu-link">
                                     <span class="svg-icon menu-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -460,7 +460,7 @@
                             <div id="kt_header_menu"
                                 class="header-menu header-menu-mobile header-menu-layout-default">
                                 <!--begin::Header Nav-->
-                                <ul class="menu-nav">
+                                {{--<ul class="menu-nav">
                                     <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active"
                                         data-menu-toggle="click" aria-haspopup="true">
                                         <a href="javascript:;" class="menu-link menu-toggle">
@@ -1011,7 +1011,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                </ul>
+                                </ul>--}}
                                 <!--end::Header Nav-->
                             </div>
                             <!--end::Header Menu-->
@@ -3903,7 +3903,9 @@
             toastr.warning("{{ session('warning') }}");
         @endif
     </script>
-
+    <script>
+        var user_id = {{ auth()->guard('web')->user()->id }};
+    </script>
     @yield('scripts')
 
 </body>

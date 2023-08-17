@@ -25,12 +25,23 @@ Route::middleware('auth')->prefix('/client')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('client-dashboard');
 
-    // Intake Form Routes 
-    Route::prefix('/intake-form/')->group(function(){
-        Route::get('/view',[IntakeController::class,'index']);
-        Route::get('/view_intake_form',[IntakeController::class,'view_intake_form']);
-    });
+    // /intake GET
+    // /intake/create GET
+    // /intake/store POST
+    // /intake/1/view GET
+    // /intake/1/edit GET
+    // /intake/update POST
 
-    Route::get('/intake-form', [DashboardController::class, 'show']);
-    Route::post('/intake-form/submit', [DashboardController::class, 'submit']);
+    // Intake Form Routes 
+    // Route::prefix('/intake/')->group(function(){
+    //     Route::get('/view',[IntakeController::class,'index']);
+    //     Route::get('/view_intake_form',[IntakeController::class,'view']);
+    //     Route::match(['get','post'],'/create', [IntakeController::class, 'create']);
+
+    // });
+
+    Route::resource('/intakes', IntakeController::class);
+
+    // Route::get('/intake-form', [DashboardController::class, 'show']);
+    // Route::post('/intake-form/submit', [DashboardController::class, 'submit']);
 });

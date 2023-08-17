@@ -114,6 +114,5 @@
 @endsection
 
 @section('scripts')
-<script src="/assets/js/pages/intake_form/index.js?v=7.1.5"></script>
-
+    <script src="/assets/js/pages/intake_form/index.js?v=7.1.5"></script>
 @endsection

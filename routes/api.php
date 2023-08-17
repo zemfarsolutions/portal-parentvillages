@@ -6,7 +6,8 @@ use App\Http\Controllers\API\{
     Expense,
     TimeTracking,
     MilaegeLog,
-    Receipt
+    Receipt,
+    IntakeForm
 };
 
 /*
@@ -29,3 +30,4 @@ Route::get('/get-milaege-logs', [MilaegeLog::class, 'index']);
 Route::get('/get-receipts', [Receipt::class, 'index']);
 Route::get('/get-receipt-images', [Receipt::class, 'getImages']);
 Route::get('/get-expenses', [Expense::class, 'index']);
+Route::get('/get-intakes', [IntakeForm::class, 'index']);

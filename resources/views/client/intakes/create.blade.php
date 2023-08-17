@@ -31,11 +31,11 @@
             </div>
             <!--end::Info-->
             <!--begin::Toolbar-->
-            <div class="d-flex align-items-center">
+            {{--<div class="d-flex align-items-center">
                 <!--begin::Actions-->
                 <a href="/client/intake-form" class="btn btn-light-primary font-weight-bolder btn-sm">Intake Form</a>
                 <!--end::Actions-->
-            </div>
+            </div>--}}
             <!--end::Toolbar-->
         </div>
     </div>
@@ -86,7 +86,7 @@
                             <h3 class="card-title">Participant Intake Form</h3>
                         </div>
                         <!--begin::Form-->
-                        <form class="form" action="/client/intake-form/submit" method="POST">
+                        <form class="form" action="/client/intake-form/create" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
