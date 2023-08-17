@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class IntakeController extends Controller
 {
     public function index(){
-        return view('client.intakes.index');
+        $total_records = Intake::count();
+        return view('client.intakes.index',compact('total_records'));
     }
 
     public function create(){
