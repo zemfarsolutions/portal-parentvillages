@@ -1,142 +1,168 @@
-'use strict';
+"use strict";
 // Class definition
 
-var KTDatatableModal = function() {
-    
-    var initDatatable = function() {
-        var el = $('#kt_datatable');
+var KTAppsUsersListDatatable = function() {
+	// Private functions
 
-		const find = el.find;
-        var datatable = el.KTDatatable({
-            // datasource definition
-            data: {
-                type: 'remote',
-                source: {
-                    read: {
-                        // url: HOST_URL + '/api/get-receipts?id='+1,
+	// basic demo
+	var _demo = function() {
+		var datatable = $('#kt_datatable').KTDatatable({
+			// datasource definition
+			data: {
+				type: 'remote',
+				source: {
+					read: {
                         url: HOST_URL + '/api/get-intakes?id='+user_id,
 						method: 'GET'
-                    },
-                },
-                pageSize: 10, // display 20 records per page
-                serverPaging: true,
-                serverFiltering: false,
-                serverSorting: true,
-            },
-
-            // layout definition
-            layout: {
-                theme: 'default',
-                scroll: false,
-                height: null,
-                footer: false,
-            },
-
-            // column sorting
-            sortable: true,
-
-            pagination: true,
-
-            search: {
-                input: $('#kt_datatable_search_query'),
-                key: 'generalSearch'
-            },
-
-            // columns definition
-            columns: [{
-					field: 'id',
-					title: 'Record ID',
+					},
 				},
+				pageSize: 10, // display 20 records per page
+				serverPaging: true,
+				serverFiltering: true,
+				serverSorting: true,
+			},
+
+			// layout definition
+			layout: {
+				scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
+				footer: false, // display/hide footer
+			},
+
+			// column sorting
+			sortable: true,
+
+			pagination: true,
+
+			search: {
+				input: $('#kt_subheader_search_form'),
+				delay: 400,
+				key: 'generalSearch'
+			},
+
+			// columns definition
+			columns: [
 				{
+					field: 'id',
+					title: 'Intake ID',
+				},
+                {
 					field: 'name',
 					title: 'Name',
-				},
-				{
-					field: 'email',
-					title: 'Email'
+					width: 250,
+					template: function(data) {
+
+						var stateNo = KTUtil.getRandomInt(0, 7);
+						var states = [
+							'success',
+							'primary',
+							'danger',
+							'success',
+							'warning',
+							'dark',
+							'primary',
+							'info'];
+						var state = states[stateNo];
+
+						var output = '<div class="d-flex align-items-center">\
+							<div class="symbol symbol-40 symbol-light-'+state+' flex-shrink-0">\
+								<span class="symbol-label font-size-h4 font-weight-bold">' + data.name.substring(0, 1) + '</span>\
+							</div>\
+							<div class="ml-4">\
+								<div class="text-dark-75 font-weight-bolder font-size-lg mb-0">' + data.name + '</div>\
+								<a href="#" class="text-muted font-weight-bold text-hover-primary">' + data.email + '</a>\
+						    </div>';
+
+						return output;
+					}
 				},
 				{
 					field: 'phone',
-					title: 'Phone',
+					title: 'phone',
 				},
-                {
+				{
+					field: 'address_1',
+					title: 'Street Address',
+				},
+				{
+					field: 'city',
+					title: 'City',
+					template: function(row) {
+						var output = '';
+
+						output += '<div class="font-weight-bolder font-size-lg mb-0">' + row.state + '</div>';
+						output += '<div class="font-weight-bold text-muted">Postal Code: ' + row.postal_code + '</div>';
+
+						return output;
+					}
+				},
+				{
+					field: 'state',
+					title: 'state',
+				},
+				{
+					field: 'address_2',
+					title: 'Street Address Line 2',
+				},
+				{
 					field: 'language',
-					title: 'Language',
+					title: 'language',
 				},
-                {
+				{
 					field: 'gender',
 					title: 'gender',
 				},
-                {
+				{
 					field: 'age',
 					title: 'age',
-				},
-                {
+				}, {
 					field: 'Actions',
-					width: 130,
 					title: 'Actions',
 					sortable: false,
+					width: 130,
 					overflow: 'visible',
-					textAlign: 'left',
 					autoHide: false,
-					template: function(row) {
+					template: function(data) {
 						return '\
-                        <div style="display:flex;">\
-                                <button data-record-id="' + row.id + '" class="btn btn-sm btn-clean" title="View records">\
-								    <i class="flaticon2-document"></i>\
-							    </button>\
-								<a href="/employee/receipts/'+row.id+'/edit" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+                            <div class="d-flex">\
+								<a href="/client/intakes/'+data.id+'/edit" class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon mr-2" title="Edit details">\
 									<span class="svg-icon svg-icon-md">\
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
 												<rect x="0" y="0" width="24" height="24"/>\
-												<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero"\ transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>\
-												<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>\
+												<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953) "/>\
+												<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>\
 											</g>\
 										</svg>\
 									</span>\
 								</a>\
-                        <div>\
-                        ';		
+                                <a href="/client/intakes/'+data.id+'/view" class="btn btn-sm btn-default btn-text-primary btn-hover-primary btn-icon mr-2" title="View details">\
+                                    <i class="flaticon2-document"></i>\
+                                </a>\
+                            </div>\
+	                    ';
 					},
-            }],
-        });	
+			}],
+		});
 
-        var card = datatable.closest('.card');
+		$('#kt_datatable_search_status').on('change', function() {
+			datatable.search($(this).val().toLowerCase(), 'Status');
+		});
 
-        $('#kt_datatable_search_status').on('change', function() {
-            datatable.search($(this).val().toLowerCase(), 'Status');
-        });
+		$('#kt_datatable_search_type').on('change', function() {
+			datatable.search($(this).val().toLowerCase(), 'Type');
+		});
 
-        $('#kt_datatable_search_type').on('change', function() {
-            datatable.search($(this).val().toLowerCase(), 'Type');
-        });
+		$('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
+	};
 
-        $('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
-
-        datatable.on('click', '[data-record-id]', function() {
-
-            if (document.getElementById("images") !== null) {
-
-                document.getElementById("images").replaceChildren();
-
-            }
-
-            initSubDatatable($(this).data('record-id'));
-
-            $('#kt_datatable_modal').modal('show');
-
-        });
-    };
-
-    return {
-        // public functions
-        init: function() {
-            initDatatable();
-        }
-    };
+	return {
+		// public functions
+		init: function() {
+			_demo();
+		},
+	};
 }();
 
 jQuery(document).ready(function() {
-    KTDatatableModal.init();
+	KTAppsUsersListDatatable.init();
 });

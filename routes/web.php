@@ -25,13 +25,6 @@ Route::middleware('auth')->prefix('/client')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('client-dashboard');
 
-    // Intake Form Routes 
-    // Route::prefix('/intake/')->group(function(){
-    //     Route::get('/view',[IntakeController::class,'index']);
-    //     Route::get('/view_intake_form',[IntakeController::class,'view']);
-    //     Route::match(['get','post'],'/create', [IntakeController::class, 'create']);
-
-    // });
-
     Route::resource('/intakes', IntakeController::class);
+    Route::get('/intakes/{intake}/view', [IntakeController::class, 'view']);
 });
