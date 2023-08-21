@@ -122,7 +122,4 @@ class IntakeController extends Controller
        return view('client.intakes.edit', compact('intake'));
     }
 
-    function getAnswers($getQuestionId){
-
-    }
 }

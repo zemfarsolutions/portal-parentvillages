@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\{
     DashboardController,
-    IntakeController
+    IntakeController,
+    AppointmentController,
+    FileController
 };
 
 /*
@@ -27,4 +29,10 @@ Route::middleware('auth')->prefix('/client')->group(function () {
 
     Route::resource('/intakes', IntakeController::class);
     Route::get('/intakes/{intake}/view', [IntakeController::class, 'view']);
+
+    Route::resource('/appointments', AppointmentController::class);
+
+
+    Route::resource('/files', FileController::class);
+
 });

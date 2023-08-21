@@ -31,11 +31,14 @@
         </div>
         <!--end::Info-->
         <!--begin::Toolbar-->
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-right">
             <!--begin::Actions-->
             <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Intake Form</a>
+            <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Appointment Form</a>
+            <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Scholarships</a>
             <!--end::Actions-->
         </div>
+        
         <!--end::Toolbar-->
     </div>
 </div>

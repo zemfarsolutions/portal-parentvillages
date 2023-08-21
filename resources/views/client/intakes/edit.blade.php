@@ -4,8 +4,7 @@
 
 @section('section')
 
-@dd(in_array('Identity Theft(fraud, financial, crime)',array_column($intake->GetAnswersByQuestionId(9), 'answer')))
-
+@dd($intake)
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -94,8 +93,7 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Name:</label>
-                                        <input name="name" type="text" class="form-control"
-                                            placeholder="Enter first name" />
+                                        <input name="name" type="text" class="form-control" placeholder="Enter first name" value="" />
                                         <span class="form-text text-muted">Please enter your first name</span>
                                     </div>
                                     <div class="col-lg-6">
@@ -108,8 +106,7 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Contact Number:</label>
-                                        <input name="phone" type="text" class="form-control"
-                                            placeholder="Enter contact number" />
+                                        <input name="phone" type="text" class="form-control" placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
                                     </div>
                                 </div>
@@ -117,14 +114,13 @@
                                     <div class="col-lg-6">
                                         <div class="checkbox-list">
                                             <label class="checkbox">
-                                                <input type="checkbox" value="It is Okay to call" name="question_1[]" />
+                                                <input type="checkbox" value="It is Okay to call" name="question_1[]" {{in_array('It is Okay to call',array_column($intake->GetAnswersByQuestionId(1), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>It is Okay to call</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="It is Okay to leave a voicemail"
-                                                    name="question_1[]" />
+                                                <input type="checkbox" value="It is Okay to leave a voicemail" name="question_1[]" {{in_array('It is Okay to leave a voicemai',array_column($intake->GetAnswersByQuestionId(1), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>It is Okay to leave a voicemail</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="It is Okay to text" name="question_1[]" />
+                                                <input type="checkbox" value="It is Okay to text" name="question_1[]" {{in_array('It is Okay to text',array_column($intake->GetAnswersByQuestionId(1), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>It is Okay to text</label>
                                         </div>
                                     </div>
@@ -172,10 +168,10 @@
                                         <label class="font-weight-bold">Would you like to remain anonymous?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_3" />
+                                                <input type="radio" value="Yes" name="question_3" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(3), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_3" />
+                                                <input type="radio" value="No" name="question_3" {{in_array('No',array_column($intake->GetAnswersByQuestionId(3), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                         </div>
                                     </div>
@@ -200,28 +196,26 @@
                                         <div class="checkbox-list">
                                             <label class="checkbox">
                                                 <input type="checkbox" value="Hispanic/Latino/Latina"
-                                                    name="question_4[]" />
+                                                    name="question_4[]" {{in_array('Hispanic/Latino/Latina',array_column($intake->GetAnswersByQuestionId(4), 'answer')) == true ? 'checked': ''  ; }} />
                                                 <span></span>Hispanic/Latino/Latina</label>
                                             <label class="checkbox">
                                                 <input type="checkbox" value="Black or African American"
-                                                    name="question_4[]" />
+                                                    name="question_4[]" {{in_array('Black or African American',array_column($intake->GetAnswersByQuestionId(4), 'answer')) == true ? 'checked': ''  ; }} />
                                                 <span></span>Black or African American</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="American Indian or Alaska Native"
-                                                    name="question_4[]" />
+                                                <input type="checkbox" value="American Indian or Alaska Native" name="question_4[]" {{in_array('American Indian or Alaska Native',array_column($intake->GetAnswersByQuestionId(4), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>American Indian or Alaska Native</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Native Hawaiian or Other Pacific Islanders"
-                                                    name="question_4[]" />
+                                                <input type="checkbox" value="Native Hawaiian or Other Pacific Islanders"name="question_4[]" {{in_array('Native Hawaiian or Other Pacific Islanders',array_column($intake->GetAnswersByQuestionId(4), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Native Hawaiian or Other Pacific Islanders</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Asian" name="question_4[]" />
+                                                <input type="checkbox" value="Asian" name="question_4[]" {{in_array('Asian',array_column($intake->GetAnswersByQuestionId(4), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Asian</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="White" name="question_4[]" />
+                                                <input type="checkbox" value="White" name="question_4[]" {{in_array('White',array_column($intake->GetAnswersByQuestionId(4), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>White</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Other" name="question_4[]" />
+                                                <input type="checkbox" value="Other" name="question_4[]" {{in_array('Other',array_column($intake->GetAnswersByQuestionId(4), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Other</label>
                                         </div>
                                     </div>
@@ -260,10 +254,10 @@
                                         <label class="font-weight-bold">Would it be best if you had an interpreter?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_5" />
+                                                <input type="radio" value="Yes" name="question_5" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(5), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_5" />
+                                                <input type="radio" value="No" name="question_5" {{in_array('No',array_column($intake->GetAnswersByQuestionId(5), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                         </div>
                                     </div>
@@ -272,13 +266,13 @@
                                             mental)</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_6" />
+                                                <input type="radio" value="Yes" name="question_6" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(6), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_6" />
+                                                <input type="radio" value="No" name="question_6" {{in_array('No',array_column($intake->GetAnswersByQuestionId(6), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                             <label class="radio">
-                                                <input type="radio" value="Prefer not to say" name="question_6" />
+                                                <input type="radio" value="Prefer not to say" name="question_6" {{in_array('Prefer not to say',array_column($intake->GetAnswersByQuestionId(6), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Prefer not to say</label>
                                         </div>
                                     </div>
@@ -309,13 +303,13 @@
                                         <label class="font-weight-bold">Do you feel that you are in danger?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_7" />
+                                                <input type="radio" value="Yes" name="question_7" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(7), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_7" />
+                                                <input type="radio" value="No" name="question_7" {{in_array('No',array_column($intake->GetAnswersByQuestionId(7), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                             <label class="radio">
-                                                <input type="radio" value="Unsure" name="question_7" />
+                                                <input type="radio" value="Unsure" name="question_7" {{in_array('Unsure',array_column($intake->GetAnswersByQuestionId(7), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Unsure</label>
                                         </div>
                                     </div>
@@ -326,13 +320,13 @@
                                             crime?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_8" />
+                                                <input type="radio" value="Yes" name="question_8" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(8), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_8" />
+                                                <input type="radio" value="No" name="question_8" {{in_array('No',array_column($intake->GetAnswersByQuestionId(8), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                             <label class="radio">
-                                                <input type="radio" value="Maybe" name="question_8" />
+                                                <input type="radio" value="Maybe" name="question_8" {{in_array('Maybe',array_column($intake->GetAnswersByQuestionId(8), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Maybe</label>
                                         </div>
                                     </div>
@@ -346,71 +340,67 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Adult Assault (including physical, sexual, or assault as a
-                                                    child)"
-                                                        name="question_9[]" />
-                                                    <span></span>Adult Assault (including physical, sexual, or assault as a
-                                                    child)</label>
+                                                    <input type="checkbox" value="Adult Assault (including physical, sexual, or assault as a child)" name="question_9[]" {{in_array('Adult Assault (including physical, sexualor assault as a child)',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                    <span></span>Adult Assault (including physical, sexual, or assault as a child)</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Bullying" name="question_9[]"  />
+                                                    <input type="checkbox" value="Bullying" name="question_9[]" {{in_array('Bullying',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }} />
                                                     <span></span>Bullying</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Child Abuse or Neglect"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Child Abuse or Neglect',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Child Abuse or Neglect</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Domestic or Family Violence"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Domestic or Family Violence',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Domestic or Family Violence</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Terrorism" name="question_9[]" />
+                                                    <input type="checkbox" value="Terrorism" name="question_9[]"  {{in_array('Terrorism',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Terrorism</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Stalking/ Harrassment"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Stalking/ Harrassment',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Stalking/ Harrassment</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Identity Theft(fraud, financial, crime)"
-                                                        name="question_9[]"/>
+                                                        name="question_9[]"/ {{in_array('Identity Theft(fraud, financial, crime)',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}>
                                                     <span></span>Identity Theft(fraud, financial, crime)</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Robbery" name="question_9[]" />
+                                                    <input type="checkbox" value="Robbery" name="question_9[]"  {{in_array('Robbery',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Robbery</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Kidnapping" name="question_9[]" />
+                                                    <input type="checkbox" value="Kidnapping" name="question_9[]"  {{in_array('Kidnapping',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Kidnapping</label>
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Arson" name="question_9[]" />
+                                                    <input type="checkbox" value="Arson" name="question_9[]"  {{in_array('Arson',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Arson</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Burglary" name="question_9[]" />
+                                                    <input type="checkbox" value="Burglary" name="question_9[]"  {{in_array('Burglary',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Burglary</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Elderly Abuse or Neglect"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Elderly Abuse or Neglect',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Elderly Abuse or Neglect</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Hate Crime (religious, racial, gender)"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Hate Crime (religious, racial, gender)',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Hate Crime (religious, racial, gender)</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Survivor of Homicide Victims"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Survivor of Homicide Victims',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Survivor of Homicide Victims</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="DUI/DWI incidents"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('DUI/DWI incidents',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>DUI/DWI incidents</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Teen Dating Victimization"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Teen Dating Victimization',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Teen Dating Victimization</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Vehicular Victim (hit and run)"
-                                                        name="question_9[]" />
+                                                        name="question_9[]"  {{in_array('Vehicular Victim (hit and run)',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Vehicular Victim (hit and run)</label>
                                             </div>
                                         </div>
@@ -423,50 +413,42 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list mx-1">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Emergency Assistance"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Emergency Assistance" name="question_10[]" {{in_array('Emergency Assistance',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }} />
                                                     <span></span>Emergency Assistance</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Childcare/Transportation"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Childcare/Transportation" name="question_10[]" {{in_array('Childcare/Transportation',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ;}}/>
                                                     <span></span>Childcare/Transportation</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Education" name="question_10[]" />
+                                                    <input type="checkbox" value="Education" name="question_10[]" {{in_array('Education',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Education</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Utility Assistance"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Utility Assistance" name="question_10[]" {{in_array('Utility Assistance',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Utility Assistance</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Counseling/Therapy"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Counseling/Therapy" name="question_10[]" {{in_array('Counseling/Therapy',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Counseling/Therapy</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Government Assistance"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Government Assistance" name="question_10[]" {{in_array('Government Assistance',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ;}} />
                                                     <span></span>Government Assistance</label>
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Housing" name="question_10[]" />
+                                                    <input type="checkbox" value="Housing" name="question_10[]" {{in_array('Housing',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Housing</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Employment/Job Training"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Employment/Job Training" name="question_10[]" {{in_array('Employment/Job Training',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Employment/Job Training</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Food Security" name="question_10[]" />
+                                                    <input type="checkbox" value="Food Security" name="question_10[]" {{in_array('Food Security',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Food Security</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Victim Advocacy Assistance"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Victim Advocacy Assistance" name="question_10[]" {{in_array('Victim Advocacy Assistance',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Victim Advocacy Assistance</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Rehab/Recovery Services"
-                                                        name="question_10[]" />
+                                                    <input type="checkbox" value="Rehab/Recovery Services" name="question_10[]" {{in_array('Rehab/Recovery Services',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Rehab/Recovery Services</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Type option 12" name="question_10[]" />
+                                                    <input type="checkbox" value="Type option 12" name="question_10[]" {{in_array('Type option 12',array_column($intake->GetAnswersByQuestionId(10), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Type option 12</label>
                                             </div>
                                         </div>
@@ -495,80 +477,56 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list mx-1">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Lost wages (for victim only)"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Lost wages (for victim only)" name="question_12[]" {{in_array('Lost wages (for victim only)',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Lost wages (for victim only)</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Loss of financial support (for dependents of homicide victims)"
-                                                        name="question_12[]" />
-                                                    <span></span>Loss of financial support (for dependents of homicide
-                                                    victims)</label>
+                                                    <input type="checkbox" value="Loss of financial support (for dependents of homicide victims)" name="question_12[]" {{in_array('Loss of financial support (for dependents of homicide victims)',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                    <span></span>Loss of financial support (for dependents of homicide victims)</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Funeral/burial" name="question_12[]" />
+                                                    <input type="checkbox" value="Funeral/burial" name="question_12[]" {{in_array('Funeral/burial',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Funeral/burial</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Crime scene cleanup*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Crime scene cleanup*" name="question_12[]" {{in_array('Crime scene cleanup*',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Crime scene cleanup*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Forensic Sexual Assault Exam associated expenses*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Forensic Sexual Assault Exam associated expenses*" name="question_12[]" {{in_array('Forensic Sexual Assault Exam associated expenses*',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Forensic Sexual Assault Exam associated expenses*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Medical services*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Medical services*" name="question_12[]" {{in_array('Medical services*',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Medical services*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Counseling for children who witness violence against a family
-                                                member"
-                                                        name="question_12[]" />
-                                                    <span></span>Counseling for children who witness violence against a
-                                                    family member</label>
+                                                    <input type="checkbox" value="Counseling for children who witness violence against a family member" name="question_12[]" {{in_array('Counseling for children who witness violence against a family member',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                    <span></span>Counseling for children who witness violence against a family member</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Security Measures"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Security Measures" name="question_12[]" {{in_array('Security Measures',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Security Measures</label>
 
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Medical supplies/pharmacy*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Medical supplies/pharmacy*" name="question_12[]" {{in_array('Medical supplies/pharmacy*',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Medical supplies/pharmacy*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Dental services*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Dental services*" name="question_12[]" {{in_array('Dental services*',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Dental services*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Replacement homemaker services*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Replacement homemaker services*" name="question_12[]" {{in_array('Replacement homemaker services*',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Replacement homemaker services*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Ancillary funeral/burial expenses"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Ancillary funeral/burial expenses" name="question_12[]" {{in_array('Ancillary funeral/burial expenses',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Ancillary funeral/burial expenses</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Replacement bedding/clothing"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Replacement bedding/clothing" name="question_12[]" {{in_array('Replacement bedding/clothing',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Replacement bedding/clothing</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Counseling for victim"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Counseling for victim" name="question_12[]" {{in_array('Counseling for victim',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Counseling for victim</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Counseling for family members of homicide victims"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Counseling for family members of homicide victims" name="question_12[]" {{in_array('Counseling for family members of homicide victims',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Counseling for family members of homicide victims</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Counseling for non-offending parents of a child victim"
-                                                        name="question_12[]" />
-                                                    <span></span>Counseling for non-offending parents of a child
-                                                    victim</label>
+                                                    <input type="checkbox" value="Counseling for non-offending parents of a child victim" name="question_12[]" {{in_array('Counseling for non-offending parents of a child victim',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                    <span></span>Counseling for non-offending parents of a child victim</label>
                                             </div>
                                         </div>
                                     </div>

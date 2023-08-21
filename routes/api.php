@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\{
+    Appointment,
     Expense,
     TimeTracking,
     MilaegeLog,
@@ -31,3 +32,4 @@ Route::get('/get-receipts', [Receipt::class, 'index']);
 Route::get('/get-receipt-images', [Receipt::class, 'getImages']);
 Route::get('/get-expenses', [Expense::class, 'index']);
 Route::get('/get-intakes', [IntakeForm::class, 'index']);
+Route::get('/get-appointments', [Appointment::class, 'index']);
