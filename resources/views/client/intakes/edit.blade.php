@@ -3,8 +3,6 @@
 @section('title', 'Intake Form')
 
 @section('section')
-
-@dd($intake)
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -87,26 +85,26 @@
                             <h3 class="card-title">Edit Intake Form</h3>
                         </div>
                         <!--begin::Form-->
-                        <form class="form" action="/client/intakes/" method="POST">
+                        <form class="form" action="/client/intakes/{{$intake->id}}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Name:</label>
-                                        <input name="name" type="text" class="form-control" placeholder="Enter first name" value="" />
+                                        <input name="name" type="text" class="form-control" placeholder="Enter first name" value="{{$intake->name}}" />
                                         <span class="form-text text-muted">Please enter your first name</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Email:</label>
-                                        <input name="email" type="email" class="form-control"
-                                            placeholder="Enter your email address" />
+                                        <input name="email" type="email" class="form-control" placeholder="Enter your email address" value="{{$intake->email}}"/>
                                         <span class="form-text text-muted">Please enter your email address</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Contact Number:</label>
-                                        <input name="phone" type="text" class="form-control" placeholder="Enter contact number" />
+                                        <input name="phone" type="text" class="form-control" placeholder="Enter contact number" value="{{$intake->phone}}"/>
                                         <span class="form-text text-muted">Please enter your contact number</span>
                                     </div>
                                 </div>
@@ -117,7 +115,7 @@
                                                 <input type="checkbox" value="It is Okay to call" name="question_1[]" {{in_array('It is Okay to call',array_column($intake->GetAnswersByQuestionId(1), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>It is Okay to call</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="It is Okay to leave a voicemail" name="question_1[]" {{in_array('It is Okay to leave a voicemai',array_column($intake->GetAnswersByQuestionId(1), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                <input type="checkbox" value="It is Okay to leave a voicemail" name="question_1[]" {{in_array('It is Okay to leave a voicemail',array_column($intake->GetAnswersByQuestionId(1), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>It is Okay to leave a voicemail</label>
                                             <label class="checkbox">
                                                 <input type="checkbox" value="It is Okay to text" name="question_1[]" {{in_array('It is Okay to text',array_column($intake->GetAnswersByQuestionId(1), 'answer')) == true ? 'checked': ''  ; }}/>
@@ -128,32 +126,27 @@
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold">Address:</label>
-                                        <input name="address_1" type="text" class="form-control"
-                                            placeholder="Enter your street address" />
+                                        <input name="address_1" type="text" class="form-control" placeholder="Enter your street address" value="{{$intake->address_1}}"/>
                                         <span class="form-text text-muted">Street Address</span>
                                     </div>
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold"></label>
-                                        <input name="address_2" type="text" class="form-control"
-                                            placeholder="Enter street address line 2" />
+                                        <input name="address_2" type="text" class="form-control" placeholder="Enter street address line 2" value="{{$intake->address_2}}"/>
                                         <span class="form-text text-muted">Street Address Line 2</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold"></label>
-                                        <input name="city" type="text" class="form-control"
-                                            placeholder="Enter your city" />
+                                        <input name="city" type="text" class="form-control" placeholder="Enter your city" value="{{$intake->city}}"/>
                                         <span class="form-text text-muted">City</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold"></label>
-                                        <input name="state" type="text" class="form-control"
-                                            placeholder="Enter state / province" />
+                                        <input name="state" type="text" class="form-control" placeholder="Enter state / province" value="{{$intake->state}}"/>
                                         <span class="form-text text-muted">State / Province</span>
                                     </div>
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold"></label>
-                                        <input name="postal_code" type="text" class="form-control"
-                                            placeholder="Enter postal / zip code" />
+                                        <input name="postal_code" type="text" class="form-control" placeholder="Enter postal / zip code" value="{{$intake->postal_code}}"/>
                                         <span class="form-text text-muted">Postal / Zip Code</span>
                                     </div>
                                 </div>
@@ -181,13 +174,13 @@
                                         <label class="font-weight-bold">Gender</label>
                                         <div class="radio-list">
                                             <label class="radio">
-                                                <input type="radio" value="male" name="gender" />
+                                                <input type="radio" value="male" name="gender" {{ $intake->gender == 'male' ? 'checked':'';}}/>
                                                 <span></span>Male</label>
                                             <label class="radio">
-                                                <input type="radio" value="female" name="gender" />
+                                                <input type="radio" value="female" name="gender" {{$intake->gender == 'female' ? 'checked':'';}}/>
                                                 <span></span>Female</label>
                                             <label class="radio">
-                                                <input type="radio" value="other" name="gender" />
+                                                <input type="radio" value="other" name="gender" {{$intake->gender == 'other' ? 'checked':'';}}/>
                                                 <span></span>Other</label>
                                         </div>
                                     </div>
@@ -223,8 +216,7 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What is your primary language?</label>
-                                        <input type="text" name="language" class="form-control"
-                                            placeholder="Enter first name" />
+                                        <input type="text" name="language" class="form-control" placeholder="Enter first name" value="{{$intake->language}}"/>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What is your age range or the age range of the
@@ -232,19 +224,19 @@
                                             services?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="0-12" name="age" />
+                                                <input type="radio" value="0-12" name="age" {{$intake->age == '0-12' ? 'checked':'';}}/>
                                                 <span></span>0-12</label>
                                             <label class="radio">
-                                                <input type="radio" value="13-17" name="age" />
+                                                <input type="radio" value="13-17" name="age" {{$intake->age == '13-17' ? 'checked':'';}}/>
                                                 <span></span>13-17</label>
                                             <label class="radio">
-                                                <input type="radio" value="18-24" name="age" />
+                                                <input type="radio" value="18-24" name="age" {{$intake->age == '18-24' ? 'checked':'';}}/>
                                                 <span></span>18-24</label>
                                             <label class="radio">
-                                                <input type="radio" value="25-59" name="age" />
+                                                <input type="radio" value="25-59" name="age" {{$intake->age == '25-59' ? 'checked':'';}}/>
                                                 <span></span>25-59</label>
                                             <label class="radio">
-                                                <input type="radio" value="60+" name="age" />
+                                                <input type="radio" value="60+" name="age" {{$intake->age == '60+' ? 'checked':'';}}/>
                                                 <span></span>60+</label>
                                         </div>
                                     </div>
@@ -297,7 +289,6 @@
                                         </p>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Do you feel that you are in danger?</label>
@@ -331,7 +322,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold">There are many acts of crime or violence we do not
@@ -340,7 +330,7 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Adult Assault (including physical, sexual, or assault as a child)" name="question_9[]" {{in_array('Adult Assault (including physical, sexualor assault as a child)',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                    <input type="checkbox" value="Adult Assault (including physical, sexual, or assault as a child)" name="question_9[]" {{in_array('Adult Assault (including physical, sexual, or assault as a child)',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Adult Assault (including physical, sexual, or assault as a child)</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Bullying" name="question_9[]" {{in_array('Bullying',array_column($intake->GetAnswersByQuestionId(9), 'answer')) == true ? 'checked': ''  ; }} />
@@ -406,7 +396,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What services are you looking for? *</label>
@@ -454,19 +443,19 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">Are any of your needs a result of being a victim of
-                                            a crime?</label>
+                                        <label class="font-weight-bold">Are any of your needs a result of being a victim of a crime?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_11" />
-                                                <span></span>Yes</label>
+                                                <input type="radio" value="Yes" name="question_11" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(11), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                <span></span>Yes
+                                            </label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_11" />
-                                                <span></span>No</label>
+                                                <input type="radio" value="No" name="question_11" {{in_array('No',array_column($intake->GetAnswersByQuestionId(11), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                <span></span>No
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row mt-4">
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold">
@@ -500,7 +489,6 @@
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Security Measures" name="question_12[]" {{in_array('Security Measures',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Security Measures</label>
-
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
@@ -531,7 +519,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold">Do the expenses of services prevent you or a family
@@ -539,15 +526,14 @@
                                             services?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_13" />
+                                                <input type="radio" value="Yes" name="question_13" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(13), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_13" />
+                                                <input type="radio" value="No" name="question_13" {{in_array('No',array_column($intake->GetAnswersByQuestionId(12), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <p>Have any of these types of crimes affected you? If so, start your application
@@ -560,23 +546,21 @@
                                             application.</p>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">Are you receiving public assistance (SNAP, WIC,
-                                            TANF, SSI)?</label>
+                                        <label class="font-weight-bold">Are you receiving public assistance (SNAP, WIC, TANF, SSI)?</label>
                                         <div class="radio-list">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_14" />
+                                                <input type="radio" value="Yes" name="question_14" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(14), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_14" />
+                                                <input type="radio" value="No" name="question_14" {{in_array('No',array_column($intake->GetAnswersByQuestionId(14), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                             <label class="radio">
-                                                <input type="radio" value="Unsure" name="question_14" />
+                                                <input type="radio" value="Unsure" name="question_14" {{in_array('Unsure',array_column($intake->GetAnswersByQuestionId(14), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Unsure</label>
                                             <label class="radio">
-                                                <input type="radio" value="Prefer not to answer" name="question_14" />
+                                                <input type="radio" value="Prefer not to answer" name="question_14" {{in_array('Prefer not to answer',array_column($intake->GetAnswersByQuestionId(14), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Prefer not to answer</label>
                                         </div>
                                     </div>
@@ -585,50 +569,41 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list mx-1">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Emergency Shelter"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Emergency Shelter" name="question_15[]" {{in_array('Emergency Shelter',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Emergency Shelter</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Shelter" name="question_15[]" />
+                                                    <input type="checkbox" value="Shelter" name="question_15[]" {{in_array('Shelter',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Shelter</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Home Furnishing"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Home Furnishing" name="question_15[]" {{in_array('Home Furnishing',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Home Furnishing</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Relocation Assistance"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Relocation Assistance" name="question_15[]" {{in_array('Relocation Assistance',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Relocation Assistance</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Other" name="question_15[]" />
+                                                    <input type="checkbox" value="Other" name="question_15[]" {{in_array('Other',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Other</label>
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Rental Assistance"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Rental Assistance" name="question_15[]" {{in_array('Rental Assistance',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Rental Assistance</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Housing Search" name="question_15[]" />
+                                                    <input type="checkbox" value="Housing Search" name="question_15[]" {{in_array('Housing Search',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Housing Search</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Purchasing a Home/First -Time Home Buyer"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Purchasing a Home/First -Time Home Buyer" name="question_15[]" {{in_array('Purchasing a Home/First -Time Home Buyer',array_column($intake->GetAnswersByQuestionId(15), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Purchasing a Home/First -Time Home Buyer</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">How many children do you need childcare
-                                            for?</label>
-                                        <input type="text" name="question_16" class="form-control" />
+                                        <label class="font-weight-bold">How many children do you need childcare for?</label>
+                                        <input type="text" name="question_16" class="form-control" value="{{array_column($intake->GetAnswersByQuestionId(16), 'answer')[0]}}"/>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What area of education are you looking for
@@ -636,32 +611,27 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list mx-1">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="I am looking for myself"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="I am looking for myself" name="question_17[]" {{in_array('I am looking for myself',array_column($intake->GetAnswersByQuestionId(17), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>I am looking for myself</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="I am looking for my child"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="I am looking for my child" name="question_17[]" {{in_array('I am looking for my child',array_column($intake->GetAnswersByQuestionId(17), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>I am looking for my child</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="I am looking for someone else"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="I am looking for someone else" name="question_17[]" {{in_array('I am looking for someone else',array_column($intake->GetAnswersByQuestionId(17), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>I am looking for someone else</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Other" name="question_17[]" />
+                                                    <input type="checkbox" value="Other" name="question_17[]" {{in_array('Other',array_column($intake->GetAnswersByQuestionId(17), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Other</label>
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Pre K- 12th grade"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="Pre K- 12th grade" name="question_17[]" {{in_array('Pre K- 12th grade',array_column($intake->GetAnswersByQuestionId(17), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Pre K- 12th grade</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="HiSet/GED" name="question_17[]" />
+                                                    <input type="checkbox" value="HiSet/GED" name="question_17[]" {{in_array('HiSet/GED',array_column($intake->GetAnswersByQuestionId(17), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>HiSet/GED</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Higher Education"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="Higher Education" name="question_17[]" {{in_array('Higher Education',array_column($intake->GetAnswersByQuestionId(17), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Higher Education</label>
                                             </div>
                                         </div>
@@ -670,69 +640,61 @@
                                         <label class="font-weight-bold">Do you have a voucher?</label>
                                         <div class="radio-list">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_18" />
+                                                <input type="radio" value="Yes" name="question_18" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(18), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_18" />
+                                                <input type="radio" value="No" name="question_18" {{in_array('No',array_column($intake->GetAnswersByQuestionId(18), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                             <label class="radio">
-                                                <input type="radio" value="No, I need help getting one"
-                                                    name="question_18" />
+                                                <input type="radio" value="No, I need help getting one" name="question_18" {{in_array('No, I need help getting one',array_column($intake->GetAnswersByQuestionId(18), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No, I need help getting one</label>
                                             <label class="radio">
-                                                <input type="radio" value="No sure" name="question_18" />
+                                                <input type="radio" value="No sure" name="question_18" {{in_array('No sure',array_column($intake->GetAnswersByQuestionId(18), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No sure</label>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What is/are the age(s)?</label>
-                                        <input type="text" name="question_19" class="form-control" />
+                                        <input type="text" name="question_19" class="form-control" value="{{array_column($intake->GetAnswersByQuestionId(19), 'answer')[0]}}"/>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">7. Would you like to share any additional
-                                            information?</label>
-                                        <textarea name="question_20" class="form-control" cols="30" rows="1"></textarea>
+                                        <label class="font-weight-bold">7. Would you like to share any additional information?</label>
+                                        <textarea name="question_20" class="form-control" cols="30" rows="1" >{{array_column($intake->GetAnswersByQuestionId(20), 'answer')[0]}}</textarea>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">If you have a program(s) in mind, please list them
-                                            below.</label>
-                                        <textarea name="question_21" class="form-control" cols="30" rows="1"></textarea>
+                                        <label class="font-weight-bold">If you have a program(s) in mind, please list them below.</label>
+                                        <textarea name="question_21" class="form-control" cols="30" rows="1">{{array_column($intake->GetAnswersByQuestionId(21), 'answer')[0]}}</textarea>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Where is your location (zip code)?</label>
-                                        <input name="question_22" type="text" class="form-control" />
+                                        <input name="question_22" type="text" class="form-control" value="{{array_column($intake->GetAnswersByQuestionId(22), 'answer')[0]}}"/>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What type of childcare are you looking for?</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Before school programming"
-                                                    name="question_23[]" />
+                                                <input type="checkbox" value="Before school programming" name="question_23[]" {{in_array('Before school programming',array_column($intake->GetAnswersByQuestionId(23), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Before school programming</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="After school programming"
-                                                    name="question_23[]" />
+                                                <input type="checkbox" value="After school programming" name="question_23[]" {{in_array('After school programming',array_column($intake->GetAnswersByQuestionId(23), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>After school programming</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Daycare" name="question_23[]" />
+                                                <input type="checkbox" value="Daycare" name="question_23[]" {{in_array('Daycare',array_column($intake->GetAnswersByQuestionId(23), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Daycare</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Extended care" name="question_23[]" />
+                                                <input type="checkbox" value="Extended care" name="question_23[]" {{in_array('Extended care',array_column($intake->GetAnswersByQuestionId(23), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Extended care</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Preschool" name="question_23[]" />
+                                                <input type="checkbox" value="Preschool" name="question_23[]" {{in_array('Preschool',array_column($intake->GetAnswersByQuestionId(23), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Preschool</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Other" name="question_23[]" />
+                                                <input type="checkbox" value="Other" name="question_23[]" {{in_array('Other',array_column($intake->GetAnswersByQuestionId(23), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Other</label>
                                         </div>
                                     </div>
@@ -741,77 +703,71 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Monday" name="question_24[]" />
+                                                    <input type="checkbox" value="Monday" name="question_24[]" {{in_array('Monday',array_column($intake->GetAnswersByQuestionId(24), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Monday</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Tuesday" name="question_24[]" />
+                                                    <input type="checkbox" value="Tuesday" name="question_24[]" {{in_array('Tuesday',array_column($intake->GetAnswersByQuestionId(24), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Tuesday</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Wednesday" name="question_24[]" />
+                                                    <input type="checkbox" value="Wednesday" name="question_24[]" {{in_array('Wednesday',array_column($intake->GetAnswersByQuestionId(24), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Wednesday</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Thursday" name="question_24[]" />
+                                                    <input type="checkbox" value="Thursday" name="question_24[]" {{in_array('Thursday',array_column($intake->GetAnswersByQuestionId(24), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Thursday</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Friday" name="question_24[]" />
+                                                    <input type="checkbox" value="Friday" name="question_24[]" {{in_array('Friday',array_column($intake->GetAnswersByQuestionId(24), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Friday</label>
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Saturday" name="question_24[]" />
+                                                    <input type="checkbox" value="Saturday" name="question_24[]" {{in_array('Saturday',array_column($intake->GetAnswersByQuestionId(24), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Saturday</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Sunday" name="question_24[]" />
+                                                    <input type="checkbox" value="Sunday" name="question_24[]" {{in_array('Sunday',array_column($intake->GetAnswersByQuestionId(24), 'answer')) == true ? 'checked': ''  ; }}/>
                                                     <span></span>Sunday</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">How many hours per day will you need childcare?
                                             What time(s) of the
                                             day?</label>
-                                        <input type="text" name="question_25" class="form-control" />
+                                        <input type="text" name="question_25" class="form-control" value="{{array_column($intake->GetAnswersByQuestionId(25), 'answer')[0]}}"/>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Will you need transportation as well?</label>
                                         <div class="radio-list">
                                             <label class="radio">
-                                                <input type="radio" value="Yes" name="question_26" />
+                                                <input type="radio" value="Yes" name="question_26" {{in_array('Yes',array_column($intake->GetAnswersByQuestionId(26), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>Yes</label>
                                             <label class="radio">
-                                                <input type="radio" value="No" name="question_26" />
+                                                <input type="radio" value="No" name="question_26" {{in_array('No',array_column($intake->GetAnswersByQuestionId(26), 'answer')) == true ? 'checked': ''  ; }}/>
                                                 <span></span>No</label>
                                             <label class="radio">
-                                                <input type="radio" value="Not sure" name="question_26" />
-                                                <span></span>No sure</label>
+                                                <input type="radio" value="Not sure" name="question_26" {{in_array('Not sure',array_column($intake->GetAnswersByQuestionId(26), 'answer')) == true ? 'checked': ''  ; }}/>
+                                                <span></span>Not sure</label>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">Would you like to add any other information
-                                            regarding childcare?</label>
-                                        <input type="text" name="question_27" class="form-control" />
+                                        <label class="font-weight-bold">Would you like to add any other information regarding childcare?</label>
+                                        <input type="text" name="question_27" class="form-control" value="{{array_column($intake->GetAnswersByQuestionId(27), 'answer')[0]}}"/>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <p class="font-weight-bold">Please note that those affected by violence in anyway
                                             would be first priority. </p>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <canvas style="border: 1px solid black;">
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <button type="button" class="btn btn-primary btn-sm"
@@ -822,7 +778,7 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <button type="submit" class="btn btn-primary mr-2">Save</button>
+                                        <button type="submit" class="btn btn-primary mr-2">Update</button>
                                         <button type="reset" class="btn btn-secondary">Cancel</button>
                                     </div>
                                     <div class="col-lg-6 text-lg-right">

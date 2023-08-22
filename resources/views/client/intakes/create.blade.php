@@ -19,24 +19,10 @@
                     <!--begin::Page Title-->
                     <h5 class="text-dark font-weight-bold my-1 mr-5">Participant Intake Form</h5>
                     <!--end::Page Title-->
-                    <!--begin::Breadcrumb-->
-                    {{--<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
-                        <li class="breadcrumb-item">
-                            <a href="/client/dashboard" class="text-muted">Dashboard</a>
-                        </li>
-                    </ul>--}}
-                    <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page Heading-->
             </div>
             <!--end::Info-->
-            <!--begin::Toolbar-->
-            {{--<div class="d-flex align-items-center">
-                <!--begin::Actions-->
-                <a href="/client/intake-form" class="btn btn-light-primary font-weight-bolder btn-sm">Intake Form</a>
-                <!--end::Actions-->
-            </div>--}}
-            <!--end::Toolbar-->
         </div>
     </div>
     <!--end::Subheader-->
@@ -92,22 +78,19 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Name:</label>
-                                        <input name="name" type="text" class="form-control"
-                                            placeholder="Enter first name" />
+                                        <input name="name" type="text" class="form-control" placeholder="Enter first name" />
                                         <span class="form-text text-muted">Please enter your first name</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Email:</label>
-                                        <input name="email" type="email" class="form-control"
-                                            placeholder="Enter your email address" />
+                                        <input name="email" type="email" class="form-control" placeholder="Enter your email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Contact Number:</label>
-                                        <input name="phone" type="text" class="form-control"
-                                            placeholder="Enter contact number" />
+                                        <input name="phone" type="text" class="form-control" placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
                                     </div>
                                 </div>
@@ -118,8 +101,7 @@
                                                 <input type="checkbox" value="It is Okay to call" name="question_1[]" />
                                                 <span></span>It is Okay to call</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="It is Okay to leave a voicemail"
-                                                    name="question_1[]" />
+                                                <input type="checkbox" value="It is Okay to leave a voicemail" name="question_1[]" />
                                                 <span></span>It is Okay to leave a voicemail</label>
                                             <label class="checkbox">
                                                 <input type="checkbox" value="It is Okay to text" name="question_1[]" />
@@ -130,8 +112,7 @@
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold">Address:</label>
-                                        <input name="address_1" type="text" class="form-control"
-                                            placeholder="Enter your street address" />
+                                        <input name="address_1" type="text" class="form-control" placeholder="Enter your street address" />
                                         <span class="form-text text-muted">Street Address</span>
                                     </div>
                                     <div class="col-lg-12">
@@ -162,9 +143,8 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">How did you hear about us?</label>
-                                        <input name="question_2" question="How did you hear about us?" type="text"
-                                            class="form-control" placeholder="Enter first name" />
-                                        <span class="form-text text-muted">Please enter your first name</span>
+                                        <input name="question_2" question="How did you hear about us?" type="text" class="form-control" placeholder="Enter reference" />
+                                        <span class="form-text text-muted">Please enter how did you hear about us?</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Would you like to remain anonymous?</label>
@@ -227,13 +207,10 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What is your primary language?</label>
-                                        <input type="text" name="language" class="form-control"
-                                            placeholder="Enter first name" />
+                                        <input type="text" name="language" class="form-control" placeholder="Enter first name" />
                                     </div>
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">What is your age range or the age range of the
-                                            individual looking for
-                                            services?</label>
+                                        <label class="font-weight-bold">What is your age range or the age range of the individual looking for services?</label>
                                         <div class="radio-inline">
                                             <label class="radio">
                                                 <input type="radio" value="0-12" name="age" />
@@ -301,7 +278,6 @@
                                         </p>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Do you feel that you are in danger?</label>
@@ -335,7 +311,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold">There are many acts of crime or violence we do not
@@ -344,33 +319,25 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Adult Assault (including physical, sexual, or assault as a
-                                                    child)"
-                                                        name="question_9[]" />
-                                                    <span></span>Adult Assault (including physical, sexual, or assault as a
-                                                    child)</label>
+                                                    <input type="checkbox" value="Adult Assault (including physical, sexual, or assault as a child)" name="question_9[]" />
+                                                    <span></span>Adult Assault (including physical, sexual, or assault as a child)</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Bullying" name="question_9[]" />
                                                     <span></span>Bullying</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Child Abuse or Neglect"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Child Abuse or Neglect" name="question_9[]" />
                                                     <span></span>Child Abuse or Neglect</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Domestic or Family Violence"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Domestic or Family Violence" name="question_9[]" />
                                                     <span></span>Domestic or Family Violence</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Terrorism" name="question_9[]" />
                                                     <span></span>Terrorism</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Stalking/ Harrassment"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Stalking/ Harrassment" name="question_9[]" />
                                                     <span></span>Stalking/ Harrassment</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Identity Theft(fraud, financial, crime)"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Identity Theft(fraud, financial, crime)" name="question_9[]" />
                                                     <span></span>Identity Theft(fraud, financial, crime)</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Robbery" name="question_9[]" />
@@ -387,34 +354,27 @@
                                                     <input type="checkbox" value="Burglary" name="question_9[]" />
                                                     <span></span>Burglary</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Elderly Abuse or Neglect"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Elderly Abuse or Neglect" name="question_9[]" />
                                                     <span></span>Elderly Abuse or Neglect</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Hate Crime (religious, racial, gender)"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Hate Crime (religious, racial, gender)" name="question_9[]" />
                                                     <span></span>Hate Crime (religious, racial, gender)</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Survivor of Homicide Victims"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Survivor of Homicide Victims" name="question_9[]" />
                                                     <span></span>Survivor of Homicide Victims</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="DUI/DWI incidents"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="DUI/DWI incidents" name="question_9[]" />
                                                     <span></span>DUI/DWI incidents</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Teen Dating Victimization"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Teen Dating Victimization" name="question_9[]" />
                                                     <span></span>Teen Dating Victimization</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Vehicular Victim (hit and run)"
-                                                        name="question_9[]" />
+                                                    <input type="checkbox" value="Vehicular Victim (hit and run)" name="question_9[]" />
                                                     <span></span>Vehicular Victim (hit and run)</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What services are you looking for? *</label>
@@ -482,7 +442,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row mt-4">
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold">
@@ -493,80 +452,55 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list mx-1">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Lost wages (for victim only)"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Lost wages (for victim only)" name="question_12[]" />
                                                     <span></span>Lost wages (for victim only)</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Loss of financial support (for dependents of homicide victims)"
-                                                        name="question_12[]" />
-                                                    <span></span>Loss of financial support (for dependents of homicide
-                                                    victims)</label>
+                                                    <input type="checkbox" value="Loss of financial support (for dependents of homicide victims)" name="question_12[]" />
+                                                    <span></span>Loss of financial support (for dependents of homicide victims)</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Funeral/burial" name="question_12[]" />
                                                     <span></span>Funeral/burial</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Crime scene cleanup*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Crime scene cleanup*" name="question_12[]" />
                                                     <span></span>Crime scene cleanup*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Forensic Sexual Assault Exam associated expenses*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Forensic Sexual Assault Exam associated expenses*" name="question_12[]" />
                                                     <span></span>Forensic Sexual Assault Exam associated expenses*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Medical services*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Medical services*" name="question_12[]" />
                                                     <span></span>Medical services*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Counseling for children who witness violence against a family
-                                                member"
-                                                        name="question_12[]" />
-                                                    <span></span>Counseling for children who witness violence against a
-                                                    family member</label>
+                                                    <input type="checkbox" value="Counseling for children who witness violence against a family member" name="question_12[]" />
+                                                    <span></span>Counseling for children who witness violence against a family member</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Security Measures"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Security Measures" name="question_12[]" />
                                                     <span></span>Security Measures</label>
-
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Medical supplies/pharmacy*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Medical supplies/pharmacy*" name="question_12[]" />
                                                     <span></span>Medical supplies/pharmacy*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Dental services*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Dental services*" name="question_12[]" />
                                                     <span></span>Dental services*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Replacement homemaker services*"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Replacement homemaker services*" name="question_12[]" />
                                                     <span></span>Replacement homemaker services*</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Ancillary funeral/burial expenses"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Ancillary funeral/burial expenses" name="question_12[]" />
                                                     <span></span>Ancillary funeral/burial expenses</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Replacement bedding/clothing"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Replacement bedding/clothing" name="question_12[]" />
                                                     <span></span>Replacement bedding/clothing</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Counseling for victim"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Counseling for victim" name="question_12[]" />
                                                     <span></span>Counseling for victim</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Counseling for family members of homicide victims"
-                                                        name="question_12[]" />
+                                                    <input type="checkbox" value="Counseling for family members of homicide victims" name="question_12[]" />
                                                     <span></span>Counseling for family members of homicide victims</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Counseling for non-offending parents of a child victim"
-                                                        name="question_12[]" />
-                                                    <span></span>Counseling for non-offending parents of a child
-                                                    victim</label>
+                                                    <input type="checkbox" value="Counseling for non-offending parents of a child victim" name="question_12[]" />
+                                                    <span></span>Counseling for non-offending parents of a child victim</label>
                                             </div>
                                         </div>
                                     </div>
@@ -603,8 +537,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">Are you receiving public assistance (SNAP, WIC,
-                                            TANF, SSI)?</label>
+                                        <label class="font-weight-bold">Are you receiving public assistance (SNAP, WIC,TANF, SSI)?</label>
                                         <div class="radio-list">
                                             <label class="radio">
                                                 <input type="radio" value="Yes" name="question_14" />
@@ -625,19 +558,16 @@
                                         <div class="d-flex">
                                             <div class="checkbox-list mx-1">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Emergency Shelter"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Emergency Shelter" name="question_15[]" />
                                                     <span></span>Emergency Shelter</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Shelter" name="question_15[]" />
                                                     <span></span>Shelter</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Home Furnishing"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Home Furnishing" name="question_15[]" />
                                                     <span></span>Home Furnishing</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Relocation Assistance"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Relocation Assistance" name="question_15[]" />
                                                     <span></span>Relocation Assistance</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Other" name="question_15[]" />
@@ -645,16 +575,13 @@
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Rental Assistance"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Rental Assistance" name="question_15[]" />
                                                     <span></span>Rental Assistance</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Housing Search" name="question_15[]" />
                                                     <span></span>Housing Search</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox"
-                                                        value="Purchasing a Home/First -Time Home Buyer"
-                                                        name="question_15[]" />
+                                                    <input type="checkbox" value="Purchasing a Home/First -Time Home Buyer" name="question_15[]" />
                                                     <span></span>Purchasing a Home/First -Time Home Buyer</label>
                                             </div>
                                         </div>
@@ -663,29 +590,24 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">How many children do you need childcare
-                                            for?</label>
+                                        <label class="font-weight-bold">How many children do you need childcare for?</label>
                                         <input type="text" name="question_16" class="form-control" />
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">What area of education are you looking for
-                                            resources/services for?</label>
+                                        <label class="font-weight-bold">What area of education are you looking for resources/services for?</label>
                                         <div class="d-flex">
                                             <div class="checkbox-list mx-1">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="I am looking for myself"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="I am looking for myself" name="question_17[]" />
                                                     <span></span>I am looking for myself</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="I am looking for my child"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="I am looking for my child" name="question_17[]" />
                                                     <span></span>I am looking for my child</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="I am looking for someone else"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="I am looking for someone else" name="question_17[]" />
                                                     <span></span>I am looking for someone else</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="Other" name="question_17[]" />
@@ -693,15 +615,13 @@
                                             </div>
                                             <div class="checkbox-list">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Pre K- 12th grade"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="Pre K- 12th grade" name="question_17[]" />
                                                     <span></span>Pre K- 12th grade</label>
                                                 <label class="checkbox">
                                                     <input type="checkbox" value="HiSet/GED" name="question_17[]" />
                                                     <span></span>HiSet/GED</label>
                                                 <label class="checkbox">
-                                                    <input type="checkbox" value="Higher Education"
-                                                        name="question_17[]" />
+                                                    <input type="checkbox" value="Higher Education" name="question_17[]" />
                                                     <span></span>Higher Education</label>
                                             </div>
                                         </div>
@@ -716,8 +636,7 @@
                                                 <input type="radio" value="No" name="question_18" />
                                                 <span></span>No</label>
                                             <label class="radio">
-                                                <input type="radio" value="No, I need help getting one"
-                                                    name="question_18" />
+                                                <input type="radio" value="No, I need help getting one" name="question_18" />
                                                 <span></span>No, I need help getting one</label>
                                             <label class="radio">
                                                 <input type="radio" value="No sure" name="question_18" />
@@ -755,12 +674,10 @@
                                         <label class="font-weight-bold">What type of childcare are you looking for?</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Before school programming"
-                                                    name="question_23[]" />
+                                                <input type="checkbox" value="Before school programming" name="question_23[]" />
                                                 <span></span>Before school programming</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="After school programming"
-                                                    name="question_23[]" />
+                                                <input type="checkbox" value="After school programming" name="question_23[]" />
                                                 <span></span>After school programming</label>
                                             <label class="checkbox">
                                                 <input type="checkbox" value="Daycare" name="question_23[]" />
