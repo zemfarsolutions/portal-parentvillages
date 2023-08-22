@@ -19,24 +19,15 @@
                     <!--begin::Page Title-->
                     <h5 class="text-dark font-weight-bold my-1 mr-5">Appointment Form</h5>
                     <!--end::Page Title-->
-                    <!--begin::Breadcrumb-->
-                    {{--<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
-                        <li class="breadcrumb-item">
-                            <a href="/client/dashboard" class="text-muted">Dashboard</a>
-                        </li>
-                    </ul>--}}
-                    <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page Heading-->
             </div>
             <!--end::Info-->
-            <!--begin::Toolbar-->
-            {{--<div class="d-flex align-items-center">
+            <div class="d-flex align-items-center">
                 <!--begin::Actions-->
-                <a href="/client/intake-form" class="btn btn-light-primary font-weight-bolder btn-sm">Intake Form</a>
+                <a href="/client/appointments" class="btn btn-light-primary font-weight-bolder btn-sm">Go Back</a>
                 <!--end::Actions-->
-            </div>--}}
-            <!--end::Toolbar-->
+            </div>
         </div>
     </div>
     <!--end::Subheader-->
@@ -70,10 +61,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-primary mr-2">Save</button>
-                                        <button type="reset" class="btn btn-secondary">Cancel</button>
-                                    </div>
-                                    <div class="col-lg-6 text-lg-right">
-                                        <button type="reset" class="btn btn-danger">Delete</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
                                     </div>
                                 </div>
                             </div>

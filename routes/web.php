@@ -31,6 +31,9 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::get('/intakes/{intake}/view', [IntakeController::class, 'view']);
 
     Route::resource('/appointments', AppointmentController::class);
+    Route::post('/appointments/delete/{appointment}', [AppointmentController::class, 'destroy']);
+
+    Route::get('/appointments/{appointment}/view', [AppointmentController::class, 'view']);
 
 
     Route::resource('/files', FileController::class);
