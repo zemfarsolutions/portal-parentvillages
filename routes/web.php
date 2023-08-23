@@ -5,6 +5,7 @@ use App\Http\Controllers\Client\{
     DashboardController,
     IntakeController,
     AppointmentController,
+    ScholarshipController,
     FileController
 };
 
@@ -32,10 +33,12 @@ Route::middleware('auth')->prefix('/client')->group(function () {
 
     Route::resource('/appointments', AppointmentController::class);
     Route::post('/appointments/delete/{appointment}', [AppointmentController::class, 'destroy']);
-
     Route::get('/appointments/{appointment}/view', [AppointmentController::class, 'view']);
 
-
+    Route::resource('/scholarships',ScholarshipController::class);
+    Route::get('/scholarships/{scholarship}/view', [ScholarshipController::class, 'view']);
+    Route::get('/scholarships/{scholarship}/scholarship-form', [ScholarshipController::class, 'create']);
+    
     Route::resource('/files', FileController::class);
 
 });
