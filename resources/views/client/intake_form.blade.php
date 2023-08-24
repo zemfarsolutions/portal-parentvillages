@@ -149,7 +149,7 @@
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold"></label>
                                         <input name="state" type="text" class="form-control"
-                                            placeholder="Enter state / province" />
+                                            placeholder="Enter state / province " />
                                         <span class="form-text text-muted">State / Province</span>
                                     </div>
                                     <div class="col-lg-12">

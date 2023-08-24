@@ -33,9 +33,9 @@
         <!--begin::Toolbar-->
         <div class="d-flex align-items-right">
             <!--begin::Actions-->
-            <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Intake Form</a>
-            <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Appointment Form</a>
-            <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Scholarships</a>
+            <a href="/client/intakes/create" class="btn btn-light-primary font-weight-bolder btn-sm mx-1">Intake Form</a>
+            <a href="/client/appointments/create" class="btn btn-light-primary font-weight-bolder btn-sm mx-1">Appointment Form</a>
+            <a href="/client/scholarships" class="btn btn-light-primary font-weight-bolder btn-sm mx-1">Scholarships</a>
             <!--end::Actions-->
         </div>
         

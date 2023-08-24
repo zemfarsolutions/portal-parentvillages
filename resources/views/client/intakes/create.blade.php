@@ -591,7 +591,8 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">How many children do you need childcare for?</label>
-                                        <input type="text" name="question_16" class="form-control" />
+                                        
+                                        <input type="text" name="question_16" class="form-control" placeholder="Enter number of childrens" />
                                     </div>
                                 </div>
 
@@ -648,12 +649,12 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What is/are the age(s)?</label>
-                                        <input type="text" name="question_19" class="form-control" />
+                                        <input type="text" name="question_19" class="form-control" placeholder="Enter age"/>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">7. Would you like to share any additional
                                             information?</label>
-                                        <textarea name="question_20" class="form-control" cols="30" rows="1"></textarea>
+                                        <textarea name="question_20" class="form-control" cols="30" rows="1" placeholder="Enter additional information"></textarea>
                                     </div>
                                 </div>
 
@@ -661,11 +662,11 @@
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">If you have a program(s) in mind, please list them
                                             below.</label>
-                                        <textarea name="question_21" class="form-control" cols="30" rows="1"></textarea>
+                                        <textarea name="question_21" class="form-control" cols="30" rows="1" placeholder="List here"></textarea>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Where is your location (zip code)?</label>
-                                        <input name="question_22" type="text" class="form-control" />
+                                        <input name="question_22" type="text" class="form-control" placeholder="Enter your location"/>
                                     </div>
                                 </div>
 
@@ -730,7 +731,7 @@
                                         <label class="font-weight-bold">How many hours per day will you need childcare?
                                             What time(s) of the
                                             day?</label>
-                                        <input type="text" name="question_25" class="form-control" />
+                                        <input type="text" name="question_25" class="form-control" placeholder="Enter hours"/>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Will you need transportation as well?</label>
@@ -752,7 +753,8 @@
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Would you like to add any other information
                                             regarding childcare?</label>
-                                        <input type="text" name="question_27" class="form-control" />
+                                        <input type="text" name="question_27" class="form-control" 
+                                        placeholder="Enter information"/>
                                     </div>
                                 </div>
 

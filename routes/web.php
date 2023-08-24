@@ -29,6 +29,7 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('client-dashboard');
 
     Route::resource('/intakes', IntakeController::class);
+    
     Route::get('/intakes/{intake}/view', [IntakeController::class, 'view']);
 
     Route::resource('/appointments', AppointmentController::class);
