@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 use App\Models\Scholarship;
 use App\Models\UserApplication;
-use App\Models\UserApplicationGuadian;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
+use App\Models\UserApplicationAnswer;
+use App\Models\UserApplicationGuardian;
+use App\Models\UserApplicationReferences;
 
 class ScholarshipController extends Controller
 {
@@ -19,19 +23,74 @@ class ScholarshipController extends Controller
     }
 
     public function view(Scholarship $scholarship)
-    {
+    {  
         return view('client.scholarships.view', compact('scholarship'));
     }
 
     public function create(Scholarship $scholarship){
+        
         return view('client.scholarships.create',compact('scholarship'));
     }
 
     public function store(Request $request){
         
-        $award_letter = 'sample';
-        $transcript_letter = 'sample';
-        $acceptance_letter = 'sample';
+        $current_time = Carbon::now();
+        $formatted_date = $current_time->format('Y-m-d');
+        $applicant_name = str()->slug($request['name']);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'date' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postal_code' => 'required',
+            'phone' => 'required',
+            'award_letter' => 'required|mimes:pdf',
+            'transcript_letter' => 'required|mimes:pdf',
+            'high_school' => 'required',
+            'plan' => 'required',
+            'acceptance_letter' => 'required|mimes:pdf',
+            "guardian_one['name']" => 'required',
+            "guardian_one['email']" => 'required',
+            "guardian_one['phone']" => 'required',
+            "guardian_one['address']" => 'required',
+            "guardian_two['name']" => 'required',
+            "guardian_two['email']" => 'required',
+            "guardian_two['phone']" => 'required',
+            "guardian_two['address']" => 'required',
+            "reference_one['name']" => 'required',
+            "reference_one['email']" => 'required',
+            "reference_one['phone']" => 'required',
+            "reference_one['relationship']" => 'required',
+            "reference_one['relation_length']" => 'required',
+            "reference_one['reference_letter']" => 'required|mimes:pdf',
+            "reference_two['name']" => 'required',
+            "reference_two['email']" => 'required',
+            "reference_two['phone']" => 'required',
+            "reference_two['relationship']" => 'required',
+            "reference_two['relation_length']" => 'required',
+            "reference_two['reference_letter']" => 'required|mimes:pdf',
+        ]);
+        
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $award_letter_extension = $request->file('award_letter')->extension();
+        $award_letter_formated_file = $formatted_date.'-'.$applicant_name.'.'.$award_letter_extension;
+        $award_letter_store = $request->file('award_letter')->storeAs('Scholarship Applications/Award letters', $award_letter_formated_file, 'public');
+
+        $transcript_letter_extension = $request->file('transcript_letter')->extension();
+        $transcript_letter_formated_file = $formatted_date.'-'.$applicant_name.'.'.$transcript_letter_extension;
+        $transcript_letter_store = $request->file('transcript_letter')->storeAs('Scholarship Applications/Transcripts', $transcript_letter_formated_file, 'public');
+
+        $acceptance_letter_extension = $request->file('acceptance_letter')->extension();
+        $acceptance_letter_formated_file = $formatted_date.'-'.$applicant_name.'.'.$acceptance_letter_extension;
+        $acceptance_letter_store = $request->file('acceptance_letter')->storeAs('Scholarship Applications/Acceptance letters', $acceptance_letter_formated_file, 'public');
 
         $user_application = UserApplication::create([
             'user_id' => Auth::guard('web')->user()->id,
@@ -45,27 +104,21 @@ class ScholarshipController extends Controller
             'state' => $request->state,
             'postal_code' => $request->postal_code,
             'phone' => $request->phone,
-            'award_letter' => $award_letter,
-            // 'award_letter' => $request->phone,
-
-            'transcript_letter' => $transcript_letter,
-            // 'transcript_letter' => $request->phone,
-
+            'award_letter' => $award_letter_store,
+            'transcript_letter' => $transcript_letter_store,
             'high_school' => $request->high_school,
             'plan' => $request->plan,
-
-            // 'acceptance_letter' => $request->phone,
-            'acceptance_letter' => $acceptance_letter,
+            'acceptance_letter' => $acceptance_letter_store,
         ]);
-       
+
         $guardians = [
             $request->guardian_one,
             $request->guardian_two
         ];
-        
+            
         for ($i=0; $i < count($guardians); $i++) { 
 
-            UserApplicationGuadian::create([
+            UserApplicationGuardian::create([
                 'user_application_id' => $user_application->id,
                 'name' =>  $guardians[$i]["'name'"],
                 'email' =>  $guardians[$i]["'email'"],
@@ -78,31 +131,57 @@ class ScholarshipController extends Controller
                 'doctoral_degree' => isset($guardians[$i]["'doctoral_degree'"]) ?  true : false 
             ]);
         }
+
+        $references = [
+            $request->reference_one,
+            $request->reference_two,
+        ];
         
-        dd($guardians);
+        for ($i=0; $i < count($references); $i++) {
+
+            $reference_letter = $references[$i]["'reference_letter'"];
+            $reference_letter_extension = $reference_letter->extension();
+            $reference_letter_formated_file = $formatted_date.'-'.str()->slug($references[$i]["'name'"]).'.'.$reference_letter_extension;
+            $acceptance_letter_store = $references[$i]["'reference_letter'"]->storeAs('Scholarship Applications/Reference letters', $reference_letter_formated_file, 'public');
+
+            UserApplicationReferences::create([
+                'user_application_id' => $user_application->id,
+                'name' =>  $references[$i]["'name'"],
+                'email' =>  $references[$i]["'email'"],
+                'phone' =>  $references[$i]["'phone'"],
+                'relation' =>  $references[$i]["'relationship'"],
+                'length' => $references[$i]["'relation_length'"],
+                'letter' => $acceptance_letter_store,
+            ]);
+        }
+
+        $essay_extension = $request->file('question_4')->extension();
+        $essay_formated_file = $formatted_date.'-'.$applicant_name.'.'.$essay_extension;
+        $essay_store = $request->file('question_4')->storeAs('Scholarship Applications/Eassys', $essay_formated_file, 'public');
+
+        for ($i=2; $i < 5; $i++) { 
+
+            $array = $request->toArray();
+            
+            if ($i != 4) {
+
+                UserApplicationAnswer::create([
+                    'scholarship_question_id' => $i,
+                    'user_application_id' => 2,
+                    'answer' => $array['question_' . $i]
+                ]);
+
+            }else{
+
+                UserApplicationAnswer::create([
+                    'scholarship_question_id' => $i,
+                    'user_application_id' => 2,
+                    'answer' => $essay_store
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Scholarship application submitted successfully.');
         
-        // $file_name = $request['award_letter']->getClientOriginalName();
-        // $current_time = Carbon::now();
-        // $formatted_date = $current_time->format('Y/m/d_H:i:s');
-        // $applicant_name = str_replace(' ', '', $request['name']);
-
-        // $formated_file = $formatted_date.'_'.$applicant_name.'_'.$file_name;
-        // $file_path = $request['award_letter']->storeAs('uploads/client/award_letter', $formated_file, 'public');
-
-        // $filePath = $req->file('file')->storeAs('uploads', $fileName, 'public');
-
-        // $keys = array_keys($guardians);
-        // for($i = 0; $i < count($guardians); $i++) {
-        //     foreach($guardians[$keys[$i]] as $key => $value) {
-        //         UserApplicationGuadian::create([
-        //             'user_id' => $user_id,
-        //             'name' => 
-        //         ]);
-        //         echo $key . " : " . $value . "<br>";
-        //     }
-        // }
-
-
-
     }
 }

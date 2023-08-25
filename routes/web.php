@@ -5,6 +5,7 @@ use App\Http\Controllers\Client\{
     DashboardController,
     IntakeController,
     AppointmentController,
+    DocumentController,
     ScholarshipController,
     FileController,
     ResourceController
@@ -29,8 +30,7 @@ Route::middleware('auth')->prefix('/client')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('client-dashboard');
 
-    Route::resource('/intakes', IntakeController::class);
-    
+    Route::resource('/intakes', IntakeController::class);   
     Route::get('/intakes/{intake}/view', [IntakeController::class, 'view']);
 
     Route::resource('/appointments', AppointmentController::class);
@@ -40,8 +40,10 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::resource('/scholarships',ScholarshipController::class);
     Route::get('/scholarships/{scholarship}/view', [ScholarshipController::class, 'view']);
     Route::get('/scholarships/{scholarship}/scholarship-form', [ScholarshipController::class, 'create']);
+
+    Route::resource('/files',DocumentController::class);
     
-    Route::resource('/files', FileController::class);
+    // Route::resource('/files', FileController::class);
 
     Route::resource('/resources', ResourceController::class)->except(['destroy']);
     Route::get('/resources/reviews/create/{id}', [ResourceController::class, 'showCreateForm']);

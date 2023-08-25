@@ -10,7 +10,7 @@ class UserApplicationReferences extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'user_application_id',
         'name',
         'phone',
         'email',
