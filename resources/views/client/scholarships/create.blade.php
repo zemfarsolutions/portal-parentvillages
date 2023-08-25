@@ -433,6 +433,40 @@
                                 </div>
                                 <!-- Reference Two Details End  -->
 
+                                <div class="justify-content-between pt-5">
+                                    <h6 class="display-7 font-weight-bold mb-5">Community Service, Civic Engagement and Extracurricular Activities</h6>
+                                    <p>Please list all community service and civic engagement you've participated with</p>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <label class="font-weight-bold">Please list your extracurricular activities (sports, faith-based groups/activities, arts, etc.):</label>
+                                        <textarea name="question_2" cols="30" rows="10" class="form-control"></textarea>
+                                        <span class="form-text text-muted">Please enter your extracurricular activities</span>
+                                    </div>
+                                    <div class="col-lg-12 mt-3">
+                                        <label class="font-weight-bold">Please list your community service and/or civic engagement activities:</label>
+                                        <textarea name="question_3" cols="30" rows="10" class="form-control"></textarea>
+                                        <span class="form-text text-muted">Please enter your service and/or civic engagement activities</span>
+                                    </div>
+                                </div>
+
+                                <div class="justify-content-between pt-5">
+                                    <h6 class="display-7 font-weight-bold mb-5">Essay Question</h6>
+                                    <p>Please answer all of the following questions in your essay:</p>
+                                    <ol>
+                                        <li>How have you persevered through the effects COVID has had on your life; how
+                                            has it impacted you in both negative and positive ways?</li>
+                                        <li>What are your future goals, what do you need to accomplish to reach them,
+                                            and how has living through COVID better prepared you for your future?</li>
+                                    </ol>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-6">
+                                        <label class="font-weight-bold">Essay</label>
+                                        <input name="question_4" type="file" class="form-control"/>
+                                        <span class="form-text text-muted">Please upload essay</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <div class="row">

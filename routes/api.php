@@ -33,3 +33,4 @@ Route::get('/get-receipt-images', [Receipt::class, 'getImages']);
 Route::get('/get-expenses', [Expense::class, 'index']);
 Route::get('/get-intakes', [IntakeForm::class, 'index']);
 Route::get('/get-appointments', [Appointment::class, 'index']);
+Route::get('/get-files', [File::class, 'index']);

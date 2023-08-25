@@ -318,7 +318,7 @@
                                         </li>
                                         <li class="menu-item {{ gettype(strpos(url()->full(), '/client/files/')) == 'integer' ? 'menu-item-active' : null }}"
                                             aria-haspopup="true">
-                                            <a href="" class="menu-link">
+                                            <a href="/client/files" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
