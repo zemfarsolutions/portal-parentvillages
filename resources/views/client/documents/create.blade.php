@@ -25,7 +25,7 @@
             <!--end::Info-->
             <div class="d-flex align-items-center">
                 <!--begin::Actions-->
-                <a href="/client/files" class="btn btn-light-primary font-weight-bolder btn-sm">Go Back</a>
+                <a href="/client/documents" class="btn btn-light-primary font-weight-bolder btn-sm">Go Back</a>
                 <!--end::Actions-->
             </div>
         </div>
@@ -45,7 +45,7 @@
                             <h3 class="card-title">Document Upload</h3>
                         </div>
                         <!--begin::Form-->
-                        <form class="form" action="/client/files/" method="POST">
+                        <form class="form" action="/client/documents/" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
