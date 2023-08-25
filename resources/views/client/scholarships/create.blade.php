@@ -55,13 +55,24 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Name:</label>
-                                        <input name="name" type="text" class="form-control" placeholder="Enter full name" />
+                                        <input name="name" type="text" class="form-control" placeholder="Enter full name"/>
                                         <span class="form-text text-muted">Please enter your full name</span>
+                                        <span class="text_danger">
+                                            @error('name')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
+                                    
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Email:</label>
                                         <input name="email" type="email" class="form-control" placeholder="Enter your email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
+                                        <span class="text_danger">
+                                            @error('email')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -69,11 +80,21 @@
                                         <label>Date</label>
                                         <input name="date" type="date" class="form-control">
                                         <span class="form-text text-muted">Please enter date</span>
+                                        <span class="text_danger">
+                                            @error('date')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Address:</label>
                                         <input name="address" type="text" class="form-control" placeholder="Enter your street address" />
                                         <span class="form-text text-muted">Please enter your street address</span>
+                                        <span class="text_danger">
+                                            @error('address')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>                            
                                 <div class="form-group row">   
@@ -86,6 +107,11 @@
                                         <label class="font-weight-bold">City:</label>
                                         <input name="city" type="text" class="form-control" placeholder="Enter your city" />
                                         <span class="form-text text-muted">Please enter your city</span>
+                                        <span class="text_danger">
+                                            @error('city')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -93,11 +119,21 @@
                                         <label class="font-weight-bold">State / Province</label>
                                         <input name="state" type="text" class="form-control" placeholder="Enter state / province" />
                                         <span class="form-text text-muted">Please enter your state / province</span>
+                                        <span class="text_danger">
+                                            @error('state')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Postal / Zip Code</label>
                                         <input name="postal_code" type="text" class="form-control" placeholder="Enter postal / zip code" />
                                         <span class="form-text text-muted">Please enter your postal / zip Code</span>
+                                        <span class="text_danger">
+                                            @error('postal_code')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -105,11 +141,21 @@
                                         <label class="font-weight-bold">Contact Number:</label>
                                         <input name="phone" type="text" class="form-control" placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
+                                        <span class="text_danger">
+                                            @error('phone')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Upload your Award Letter</label>
                                         <input name="award_letter" type="file" class="form-control"/>
                                         <span class="form-text text-muted">Please upload award letter</span>
+                                        <span class="text_danger">
+                                            @error('award_letter')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -117,11 +163,21 @@
                                         <label class="font-weight-bold">Upload your Transcript Letter</label>
                                         <input name="transcript_letter" type="file" class="form-control"/>
                                         <span class="form-text text-muted">Please upload transcript letter</span>
+                                        <span class="text_danger">
+                                            @error('transcript_letter')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Current High School</label>
                                         <input name="high_school" type="text" class="form-control" placeholder="Enter current high school" />
                                         <span class="form-text text-muted">Please enter current high school</span>
+                                        <span class="text_danger">
+                                            @error('high_school')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row"> 
@@ -129,11 +185,21 @@
                                         <label class="font-weight-bold">What College/University do you plan to attend in Fall 2023?</label>
                                         <input name="plan" type="text" class="form-control" placeholder="Enter plan" />
                                         <span class="form-text text-muted">Please enter your plan to attend in Fall 2023?</span>
+                                        <span class="text_danger">
+                                            @error('plan')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Upload your College/University Acceptance Letter</label>
                                         <input name="acceptance_letter" type="file" class="form-control"/>
                                         <span class="form-text text-muted">Please upload acceptance letter</span>
+                                        <span class="text_danger">
+                                            @error('acceptance_letter')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <!-- Applicant Details End  -->
@@ -147,6 +213,11 @@
                                         <label class="font-weight-bold">Guardian's Full Name :</label>
                                         <input name="guardian_one['name']" type="text" class="form-control" placeholder="Enter full name" />
                                         <span class="form-text text-muted">Please enter your full name</span>
+                                        <span class="text_danger">
+                                            @error("guardian_one['name']")
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">  
                                         <label class="font-weight-bold">Guardian's Email:</label>
@@ -274,6 +345,14 @@
                                         <span class="form-text text-muted">Please enter your contact number</span>
                                     </div>
                                     <div class="col-lg-6">
+                                        <label class="font-weight-bold">Reference's Relationship To You:</label>
+                                        <input name="reference_one['relationship']" type="text" class="form-control" placeholder="Enter your relationship with you" />
+                                        <span class="form-text text-muted">Please enter your relationship with you</span>
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Relationship Length  :</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
@@ -291,8 +370,6 @@
                                                 <span></span>10+ years</label>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference Letter</label>
                                         <input name="reference_one['reference_letter']" type="file" class="form-control"/>
@@ -324,6 +401,13 @@
                                         <span class="form-text text-muted">Please enter your contact number</span>
                                     </div>
                                     <div class="col-lg-6">
+                                        <label class="font-weight-bold">Reference's Relationship To You:</label>
+                                        <input name="reference_two['relationship']" type="text" class="form-control" placeholder="Enter your relationship with you" />
+                                        <span class="form-text text-muted">Please enter your relationship with you</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Relationship Length  :</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
@@ -340,9 +424,7 @@
                                                 <input type="radio" value="10+ years" name="reference_two['relation_length']" />
                                                 <span></span>10+ years</label>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">    
+                                    </div>  
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference Letter</label>
                                         <input name="reference_two['reference_letter']" type="file" class="form-control"/>
