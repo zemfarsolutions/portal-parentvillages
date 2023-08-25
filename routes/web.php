@@ -41,9 +41,7 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::get('/scholarships/{scholarship}/view', [ScholarshipController::class, 'view']);
     Route::get('/scholarships/{scholarship}/scholarship-form', [ScholarshipController::class, 'create']);
 
-    Route::resource('/files',DocumentController::class);
-    
-    // Route::resource('/files', FileController::class);
+    Route::resource('/documents',DocumentController::class);
 
     Route::resource('/resources', ResourceController::class)->except(['destroy']);
     Route::get('/resources/reviews/create/{id}', [ResourceController::class, 'showCreateForm']);

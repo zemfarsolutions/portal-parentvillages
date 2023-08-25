@@ -288,7 +288,7 @@
                                     <span class="menu-text">Scholarship</span>
                                 </a>
                             </li>
-                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/client/files/')) == 'integer' ? 'menu-item-open' : null }}"
+                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/client/documents/')) == 'integer' ? 'menu-item-open' : null }}"
                                 aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
@@ -307,18 +307,18 @@
                                 <div class="menu-submenu">
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
-                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/client/files/create')) == 'integer' ? 'menu-item-active' : null }}"
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/client/documents/create')) == 'integer' ? 'menu-item-active' : null }}"
                                             aria-haspopup="true">
-                                            <a href="" class="menu-link">
+                                            <a href="/client/documents/create" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
                                                 <span class="menu-text">Add New Document</span>
                                             </a>
                                         </li>
-                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/client/files/')) == 'integer' ? 'menu-item-active' : null }}"
+                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/client/documents')) == 'integer' ? 'menu-item-active' : null }}"
                                             aria-haspopup="true">
-                                            <a href="/client/files" class="menu-link">
+                                            <a href="/client/documents" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
