@@ -68,9 +68,9 @@ var KTDatatableModal = function() {
 					template: function(row) {
 						return '\
                         <div style="display:flex;">\
-                                <button data-record-id="' + row.id + '" class="btn btn-sm btn-clean" title="View records">\
-								    <i class="flaticon2-document"></i>\
-							    </button>\
+                                <a href="/employee/receipts/'+row.id+'" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+									<i class="flaticon2-document"></i>\
+								</a>\
 								<a href="/employee/receipts/'+row.id+'/edit" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
 									<span class="svg-icon svg-icon-md">\
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
@@ -112,45 +112,6 @@ var KTDatatableModal = function() {
         });
 
         $('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
-
-        datatable.on('click', '[data-record-id]', function() {
-
-            if (document.getElementById("images") !== null) {
-
-                document.getElementById("images").replaceChildren();
-
-            }
-
-            initSubDatatable($(this).data('record-id'));
-
-            $('#kt_datatable_modal').modal('show');
-
-        });
-    };
-    
-    var initSubDatatable = function(id) {
-
-        $.ajax({
-            type: 'GET',
-            url: '/api/get-receipt-images?id='+id,
-            success: function(response) {
-
-                var el = $('#images');
-                    
-                for (let index = 0; index < response.length; index++) {
-
-                    const element = response[index];
-                    
-                    el.append('\
-                                <span><img width="20%" src="/storage/'+element.path+'"\
-                                alt="Picture 1"></span>');
-                }
-                
-                const gallery = new Viewer(document.getElementById('images'));
-
-            }
-        })
-        
     };
 
     return {

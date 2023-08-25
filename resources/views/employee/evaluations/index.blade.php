@@ -112,7 +112,7 @@
                                             src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/pdf.svg" />
                                         <!--end: Icon-->
                                         <!--begin: Tite-->
-                                        <a href="http://127.0.0.1:8080/{{ $record->path }}" target="_blank"
+                                        <a href="http://127.0.0.1:8080{{ $record->path }}" target="_blank"
                                             class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $record->name }}.pdf</a>
                                         <!--end: Tite-->
                                     </div>
