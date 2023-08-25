@@ -61,10 +61,10 @@
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label>Number Of Hours:</label>
+                                        <label>Number Of Mileage:</label>
                                         <input required name="number_of_hours" value="{{ $milaege_log->number_of_hours }}"
-                                            type="number" class="form-control" placeholder="Enter contact number" />
-                                        <span class="form-text text-muted">Please enter total number of hours</span>
+                                            type="number" class="form-control" placeholder="Enter No. of Mileage" />
+                                        <span class="form-text text-muted">Please enter total number of mileage</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
