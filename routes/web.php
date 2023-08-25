@@ -6,7 +6,8 @@ use App\Http\Controllers\Client\{
     IntakeController,
     AppointmentController,
     ScholarshipController,
-    FileController
+    FileController,
+    ResourceController
 };
 
 /*
@@ -41,5 +42,11 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::get('/scholarships/{scholarship}/scholarship-form', [ScholarshipController::class, 'create']);
     
     Route::resource('/files', FileController::class);
+
+    Route::resource('/resources', ResourceController::class)->except(['destroy']);
+    Route::get('/resources/reviews/create/{id}', [ResourceController::class, 'showCreateForm']);
+
+    Route::get('/resources/{resource}/delete', [ResourceController::class, 'destroy']);
+
 
 });
