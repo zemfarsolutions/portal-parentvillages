@@ -9,6 +9,8 @@ class EmployeeMilaegeLog extends Model
 {
     use HasFactory;
 
+    protected $table = "employee_mileage_logs";
+
     protected $fillable = [
         'employee_id',
         'number_of_hours',

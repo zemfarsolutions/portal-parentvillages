@@ -3,8 +3,8 @@
 @section('title', 'Scholarships')
 
 @section('section')
- <!--begin::Subheader-->
- <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
             <!--begin::Details-->
             <div class="d-flex align-items-center flex-wrap mr-2">
