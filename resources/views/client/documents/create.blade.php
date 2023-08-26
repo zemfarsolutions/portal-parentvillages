@@ -36,7 +36,7 @@
     <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
-            
+
             <div class="row">
                 <div class="col-lg-12">
                     <!--begin::Card-->
@@ -45,14 +45,19 @@
                             <h3 class="card-title">Document Upload</h3>
                         </div>
                         <!--begin::Form-->
-                        <form class="form" action="/client/documents/" method="POST" enctype="multipart/form-data">
+                        <form class="form" action="/client/documents" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <div class="col-lg-12">
+                                    <div class="col-md-6">
+                                        <label class="font-weight-bold">Name</label>
+                                        <input name="name" type="text" class="form-control"
+                                            placeholder="Enter document name." />
+                                    </div>
+                                    <div class="col-md-6">
                                         <label class="font-weight-bold">Document</label>
-                                        <input name="document" type="file" class="form-control"/>
-                                    </div>  
+                                        <input name="document" type="file" class="form-control" />
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -75,4 +80,3 @@
     <!--end::Entry-->
 
 @endsection
-
