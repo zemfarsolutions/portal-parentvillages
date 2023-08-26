@@ -10,10 +10,10 @@ class ResourceController extends Controller
 {
     public function index()
     {
-        // $records = Resource::with('reviews')->get();
+        $records = Resource::with('reviews')->get();
         $total_resources  = Resource::all()->count();
 
-        return view('client.resources.index', compact('total_resources'));
+        return view('client.resources.index', compact('total_resources', 'records'));
     }
 
     public function show(Resource $resource)
