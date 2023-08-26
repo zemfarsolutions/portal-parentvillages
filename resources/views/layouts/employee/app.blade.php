@@ -408,30 +408,11 @@
                                     <i class="menu-arrow"></i>
                                     <ul class="menu-subnav">
                                         <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/image-input.html" class="menu-link">
+                                            <a href="/employee/evaluations" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">Image Input</span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/dropzonejs.html" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">DropzoneJS</span>
-                                                <span class="menu-label">
-                                                    <span class="label label-danger label-inline">new</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="crud/file-upload/uppy.html" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Uppy</span>
+                                                <span class="menu-text">View Evaluations</span>
                                             </a>
                                         </li>
                                     </ul>

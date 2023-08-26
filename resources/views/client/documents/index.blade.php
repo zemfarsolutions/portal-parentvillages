@@ -42,23 +42,23 @@
                                     <!--<i class="flaticon2-search-1 icon-sm"></i>-->
                                 </span>
                             </div> --}}
-                        </div>
-                    </form>
                 </div>
-                <!--end::Search Form-->
+                </form>
             </div>
-            <!--end::Details-->
-            <!--begin::Toolbar-->
-            <div class="d-flex align-items-center">
-                <!--begin::Button-->
-                <a href="../../../.html" class=""></a>
-                <!--end::Button-->
-                <!--begin::Button-->
-                
-                <!--end::Button-->
-            </div>
-            <!--end::Toolbar-->
+            <!--end::Search Form-->
         </div>
+        <!--end::Details-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+            <!--begin::Button-->
+            <a href="../../../.html" class=""></a>
+            <!--end::Button-->
+            <!--begin::Button-->
+
+            <!--end::Button-->
+        </div>
+        <!--end::Toolbar-->
+    </div>
     </div>
     <!--end::Subheader-->
     <!--begin::Entry-->
@@ -78,60 +78,57 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="card-toolbar">
+                        <!--begin::Button-->
+                        <a href="/client/documents/create" class="btn btn-primary font-weight-bolder">
+                            <span class="svg-icon svg-icon-md">
+                                <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Flatten.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <circle fill="#000000" cx="9" cy="15" r="6" />
+                                        <path
+                                            d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
+                                            fill="#000000" opacity="0.3" />
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
+                            </span>
+                            New Document
+                        </a>
+                        <!--end::Button-->
+                    </div>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body">
-                    
-                     <!--begin::Col-->
-                     @foreach($total_documents as $document)
 
-                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                        <!--begin::Card-->
-                        <div class="card card-custom gutter-b card-stretch">
-                            <div class="card-header border-0">
-                                <h3 class="card-title"></h3>
-                                
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save
-                                                    changes</button>
-                                            </div>
+                    <div class="row">
+                        @foreach ($total_documents as $document)
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b card-stretch">
+                                    <div class="card-header border-0">
+                                        <h3 class="card-title"></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <!--begin: Icon-->
+                                            <img alt="" class="max-h-65px"
+                                                src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/pdf.svg" />
+                                            <!--end: Icon-->
+                                            <!--begin: Tite-->
+                                            <a href="/assets/media/{{ $document->path }}" target="_blank"
+                                                class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $document->name }}.pdf</a>
+                                            <!--end: Tite-->
                                         </div>
                                     </div>
                                 </div>
+                                <!--end:: Card-->
                             </div>
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center">
-                                    <!--begin: Icon-->
-                                    <img alt="" class="max-h-65px"
-                                        src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/pdf.svg" />
-                                    <!--end: Icon-->
-                                    <!--begin: Tite-->
-                                    <a href="" target="_blank"
-                                        class="text-dark-75 font-weight-bold mt-15 font-size-lg">fvdsfsf.pdf</a>
-                                    <!--end: Tite-->
-                                </div>
-                            </div>
-                        </div>
-                        <!--end:: Card-->
+                        @endforeach
                     </div>
-                    @endforeach
 
                     <!--end::Col-->
                 </div>
