@@ -56,23 +56,23 @@
                             <div class="d-flex align-items-center p-6">
                                 <!--begin::Icon-->
                                 <div class="mr-6">
-                                    <span class="svg-icon svg-icon-4x svg-icon-primary">
-                                        <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Code/Compiling.svg-->
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-                                            viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect x="0" y="0" width="24" height="24" />
-                                                <path
-                                                    d="M12,22 C7.02943725,22 3,17.9705627 3,13 C3,8.02943725 7.02943725,4 12,4 C16.9705627,4 21,8.02943725 21,13 C21,17.9705627 16.9705627,22 12,22 Z"
-                                                    fill="#000000" opacity="0.3" />
-                                                <path
-                                                    d="M11.9630156,7.5 L12.0475062,7.5 C12.3043819,7.5 12.5194647,7.69464724 12.5450248,7.95024814 L13,12.5 L16.2480695,14.3560397 C16.403857,14.4450611 16.5,14.6107328 16.5,14.7901613 L16.5,15 C16.5,15.2109164 16.3290185,15.3818979 16.1181021,15.3818979 C16.0841582,15.3818979 16.0503659,15.3773725 16.0176181,15.3684413 L11.3986612,14.1087258 C11.1672824,14.0456225 11.0132986,13.8271186 11.0316926,13.5879956 L11.4644883,7.96165175 C11.4845267,7.70115317 11.7017474,7.5 11.9630156,7.5 Z"
-                                                    fill="#000000" />
-                                            </g>
-                                        </svg>
-                                        <!--end::Svg Icon-->
-                                    </span>
+                                    <span class="svg-icon menu-icon">
+                                        <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Files/Upload.svg-->
+                                        <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="0.3"
+                                                    d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z"
+                                                    fill="currentColor" />
+                                                <rect x="7" y="17" width="6" height="2"
+                                                    rx="1" fill="currentColor" />
+                                                <rect x="7" y="12" width="10" height="2"
+                                                    rx="1" fill="currentColor" />
+                                                <rect x="7" y="7" width="6" height="2"
+                                                    rx="1" fill="currentColor" />
+                                                <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor" />
+                                            </svg>
+                                        </span>
                                 </div>
                                 <!--end::Icon-->
                                 <!--begin::Content-->
@@ -89,7 +89,7 @@
                 </div>
                 <div class="col-lg-4">
                     <!--begin::Card-->
-                    <a href="/employee/mileage-logs" class="card card-custom wave wave-animate bg-grey-100 mb-8 mb-lg-0">
+                    <a href="/employee/milaege-logs" class="card card-custom wave wave-animate bg-grey-100 mb-8 mb-lg-0">
                         <!--begin::Card Body-->
                         <div class="card-body">
                             <div class="d-flex align-items-center p-6">
