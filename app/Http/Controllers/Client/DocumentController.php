@@ -14,8 +14,8 @@ class DocumentController extends Controller
     {
         $user_id = Auth::guard('web')->user()->id;
         $total_records = UserDocument::where('user_id', $user_id)->count();
-        $total_documents = UserDocument::where('user_id', $user_id)->get();
-        return view('client.documents.index', compact('total_records', 'total_documents'));
+        $records = UserDocument::where('user_id', $user_id)->get();
+        return view('client.documents.index', compact('total_records', 'records'));
     }
 
     public function create()
