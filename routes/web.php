@@ -7,7 +7,6 @@ use App\Http\Controllers\Client\{
     AppointmentController,
     DocumentController,
     ScholarshipController,
-    FileController,
     ResourceController
 };
 

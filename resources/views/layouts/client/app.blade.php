@@ -106,7 +106,7 @@
     <!--end::Header Mobile-->
     <div class="d-flex flex-column flex-root">
         <!--begin::Page-->
-        <div class="d-flex flex-row flex-column-fluid page">
+        <div class="d-flex flex-row page">
             <!--begin::Aside-->
             <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
                 <!--begin::Brand-->
@@ -1363,14 +1363,14 @@
             </div>
             <!--end::Header-->
             <!--begin::Content-->
-            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+            <div class="content d-flex flex-column " id="kt_content">
 
                 @yield('section')
 
             </div>
             <!--end::Content-->
             <!--begin::Footer-->
-            <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
+            <div class="footer bg-white py-4 d-flex flex-lg-column custom-footer" id="kt_footer">
                 <!--begin::Container-->
                 <div
                     class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">

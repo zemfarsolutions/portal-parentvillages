@@ -18,9 +18,8 @@
                 <div class="d-flex align-items-center" id="kt_subheader_search">
                     <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">{{ $total_records }} Total</span>
                     <form class="ml-5">
-                        {{-- <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
-                            <input type="text" class="form-control" id="kt_subheader_search_form"
-                                placeholder="Search..." />
+                        <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
+                            <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search..." />
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <span class="svg-icon">
@@ -41,24 +40,24 @@
                                     </span>
                                     <!--<i class="flaticon2-search-1 icon-sm"></i>-->
                                 </span>
-                            </div> --}}
+                            </div> 
+                        </div>
+                    </form>
                 </div>
-                </form>
+                <!--end::Search Form-->
             </div>
-            <!--end::Search Form-->
-        </div>
-        <!--end::Details-->
-        <!--begin::Toolbar-->
-        <div class="d-flex align-items-center">
-            <!--begin::Button-->
-            <a href="../../../.html" class=""></a>
-            <!--end::Button-->
-            <!--begin::Button-->
+            <!--end::Details-->
+            <!--begin::Toolbar-->
+            <div class="d-flex align-items-center">
+                <!--begin::Button-->
+                <a href="../../../.html" class=""></a>
+                <!--end::Button-->
+                <!--begin::Button-->
 
-            <!--end::Button-->
+                <!--end::Button-->
+            </div>
+            <!--end::Toolbar-->
         </div>
-        <!--end::Toolbar-->
-    </div>
     </div>
     <!--end::Subheader-->
     <!--begin::Entry-->
@@ -70,8 +69,7 @@
                 <!--begin::Header-->
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Documents Management
-                        </h3>
+                        <h3 class="card-label">Documents Management</h3>
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item">
                                 <a href="/client/documents" class="text-muted">Documents</a>
@@ -103,9 +101,8 @@
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body">
-
                     <div class="row">
-                        @foreach ($total_documents as $document)
+                    {{--@foreach ($total_documents as $document)
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                                 <!--begin::Card-->
                                 <div class="card card-custom gutter-b card-stretch">
@@ -127,9 +124,8 @@
                                 </div>
                                 <!--end:: Card-->
                             </div>
-                        @endforeach
+                        @endforeach--}}
                     </div>
-
                     <!--end::Col-->
                 </div>
                 <!--end::Body-->
@@ -141,6 +137,4 @@
     <!--end::Entry-->
 @endsection
 
-@section('scripts')
-    <script src="/assets/js/pages/appointments/index.js"></script>
-@endsection
+

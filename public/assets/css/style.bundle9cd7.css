@@ -62760,3 +62760,11 @@ body {
     left: 265px; }
   .aside-enabled.aside-minimize.footer-fixed .footer {
     left: 70px; } }
+
+    .custom-footer{
+      position: fixed;
+      
+      bottom: 0;
+      width: -webkit-fill-available;
+  
+    }
