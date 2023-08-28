@@ -55,6 +55,11 @@
                                             placeholder="Enter your calendy link" />
                                         <span class="form-text text-muted">Calendy Link</span>
                                     </div>
+                                    <span class="text_danger">
+                                        @error("calendy_link")
+                                            {{$message}}
+                                        @enderror
+                                    </span>
                                 </div>
                             </div>
                             <div class="card-footer">

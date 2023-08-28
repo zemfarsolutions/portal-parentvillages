@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\API\Appointment;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
-use App\Models\UserAppointment;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+
+use App\Models\UserAppointment;
 
 class AppointmentController extends Controller
 {
@@ -22,7 +25,14 @@ class AppointmentController extends Controller
 
     public function store(Request $request){
         $user_id = Auth::guard('web')->user()->id;
-
+        $validator=Validator::make($request->all(),[
+            'calendy_link' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $appointment = UserAppointment::create([
             'user_id' => $user_id,
             'link' => $request->calendy_link
