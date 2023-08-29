@@ -6,6 +6,7 @@ use App\Http\Controllers\Client\{
     IntakeController,
     AppointmentController,
     DocumentController,
+    ProfileController,
     ScholarshipController,
     ResourceController
 };
@@ -46,6 +47,8 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::get('/resources/reviews/create/{id}', [ResourceController::class, 'showCreateForm']);
 
     Route::get('/resources/{resource}/delete', [ResourceController::class, 'destroy']);
+
+    Route::resource('/profile',ProfileController::class);
 
 
 });
