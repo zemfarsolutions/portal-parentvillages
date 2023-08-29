@@ -590,11 +590,11 @@ var KTWidgets = function () {
         if (!element) {
             return;
         }
-
+        var values = [100, 40, 30, 30, 35, 35, 50];
         var options = {
             series: [{
                 name: 'Net Profit',
-                data: [40, 40, 30, 30, 35, 35, 50]
+                data: values
             }],
             chart: {
                 type: 'area',
