@@ -70,8 +70,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="typeSelect1">Amount:</label>
-                                            <input value="{{ $receipt->amount }}" required name="amount" type="number"
-                                                class="form-control" placeholder="Enter receipt amount" />
+                                            <input required name="amount" type="text" id="numberInput" pattern="[0-9]*" class="form-control"
+                                                placeholder="Enter receipt amount" />
                                             <span class="form-text text-muted">Please the receipt amount.</span>
                                         </div>
                                     </div>

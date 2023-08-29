@@ -63,10 +63,12 @@
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label>Number Of Miles:</label>
-                                        <input required name="number_of_hours" type="number" class="form-control"
-                                            placeholder="Enter No. of Miles" />
-                                        <span class="form-text text-muted">Please enter total number of miles</span>
+                                        <div class="form-group">
+                                            <label for="typeSelect1">Number of Miles:</label>
+                                            <input required name="amount" type="text" id="numberInput" pattern="[0-9]*" class="form-control"
+                                                placeholder="Enter No. of Miles" />
+                                            <span class="form-text text-muted">Please Enter total number of Miles.</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">

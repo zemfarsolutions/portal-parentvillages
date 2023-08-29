@@ -63,10 +63,10 @@
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label>Amount:</label>
-                                        <input required name="amount" type="number" class="form-control"
-                                            placeholder="Enter contact number" />
-                                        <span class="form-text text-muted">Please enter total amount</span>
+                                        <label for="typeSelect1">Amount:</label>
+                                        <input required name="amount" type="text" id="numberInput" pattern="[0-9]*"
+                                            class="form-control" placeholder="Enter Amount" />
+                                        <span class="form-text text-muted">Please enter the Amount.</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">

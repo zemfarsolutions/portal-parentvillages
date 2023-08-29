@@ -53,13 +53,17 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label>Date:</label>
-                                        <input name="date" type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" placeholder="Select date" />
+                                        <input name="date" type="text" class="form-control" id="kt_datepicker_1"
+                                            readonly="readonly" placeholder="Select date" />
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label>Number Of Hours:</label>
-                                        <input required name="number_of_hours" type="number" class="form-control" placeholder="Enter contact number" />
-                                        <span class="form-text text-muted">Please enter total number of hours</span>
+                                        <div class="form-group">
+                                            <label for="typeSelect1">Number of Hours:</label>
+                                            <input required name="amount" type="text" id="numberInput" pattern="[0-9]*"
+                                                class="form-control" placeholder="Enter No. of hours" />
+                                            <span class="form-text text-muted">Please Enter total number of hours.</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -81,7 +85,7 @@
                                 <div class="form-group row">
                                     <div class="col-lg-12 text-danger">
                                         @error('date')
-                                            {{$message}}
+                                            {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
@@ -107,5 +111,5 @@
 
 @section('scripts')
 
-<script src="/assets/js/pages/crud/forms/widgets/bootstrap-datepicker9cd7.js?v=7.1.5"></script>
+    <script src="/assets/js/pages/crud/forms/widgets/bootstrap-datepicker9cd7.js?v=7.1.5"></script>
 @endsection

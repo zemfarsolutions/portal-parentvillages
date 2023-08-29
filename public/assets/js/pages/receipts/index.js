@@ -68,10 +68,10 @@ var KTDatatableModal = function() {
 					template: function(row) {
 						return '\
                         <div style="display:flex;">\
-                                <a href="/employee/receipts/'+row.id+'" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+                                <a href="/employee/receipts/'+row.id+'" class="btn btn-sm btn-clean btn-icon btn-info mr-2" title="Edit details">\
 									<i class="flaticon2-document"></i>\
 								</a>\
-								<a href="/employee/receipts/'+row.id+'/edit" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+								<a href="/employee/receipts/'+row.id+'/edit" class="btn btn-sm btn-clean btn-icon btn-secondary	mr-2" title="Edit details">\
 									<span class="svg-icon svg-icon-md">\
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
@@ -83,7 +83,7 @@ var KTDatatableModal = function() {
 									</span>\
 								</a>\
 								<form action="/employee/receipts/delete/'+row.id+'" method="POST">\
-									<button class="btn btn-sm btn-clean btn-icon" title="Delete">\
+									<button class="btn btn-sm btn-danger  btn-clean btn-icon" title="Delete">\
 										<span class="svg-icon svg-icon-md">\
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\

@@ -62,10 +62,18 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Amount:</label>
-                                        <input required name="amount" value="{{ $expense->amount }}" type="number"
+                                        <input required name="amount" value="{{ $expense->amount }}" type="text" id="numberInput" pattern="[0-9]*"
                                             class="form-control" placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter total Amount</span>
                                     </div>
+                                    {{-- <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="typeSelect1">Amount:</label>
+                                            <input required name="amount" type="text" id="numberInput" pattern="[0-9]*" class="form-control"
+                                                placeholder="Enter receipt amount" />
+                                            <span class="form-text text-muted">Please the receipt amount.</span>
+                                        </div>
+                                    </div> --}}
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
