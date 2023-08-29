@@ -582,7 +582,7 @@ var KTWidgets = function () {
     }
 
     var _initStatsWidget11 = function () {
-        var element = document.getElementById("kt_stats_widget_11_chart");
+        var element = document.getElementById("milage_logs_chart");
 
         var height = parseInt(KTUtil.css(element, 'height'));
         var color = KTUtil.hasAttr(element, 'data-color') ? KTUtil.attr(element, 'data-color') : 'success';
@@ -590,135 +590,147 @@ var KTWidgets = function () {
         if (!element) {
             return;
         }
-        var values = [100, 40, 30, 30, 35, 35, 50];
-        var options = {
-            series: [{
-                name: 'Net Profit',
-                data: values
-            }],
-            chart: {
-                type: 'area',
-                height: 150,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {},
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 1
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 3,
-                colors: [KTApp.getSettings()['colors']['theme']['base'][color]]
-            },
-            xaxis: {
-                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep'],
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false,
-                    style: {
-                        colors: KTApp.getSettings()['colors']['gray']['gray-500'],
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                },
-                crosshairs: {
-                    show: false,
-                    position: 'front',
-                    stroke: {
-                        color: KTApp.getSettings()['colors']['gray']['gray-300'],
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: true,
-                    formatter: undefined,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 55,
-                labels: {
-                    show: false,
-                    style: {
-                        colors: KTApp.getSettings()['colors']['gray']['gray-500'],
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px',
-                    fontFamily: KTApp.getSettings()['font-family']
-                },
-                y: {
-                    formatter: function (val) {
-                        return "$" + val + " thousands"
-                    }
-                }
-            },
-            colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
-            markers: {
-                colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
-                strokeColor: [KTApp.getSettings()['colors']['theme']['base'][color]],
-                strokeWidth: 3
-            }
-        };
+        var values ;
+        var months ;
+        $.ajax({
+            url:HOST_URL + '/api/get-milaege?id='+user_id,
+            method : 'GET',
+            success:function(response){
+                values = response['values'];
+                months = response['months'];
 
-        var chart = new ApexCharts(element, options);
-        chart.render();
+                var options = {
+                    series: [{
+                        name: 'Hours',
+                        data: values,
+                    }],
+                    chart: {
+                        type: 'area',
+                        height: height,
+                        toolbar: {
+                            show: false
+                        },
+                        
+                        zoom: {
+                            enabled: false
+                        },
+                        sparkline: {
+                            enabled: true
+                        }
+                    },
+                    plotOptions: {},
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    fill: {
+                        type: 'solid',
+                        opacity: 1
+                    },
+                    stroke: {
+                        curve: 'smooth',
+                        show: true,
+                        width: 3,
+                        colors: [KTApp.getSettings()['colors']['theme']['base'][color]]
+                    },
+                    xaxis: {
+                        categories: months,
+                        axisBorder: {
+                            show: false,
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        labels: {
+                            show: false,
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        },
+                        crosshairs: {
+                            show: false,
+                            position: 'front',
+                            stroke: {
+                                color: KTApp.getSettings()['colors']['gray']['gray-300'],
+                                width: 1,
+                                dashArray: 3
+                            }
+                        },
+                        tooltip: {
+                            enabled: true,
+                            formatter: undefined,
+                            offsetY: 0,
+                            style: {
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 55,
+                        labels: {
+                            show: false,
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    states: {
+                        normal: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        hover: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        active: {
+                            allowMultipleDataPointsSelection: false,
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        }
+                    },
+                    tooltip: {
+                        style: {
+                            fontSize: '12px',
+                            fontFamily: KTApp.getSettings()['font-family']
+                        },
+                        y: {
+                            formatter: function (val) {
+                                return val + " hours"
+                            }
+                        }
+                    },
+                    colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
+                    markers: {
+                        colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
+                        strokeColor: [KTApp.getSettings()['colors']['theme']['base'][color]],
+                        strokeWidth: 3
+                    }
+                };
+        
+                var chart = new ApexCharts(element, options);
+                chart.render();
+            }
+        });
+       
     }
 
     var _initStatsWidget12 = function () {
-        var element = document.getElementById("kt_stats_widget_12_chart");
+        var element = document.getElementById("expense_chart");
 
         var height = parseInt(KTUtil.css(element, 'height'));
         var color = KTUtil.hasAttr(element, 'data-color') ? KTUtil.attr(element, 'data-color') : 'primary';
@@ -726,131 +738,143 @@ var KTWidgets = function () {
         if (!element) {
             return;
         }
+        var values ;
+        var months ;
+        $.ajax({
+            url:HOST_URL + '/api/get-expense?id='+user_id,
+            method : 'GET',
+            success:function(response){
+                values = response['total_amount'];
+                months = response['months'];
 
-        var options = {
-            series: [{
-                name: 'Net Profit',
-                data: [40, 40, 30, 30, 35, 35, 50]
-            }],
-            chart: {
-                type: 'area',
-                height: height,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {},
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 1
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 3,
-                colors: [KTApp.getSettings()['colors']['theme']['base'][color]]
-            },
-            xaxis: {
-                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep'],
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false,
-                    style: {
-                        colors: KTApp.getSettings()['colors']['gray']['gray-500'],
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                },
-                crosshairs: {
-                    show: false,
-                    position: 'front',
+                var options = {
+                    series: [{
+                        name: 'Expense',
+                        data: values
+                    }],
+                    chart: {
+                        type: 'area',
+                        height: height,
+                        toolbar: {
+                            show: false
+                        },
+                        zoom: {
+                            enabled: false
+                        },
+                        sparkline: {
+                            enabled: true
+                        }
+                    },
+                    plotOptions: {},
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    fill: {
+                        type: 'solid',
+                        opacity: 1
+                    },
                     stroke: {
-                        color: KTApp.getSettings()['colors']['gray']['gray-300'],
-                        width: 1,
-                        dashArray: 3
+                        curve: 'smooth',
+                        show: true,
+                        width: 3,
+                        colors: [KTApp.getSettings()['colors']['theme']['base'][color]]
+                    },
+                    xaxis: {
+                        categories: months,
+                        axisBorder: {
+                            show: false,
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        labels: {
+                            show: false,
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        },
+                        crosshairs: {
+                            show: false,
+                            position: 'front',
+                            stroke: {
+                                color: KTApp.getSettings()['colors']['gray']['gray-300'],
+                                width: 1,
+                                dashArray: 3
+                            }
+                        },
+                        tooltip: {
+                            enabled: true,
+                            formatter: undefined,
+                            offsetY: 0,
+                            style: {
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 55,
+                        labels: {
+                            show: false,
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    states: {
+                        normal: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        hover: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        active: {
+                            allowMultipleDataPointsSelection: false,
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        }
+                    },
+                    tooltip: {
+                        style: {
+                            fontSize: '12px',
+                            fontFamily: KTApp.getSettings()['font-family']
+                        },
+                        y: {
+                            formatter: function (val) {
+                                return val  
+                            }
+                        }
+                    },
+                    colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
+                    markers: {
+                        colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
+                        strokeColor: [KTApp.getSettings()['colors']['theme']['base'][color]],
+                        strokeWidth: 3
                     }
-                },
-                tooltip: {
-                    enabled: true,
-                    formatter: undefined,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 55,
-                labels: {
-                    show: false,
-                    style: {
-                        colors: KTApp.getSettings()['colors']['gray']['gray-500'],
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px',
-                    fontFamily: KTApp.getSettings()['font-family']
-                },
-                y: {
-                    formatter: function (val) {
-                        return "$" + val + " thousands"
-                    }
-                }
-            },
-            colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
-            markers: {
-                colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
-                strokeColor: [KTApp.getSettings()['colors']['theme']['base'][color]],
-                strokeWidth: 3
+                };
+        
+                var chart = new ApexCharts(element, options);
+                chart.render();
             }
-        };
+        });
 
-        var chart = new ApexCharts(element, options);
-        chart.render();
+       
     }
 
     // Charts widgets
