@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EmployeeMilaegeLog;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MilaegeLog extends Controller
 {
@@ -15,22 +16,41 @@ class MilaegeLog extends Controller
         return $records;
     }
 
+    
     public function milage_chart(Request $request){
-
-        $records = EmployeeMilaegeLog::where('employee_id', $request->id)->get();
         
-        foreach($records as $record){
+        $records = EmployeeMilaegeLog::where('employee_id', $request->id)->orderBy('date', 'asc')->get();
 
-            $num_of_hours[] = $record->number_of_hours;
-            $date = Carbon::createFromFormat('Y-m-d H:i:s', $record->created_at);
-            $months[] = $date->format('F');
+        $total_hours = [];
+        $months = [];
+        $data = [];
+
+        foreach($records as $record){
             
+            $date = Carbon::createFromFormat('Y-m-d', $record->date);
+            
+            if (!in_array($date->format('F'), $months)) {
+
+                $num_of_hours = EmployeeMilaegeLog::select('number_of_hours')
+                                ->whereMonth('date', (int)$date->format('m'))
+                                ->get()
+                                ->pluck('number_of_hours')
+                                ->toArray();
+                
+                array_push($total_hours, array_sum($num_of_hours));
+
+                array_push($months, $date->format('F'));
+
+            }
+
         }
 
-        $data ['values']= $num_of_hours;
-        $data['months']= $months;
+        $data['miles'] = $total_hours;
+        $data['months'] = $months;
 
-        dd($data);
-        return $data;
+        return response()->json([
+            'status' => 200,
+            'data' => $data
+        ]);
     }
 }
