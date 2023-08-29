@@ -75,27 +75,11 @@ var KTLogin = function() {
 						success: function(response) {
 
 							if (response.status == 200) {
-								swal.fire({
-									text: response.message,
-									icon: "success",
-									buttonsStyling: false,
-									confirmButtonText: "Ok, got it!",
-									customClass: {
-										confirmButton: "btn font-weight-bold btn-light-primary"
-									}
-								}).then(function(result) {
-	
-									if (result.isConfirmed) {
-	
-										if (response.type == "client") {
-											window.location.href = "/client/dashboard";
-										}else{
-											window.location.href = "/employee/dashboard";
-										}
-									}
-	
-									KTUtil.scrollTop();
-								});	
+								if (response.type == "client") {
+									window.location.href = "/client/dashboard";
+								}else{
+									window.location.href = "/employee/dashboard";
+								}
 							}
 
 							if (response.status == 500) {

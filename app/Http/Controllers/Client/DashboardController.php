@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Intake;
 use App\Models\IntakeAnswer;
+use App\Models\Scholarship;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -12,7 +14,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('client.dashboard');
+        $records = Scholarship::orderBy('id' , 'DESC')->limit(5)->get();
+        $resources = Resource::orderBy('id','DESC')->limit(5)->get();
+        return view('client.dashboard', compact('records' , 'resources')) ;
     }
 
     public function show()
