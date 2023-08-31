@@ -2416,6 +2416,8 @@
     <!--end::Page Vendors-->
     <!--begin::Page Scripts(used by this page)-->
     <script src="/assets/js/pages/widgets9cd7.js?v=7.1.5"></script>
+    <script src="/assets/js/pages/apexcharts9cd7.js?v=7.1.5"></script>
+
     <!--end::Page Scripts-->
     <script>
         @if (Session::has('success'))

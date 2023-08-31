@@ -3070,6 +3070,7 @@
             <!--end::Page Vendors-->
             <!--begin::Page Scripts(used by this page)-->
             <script src="/assets/js/pages/widgets9cd7.js?v=7.1.5"></script>
+            <script src="/assets/js/pages/apexcharts9cd7.js?v=7.1.5"></script>
             <!--end::Page Scripts-->
             <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
             <script>

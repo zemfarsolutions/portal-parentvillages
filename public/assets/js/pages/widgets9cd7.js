@@ -581,141 +581,60 @@ var KTWidgets = function () {
         chart.render();
     }
 
-    var _initStatsWidget11 = function () {
-        var element = document.getElementById("milage_logs_chart");
+    // var _initStatsWidget11 = function () {
+    //     var element = document.getElementById("milage_logs_chart");
 
-        var height = parseInt(KTUtil.css(element, 'height'));
-        var color = KTUtil.hasAttr(element, 'data-color') ? KTUtil.attr(element, 'data-color') : 'success';
+    //     var height = parseInt(KTUtil.css(element, 'height'));
+    //     var color = KTUtil.hasAttr(element, 'data-color') ? KTUtil.attr(element, 'data-color') : 'success';
 
-        if (!element) {
-            return;
-        }
+    //     if (!element) {
+    //         return;
+    //     }
+       
+    //     $.ajax({
+    //         url:HOST_URL + '/api/get-milaege?id='+user_id,
+    //         method : 'GET',
+    //         success:function(response){
+    //             const miles = response['data']['miles'];
+    //             const months = response['data']['months'];
+                
+    //             const apexChart = "#chart_1";
+	// 			var options = {
+	// 				series: [{
+	// 					name: "Desktops",
+	// 					data: miles
+	// 				}],
+	// 				chart: {
+	// 					height: 350,
+	// 					type: 'line',
+	// 					zoom: {
+	// 						enabled: false
+	// 					}
+	// 				},
+	// 				dataLabels: { 	
+	// 					enabled: false
+	// 				},
+	// 				stroke: {
+	// 					curve: 'straight'
+	// 				},
+	// 				grid: {
+	// 					row: {
+	// 						colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+	// 						opacity: 0.5
+	// 					},
+	// 				},
+	// 				xaxis: {
+	// 					categories: months,
+	// 				},
+	// 				colors: [primary]
+	// 			};
+	// 			var chart = new ApexCharts(document.querySelector(apexChart), options);
+	// 			chart.render();
+    //         }
+    //     });
+        
 
-        var options = {
-            series: [{
-                name: 'Net Profit',
-                data: [40, 40, 30, 30, 35, 35, 90]
-            }],
-            chart: {
-                type: 'area',
-                height: 150,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                },
-                sparkline: {
-                    enabled: true
-                }
-            },
-            plotOptions: {},
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            fill: {
-                type: 'solid',
-                opacity: 1
-            },
-            stroke: {
-                curve: 'smooth',
-                show: true,
-                width: 3,
-                colors: [KTApp.getSettings()['colors']['theme']['base'][color]]
-            },
-            xaxis: {
-                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep'],
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    show: false,
-                    style: {
-                        colors: KTApp.getSettings()['colors']['gray']['gray-500'],
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                },
-                crosshairs: {
-                    show: false,
-                    position: 'front',
-                    stroke: {
-                        color: KTApp.getSettings()['colors']['gray']['gray-300'],
-                        width: 1,
-                        dashArray: 3
-                    }
-                },
-                tooltip: {
-                    enabled: true,
-                    formatter: undefined,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 55,
-                labels: {
-                    show: false,
-                    style: {
-                        colors: KTApp.getSettings()['colors']['gray']['gray-500'],
-                        fontSize: '12px',
-                        fontFamily: KTApp.getSettings()['font-family']
-                    }
-                }
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px',
-                    fontFamily: KTApp.getSettings()['font-family']
-                },
-                y: {
-                    formatter: function (val) {
-                        return "$" + val + " thousands"
-                    }
-                }
-            },
-            colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
-            markers: {
-                colors: [KTApp.getSettings()['colors']['theme']['light'][color]],
-                strokeColor: [KTApp.getSettings()['colors']['theme']['base'][color]],
-                strokeWidth: 3
-            }
-        };
-
-        var chart = new ApexCharts(element, options);
-        chart.render();
-    }
+    // }
 
     var _initStatsWidget12 = function () {
         var element = document.getElementById("expense_chart");
@@ -4642,7 +4561,7 @@ var KTWidgets = function () {
             _initStatsWidget8();
             _initStatsWidget9();
             _initStatsWidget10();
-            _initStatsWidget11();
+            // _initStatsWidget11();
             _initStatsWidget12();
 
             // Charts Widgets

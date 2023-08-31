@@ -34,5 +34,5 @@ Route::get('/get-expenses', [Expense::class, 'index']);
 Route::get('/get-intakes', [IntakeForm::class, 'index']);
 Route::get('/get-appointments', [Appointment::class, 'index']);
 Route::get('/get-files', [File::class, 'index']);
-Route::get('/get-mileage', [MilaegeLog::class, 'milage_chart']);
+Route::get('/get-milaege', [MilaegeLog::class, 'milage_chart']);
 Route::get('/get-expense', [Expense::class, 'expense_chart']);
