@@ -62771,3 +62771,6 @@ body {
 .custom-title{
   padding-top: 10px;
 }
+.apexcharts-datalabels .apexcharts-data-labels text{
+  display: none;
+}

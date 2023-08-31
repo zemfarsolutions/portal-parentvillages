@@ -92,6 +92,70 @@ var KTApexChartsDemo = function () {
         });
 		
 	}
+    var _expenseChart = function () {
+		const apexChart = "#expense_chart";
+
+        $.ajax({
+            url:HOST_URL + '/api/get-expense?id='+user_id,
+            method : 'GET',
+            success:function(response){
+                const total_amount = response['data']['total_amount'];
+                const months = response['data']['months'];
+
+                var options = {
+                    series: [{
+                        name: 'Total Amount',
+                        data: total_amount
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: 350,
+                        toolbar: {
+                            show: false
+                        },
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '5%',
+                            endingShape: 'rounded'
+                        },
+                    },
+                    dataLabels: {
+                        enabled: true
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: months,
+                    },
+                    yaxis: {
+                        title: {
+                            text: ''
+                        }
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: function (val) {
+                                return "" + val + " thousands"
+                            }
+                        }
+                    },
+                    colors: [primary, success, warning]
+                };
+        
+                var chart = new ApexCharts(document.querySelector(apexChart), options);
+                chart.render();
+            }
+        });
+		
+	}
 
 	var _demo1 = function () {
 		const apexChart = "#chart_1";
@@ -1118,6 +1182,7 @@ var KTApexChartsDemo = function () {
 		// public functions
 		init: function () {
             _milageChart();
+            _expenseChart();
 			_demo1();
 			_demo2();
 			_demo3();

@@ -177,11 +177,10 @@
             <div class="container" style = "margin-top: 25px ">
                 <div class="row">
                     <div class="col-md-6">
-                        <!--begin::Stats Widget 12-->
                         <div class="card card-custom card-stretch card-stretch-half gutter-b" style="height: 100%">
                             <!--begin::Body-->
-                            <div class="card-body p-0">
-                                <div class="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
+                            <div class="card-header">
+                                <div class="card-title">
                                     <span class="symbol symbol-50 symbol-light-primary mr-2">
                                         <span class="symbol-label">
                                             <span class="svg-icon svg-icon-xl svg-icon-primary">
@@ -198,28 +197,26 @@
                                         </span>
                                         {{-- <i class="las la-gas-pump fs-5x"></i> --}}
                                     </span>
-                                    <div class="d-flex flex-column text-right">
-                                        <span class="text-dark-75 font-weight-bolder font-size-h3"></span>
-                                        <span class="text-muted font-weight-bold mt-2">Milage</span>
-                                    </div>
+                                    <h3 class="card-label">Mileage Log</h3>
                                 </div>
+                            </div>
+                            <div class="card-body">
                                 <div id="milage_logs_chart" class="card-rounded-bottom" data-color="primary" style="height: 350px"></div>
                             </div>
                             <!--end::Body-->
                         </div>
-                        <!--end::Stats Widget 12-->
                     </div>
                     <div class="col-lg-6">
                         <!--begin::Card-->
-                        <div class="card card-custom gutter-b">
+                        <div class="card card-custom card-stretch card-stretch-half gutter-b" style="height: 100%">
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h3 class="card-label">Column Chart</h3>
+                                    <h3 class="card-label">Expense</h3>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <!--begin::Chart-->
-                                <div id="chart_3"></div>
+                                <div id="expense_chart"></div>
                                 <!--end::Chart-->
                             </div>
                         </div>
