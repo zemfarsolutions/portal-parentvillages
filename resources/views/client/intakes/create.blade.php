@@ -23,6 +23,11 @@
                 <!--end::Page Heading-->
             </div>
             <!--end::Info-->
+            <div class="d-flex align-items-center">
+                <!--begin::Actions-->
+                <a href="/client/intakes" class="btn btn-light-primary font-weight-bolder btn-sm">Go Back</a>
+                <!--end::Actions-->
+            </div>
         </div>
     </div>
     <!--end::Subheader-->
@@ -773,10 +778,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-primary mr-2">Save</button>
-                                        <button type="reset" class="btn btn-secondary">Cancel</button>
-                                    </div>
-                                    <div class="col-lg-6 text-lg-right">
-                                        <button type="reset" class="btn btn-danger">Delete</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
                                     </div>
                                 </div>
                             </div>
