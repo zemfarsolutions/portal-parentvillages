@@ -114,7 +114,7 @@
                     <!--begin::Logo-->
                     <a href="/client/dashboard" class="brand-logo">
                         {{-- <img alt="Logo" width="180px" class="mt-2" src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png" /> --}}
-                        <span style="color: white; font-size:17px; font-weight:500;">Parent Villages</span>
+                        <img alt="Logo" width="180px" class="mt-2" src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png">
                     </a>
                     <!--end::Logo-->
                     <!--begin::Toggle-->
@@ -410,7 +410,7 @@
                                 <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active"
                                     data-menu-toggle="click" aria-haspopup="true">
                                     <a href="javascript:;" class="menu-link menu-toggle" style="cursor:pointer">
-                                        <span class="menu-text">Pages</span>
+                                        <span class="menu-text">Modules</span>
                                         <i class="menu-arrow"></i>
                                     </a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
@@ -1175,7 +1175,7 @@
                         </div>
                         <!--end::Notifications-->
                         <!--begin::Quick Actions-->
-                        <div class="dropdown">
+                        {{-- <div class="dropdown">
                             <!--begin::Toggle-->
                             <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
                                 <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
@@ -1332,7 +1332,7 @@
                                 <!--end:Nav-->
                             </div>
                             <!--end::Dropdown-->
-                        </div>
+                        </div> --}}
                         <!--end::Quick Actions-->
                         <!--begin::Languages-->
                         <div class="dropdown">
@@ -1376,7 +1376,7 @@
                     class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
                     <!--begin::Copyright-->
                     <div class="text-dark order-2 order-md-1">
-                        <span class="text-muted font-weight-bold mr-2">2020©</span>
+                        <span class="text-muted font-weight-bold mr-2">2023©</span>
                         <a href="http://keenthemes.com/metronic" target="_blank"
                             class="text-dark-75 text-hover-primary">Parent Villages</a>
                     </div>

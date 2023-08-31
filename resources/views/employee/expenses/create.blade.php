@@ -17,10 +17,10 @@
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item">
-                            <a href="/employee/milaege-logs" class="text-muted">Expenses</a>
+                            <a href="" class="text-muted">Expenses</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="/employee/milaege-logs/create" class="text-muted">Add Expense</a>
+                            <a href="" class="text-muted">Add Expense</a>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->

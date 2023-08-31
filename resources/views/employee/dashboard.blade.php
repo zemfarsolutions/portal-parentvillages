@@ -22,7 +22,7 @@
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-muted">Dashboard</a>
+                        <a href="/employee/dashboard" class="text-muted">Dashboard</a>
                     </li>
                 </ul>
                 <!--end::Breadcrumb-->
@@ -244,7 +244,7 @@
 											<div class="card-header h-auto">
 												<!--begin::Title-->
 												<div class="card-title py-5">
-													<h3 class="card-label">Line Chart</h3>
+													<h3 class="card-label">Time Tracking</h3>
 												</div>
 												<!--end::Title-->
 											</div>

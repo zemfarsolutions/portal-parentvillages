@@ -854,8 +854,8 @@
 
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            data-action="clear">Clear</button>
+                                        <button type="button" class=".btn.btn-success btn-sm"
+                                            data-action="clear .btn.btn-success">Clear</button>
                                     </div>
                                 </div>
                             </div>
