@@ -49,6 +49,7 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::get('/resources/{resource}/delete', [ResourceController::class, 'destroy']);
 
     Route::resource('/profile',ProfileController::class);
+    Route::get('/change-password',[ProfileController::class, 'password_index']);
 
 
 });
