@@ -7,7 +7,7 @@
             </div>
         </div>
         <!--begin::Form-->
-        <form class="form" action="/client/profile" method="POST">
+        <form class="form" action="/client/change-password/{{Auth::guard('web')->user()->id}}" method="POST">
             @csrf
             <div class="card-body">
                 <div class="form-group row">

@@ -15,7 +15,7 @@
                     <!--begin::User-->
                     <div class="d-flex align-items-center">
                         <div class="symbol symbol-60 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center">
-                            <div class="symbol-label" style="background-image:url('https://m.media-amazon.com/images/I/61J7v+T91PL.jpg')"></div>
+                            <div class="symbol-label" style="background-image:url('../assets/media/{{$user->avatar}}')"></div>
                             <i class="symbol-badge bg-success"></i>
                         </div>
                         <div>

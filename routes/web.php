@@ -48,8 +48,10 @@ Route::middleware('auth')->prefix('/client')->group(function () {
 
     Route::get('/resources/{resource}/delete', [ResourceController::class, 'destroy']);
 
-    Route::resource('/profile',ProfileController::class);
+    Route::resource('/profile',ProfileController::class)->except(['store']);
     Route::get('/change-password',[ProfileController::class, 'password_index']);
+    Route::post('/change-password/{user}',[ProfileController::class, 'passwordEdit']);
+    Route::post('/change-profile/{user}',[ProfileController::class, 'profileEdit']);
 
 
 });
