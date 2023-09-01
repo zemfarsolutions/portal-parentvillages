@@ -68,7 +68,7 @@
                                         <!--end::Svg Icon-->
                                     </span>
                                 </span>
-                                <span class="navi-text font-size-lg">Change Password</span>
+                                <span class="navi-text font-size-lg">Password Change</span>
                             </a>
                         </div>
                     </div>
