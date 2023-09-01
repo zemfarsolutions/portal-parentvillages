@@ -38,12 +38,15 @@
         <div class="container">
             <div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
                 <div class="alert-icon">
-
-                    <span class="svg-icon svg-icon-primary svg-icon-xl">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path opacity="0.3" d="M5.78001 21.115L3.28001 21.949C3.10897 22.0059 2.92548 22.0141 2.75004 21.9727C2.57461 21.9312 2.41416 21.8418 2.28669 21.7144C2.15923 21.5869 2.06975 21.4264 2.0283 21.251C1.98685 21.0755 1.99507 20.892 2.05201 20.7209L2.886 18.2209L7.22801 13.879L10.128 16.774L5.78001 21.115Z" fill="currentColor"/>
-                            <path d="M21.7 8.08899L15.911 2.30005C15.8161 2.2049 15.7033 2.12939 15.5792 2.07788C15.455 2.02637 15.3219 1.99988 15.1875 1.99988C15.0531 1.99988 14.92 2.02637 14.7958 2.07788C14.6717 2.12939 14.5589 2.2049 14.464 2.30005L13.74 3.02295C13.548 3.21498 13.4402 3.4754 13.4402 3.74695C13.4402 4.01849 13.548 4.27892 13.74 4.47095L14.464 5.19397L11.303 8.35498C10.1615 7.80702 8.87825 7.62639 7.62985 7.83789C6.38145 8.04939 5.2293 8.64265 4.332 9.53601C4.14026 9.72817 4.03256 9.98855 4.03256 10.26C4.03256 10.5315 4.14026 10.7918 4.332 10.984L13.016 19.667C13.208 19.859 13.4684 19.9668 13.74 19.9668C14.0115 19.9668 14.272 19.859 14.464 19.667C15.3575 18.77 15.9509 17.618 16.1624 16.3698C16.374 15.1215 16.1932 13.8383 15.645 12.697L18.806 9.53601L19.529 10.26C19.721 10.452 19.9814 10.5598 20.253 10.5598C20.5245 10.5598 20.785 10.452 20.977 10.26L21.7 9.53601C21.7952 9.44108 21.8706 9.32825 21.9221 9.2041C21.9737 9.07995 22.0002 8.94691 22.0002 8.8125C22.0002 8.67809 21.9737 8.54505 21.9221 8.4209C21.8706 8.29675 21.7952 8.18392 21.7 8.08899Z" fill="currentColor"/>
+                    <span class="svg-icon svg-icon-primary svg-icon-2x">
+                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-10-29-133027/theme/html/demo1/dist/../src/media/svg/icons/General/Clip.svg-->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"/>
+                                <path d="M14,16 L12,16 L12,12.5 C12,11.6715729 11.3284271,11 10.5,11 C9.67157288,11 9,11.6715729 9,12.5 L9,17.5 C9,19.4329966 10.5670034,21 12.5,21 C14.4329966,21 16,19.4329966 16,17.5 L16,7.5 C16,5.56700338 14.4329966,4 12.5,4 L12,4 C10.3431458,4 9,5.34314575 9,7 L7,7 C7,4.23857625 9.23857625,2 12,2 L12.5,2 C15.5375661,2 18,4.46243388 18,7.5 L18,17.5 C18,20.5375661 15.5375661,23 12.5,23 C9.46243388,23 7,20.5375661 7,17.5 L7,12.5 C7,10.5670034 8.56700338,9 10.5,9 C12.4329966,9 14,10.5670034 14,12.5 L14,16 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.500000, 12.500000) rotate(-315.000000) translate(-12.500000, -12.500000) "/>
+                            </g>
                         </svg>
+                        <!--end::Svg Icon-->
                     </span>
                 </div>
                 <div class="alert-text">
@@ -76,11 +79,21 @@
                                         <label class="font-weight-bold">Name:</label>
                                         <input name="name" type="text" class="form-control" placeholder="Enter first name" />
                                         <span class="form-text text-muted">Please enter your first name</span>
+                                        <span class="text_danger">
+                                            @error("name")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Email:</label>
                                         <input name="email" type="email" class="form-control" placeholder="Enter your email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
+                                        <span class="text_danger">
+                                            @error("email")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -88,7 +101,12 @@
                                         <label class="font-weight-bold">Contact Number:</label>
                                         <input name="phone" type="text" class="form-control" placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
-                                    </div>
+                                        <span class="text_danger">
+                                            @error("phone")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
+                                    </div>    
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
@@ -102,6 +120,11 @@
                                             <label class="checkbox">
                                                 <input type="checkbox" value="It is Okay to text" name="question_1[]" />
                                                 <span></span>It is Okay to text</label>
+                                                <span class="text_danger">
+                                                    @error("question_1[]")
+                                                        {{$message}}
+                                                    @enderror
+                                                </span>
                                         </div>
                                     </div>
                                 </div>
@@ -110,30 +133,55 @@
                                         <label class="font-weight-bold">Address:</label>
                                         <input name="address_1" type="text" class="form-control" placeholder="Enter your street address" />
                                         <span class="form-text text-muted">Street Address</span>
+                                        <span class="text_danger">
+                                            @error("address_1")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold"></label>
                                         <input name="address_2" type="text" class="form-control"
                                             placeholder="Enter street address line 2" />
                                         <span class="form-text text-muted">Street Address Line 2</span>
+                                        <span class="text_danger">
+                                            @error("address_2")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold"></label>
                                         <input name="city" type="text" class="form-control"
                                             placeholder="Enter your city" />
                                         <span class="form-text text-muted">City</span>
+                                        <span class="text_danger">
+                                            @error("city")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold"></label>
                                         <input name="state" type="text" class="form-control"
                                             placeholder="Enter state / province" />
                                         <span class="form-text text-muted">State / Province</span>
+                                        <span class="text_danger">
+                                            @error("state")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-12">
                                         <label class="font-weight-bold"></label>
                                         <input name="postal_code" type="text" class="form-control"
                                             placeholder="Enter postal / zip code" />
                                         <span class="form-text text-muted">Postal / Zip Code</span>
+                                        <span class="text_danger">
+                                            @error("postal_code")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -141,6 +189,11 @@
                                         <label class="font-weight-bold">How did you hear about us?</label>
                                         <input name="question_2" question="How did you hear about us?" type="text" class="form-control" placeholder="Enter reference" />
                                         <span class="form-text text-muted">Please enter how did you hear about us?</span>
+                                        <span class="text_danger">
+                                            @error("question_2")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Would you like to remain anonymous?</label>
@@ -152,6 +205,11 @@
                                                 <input type="radio" value="No" name="question_3" />
                                                 <span></span>No</label>
                                         </div>
+                                        <span class="text_danger">
+                                            @error("question_3")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -167,6 +225,11 @@
                                             <label class="radio">
                                                 <input type="radio" value="other" name="gender" />
                                                 <span></span>Other</label>
+                                            <span class="text_danger">
+                                                @error("gender")
+                                                    {{$message}}
+                                                @enderror
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -197,6 +260,11 @@
                                             <label class="checkbox">
                                                 <input type="checkbox" value="Other" name="question_4[]" />
                                                 <span></span>Other</label>
+                                            <span class="text_danger">
+                                                @error("question_4[]")
+                                                    {{$message}}
+                                                @enderror
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -204,6 +272,11 @@
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What is your primary language?</label>
                                         <input type="text" name="language" class="form-control" placeholder="Enter first name" />
+                                        <span class="text_danger">
+                                            @error("language")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">What is your age range or the age range of the individual looking for services?</label>
@@ -224,6 +297,11 @@
                                                 <input type="radio" value="60+" name="age" />
                                                 <span></span>60+</label>
                                         </div>
+                                        <span class="text_danger">
+                                            @error("age")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -236,6 +314,11 @@
                                             <label class="radio">
                                                 <input type="radio" value="No" name="question_5" />
                                                 <span></span>No</label>
+                                            <span class="text_danger">
+                                                @error("question_5")
+                                                    {{$message}}
+                                                @enderror
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -251,7 +334,13 @@
                                             <label class="radio">
                                                 <input type="radio" value="Prefer not to say" name="question_6" />
                                                 <span></span>Prefer not to say</label>
+                                            <span class="text_danger">
+                                                @error("question_6")
+                                                    {{$message}}
+                                                @enderror
+                                            </span>
                                         </div>
+                                        
                                     </div>
                                 </div>
 
@@ -288,6 +377,11 @@
                                                 <input type="radio" value="Unsure" name="question_7" />
                                                 <span></span>Unsure</label>
                                         </div>
+                                        <span class="text_danger">
+                                            @error("question_7")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Have you or your child(ren) or family member been

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Intake;
 use App\Models\IntakeAnswer;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +24,87 @@ class IntakeController extends Controller
 
     public function store(Request $request){
         $user_id = Auth::guard('web')->user()->id;
-        
+
+        $validate = Validator::make($request->all(),[
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address_1' => 'required',
+            'address_2' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postal_code' => 'required',
+            'gender' => 'required',
+            'language' => 'required',
+            'age' => 'required',
+            'question_1[]' => 'required',
+            'question_2' => 'required',
+            'question_3' => 'required',
+            'question_4[]' => 'required',
+            'question_5' => 'required',
+            'question_6' => 'required',
+            'question_7' => 'required',
+            'question_8' => 'required',
+            'question_9[]' => 'required',
+            'question_10[]' => 'required',
+            'question_11' => 'required',
+            'question_12[]' => 'required',
+            'question_13' => 'required',
+            'question_14' => 'required',
+            'question_15[]' => 'required',
+            'question_16' => 'required',
+            'question_17[]' => 'required',
+            'question_18' => 'required',
+            'question_19' => 'required',
+            'question_20' => 'required',
+            'question_21' => 'required',
+            'question_22' => 'required',
+            'question_23' => 'required',
+            'question_24[]' => 'required',
+            'question_25' => 'required',
+            'question_26' => 'required',
+            'question_27' => 'required',
+
+        ],
+        $messages=[
+            'question_1[].required' => 'Field is required',
+            'question_2.required' => 'Field is required',
+            'question_3.required' => 'Field is required',
+            'question_4[].required' => 'Field is required',
+            'question_5.required' => 'Field is required',
+            'question_6.required' => 'Field is required',
+            'question_7.required' => 'Field is required',
+            'question_8.required' => 'Field is required',
+            'question_9[].required' => 'Field is required',
+            'question_10[].required' => 'Field is required',
+            'question_11.required' => 'Field is required',
+            'question_12[].required' => 'Field is required',
+            'question_13.required' => 'Field is required',
+            'question_14.required' => 'Field is required',
+            'question_15[].required' => 'Field is required',
+            'question_16.required' => 'Field is required',
+            'question_17[].required' => 'Field is required',
+            'question_18.required' => 'Field is required',
+            'question_19.required' => 'Field is required',
+            'question_20.required' => 'Field is required',
+            'question_21.required' => 'Field is required',
+            'question_22.required' => 'Field is required',
+            'question_23.required' => 'Field is required',
+            'question_24[].required' => 'Field is required',
+            'question_25.required' => 'Field is required',
+            'question_26.required' => 'Field is required',
+            'question_27.required' => 'Field is required',
+
+        ]
+    );
+        // dd($validate);
+        if($validate->fails()){
+            
+            return back()
+                ->withErrors($validate)
+                ->withInput();
+           
+        }
         $intake = Intake::create([
             'user_id' => $user_id,
             'name' => $request->name,
@@ -36,7 +117,7 @@ class IntakeController extends Controller
             'postal_code' => $request->postal_code,
             'gender' => $request->gender,
             'language' => $request->language,
-            'age' => $request->age
+            'age' => $request->age,
         ]);
 
         // dd($intake->id);
