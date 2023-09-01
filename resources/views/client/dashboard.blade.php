@@ -193,9 +193,31 @@
                                     <div class="d-flex align-items-center mb-10">
                                         <!--begin::Symbol-->
                                         <div class="symbol symbol-40 symbol-light-secondry mr-5">
-                                            <span class="symbol-label">
-                                                <img src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/pdf.svg"
-                                                    class="h-75 align-self-end" alt="">
+                                            <span class="symbol-label" class="h-75 align-self-end" alt="">
+                                                @if (pathinfo($resource->path, PATHINFO_EXTENSION) === 'pdf')
+                                                        <img alt="" class="max-h-20px"
+                                                            src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/pdf.svg" />
+                                                    @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'png')
+                                                        <img alt="" class="max-h-20px"
+                                                            src="	https://static.thenounproject.com/png/4147238-200.png" />
+                                                    @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'docx')
+
+                                                    @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'jpg' || pathinfo($resource->path, PATHINFO_EXTENSION) === 'jpeg')
+                                                        <img alt="" class="max-h-20px"
+                                                            src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/jpg.svg" />
+                                                    @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'zip')
+                                                        <img alt="" class="max-h-20px"
+                                                            src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/zip.svg" />
+                                                    @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'psd')
+                                                        <img alt="" class="max-h-20px"
+                                                            src="https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-adobe-photoshop-psd-ps-icon-png-image_4952703.png" />
+                                                    @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'xml')
+                                                        <img alt="" class="max-h-20px"
+                                                            src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
+                                                    @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'html')
+                                                        <img alt="" class="max-h-20px"
+                                                            src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
+                                                    @endif
                                             </span>
                                         </div>
                                         <!--end::Symbol-->

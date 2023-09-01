@@ -44,11 +44,12 @@ var KTAppsUsersListDatatable = function() {
 				{
 					field: 'id',
 					title: 'Intake ID',
+					width: 80,
 				},
                 {
 					field: 'name',
 					title: 'Name',
-					width: 250,
+					width: 280,
 					template: function(data) {
 
 						var stateNo = KTUtil.getRandomInt(0, 7);
@@ -78,10 +79,13 @@ var KTAppsUsersListDatatable = function() {
 				{
 					field: 'phone',
 					title: 'phone',
+					width: 130,
 				},
 				{
 					field: 'address_1',
 					title: 'Street Address',
+					autoHide: true,
+
 				},
 				{
 					field: 'city',
@@ -98,22 +102,28 @@ var KTAppsUsersListDatatable = function() {
 				{
 					field: 'state',
 					title: 'state',
-				},
-				{
-					field: 'address_2',
-					title: 'Street Address Line 2',
+					
 				},
 				{
 					field: 'language',
 					title: 'language',
-				},
-				{
-					field: 'gender',
-					title: 'gender',
+					autoHide: false,
 				},
 				{
 					field: 'age',
 					title: 'age',
+					autoHide: false,
+					width: 80,
+				},
+				{
+					field: 'address_2',
+					title: 'Street Address Line 2',
+					autoHide: true,
+					
+				},
+				{
+					field: 'gender',
+					title: 'gender',
 				}, {
 					field: 'Actions',
 					title: 'Actions',
