@@ -1,4 +1,4 @@
-@extends('layouts.client.app')
+@extends('layouts.employee.app')
 
 @section('title', 'Profile')
 
@@ -35,7 +35,7 @@
                     <!--begin::Nav-->
                     <div class="navi navi-bold navi-hover navi-active navi-link-rounded">            
                         <div class="navi-item mb-2">
-                            <a href="/client/profile" class="navi-link py-4 {{ gettype(strpos(url()->full(), '/client/profile')) == 'integer' ? 'active' : null }}">
+                            <a href="/employee/my-profile" class="navi-link py-4 {{ gettype(strpos(url()->full(), '/employee/my-profile')) == 'integer' ? 'active' : null }}">
                                 <span class="navi-icon mr-2">
                                     <span class="svg-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/General/User.svg-->
@@ -53,7 +53,7 @@
                             </a>
                         </div>
                         <div class="navi-item mb-2">
-                            <a href="/client/change-password" class="navi-link py-4 {{ gettype(strpos(url()->full(), '/client/change-password')) == 'integer' ? 'active' : null }}">
+                            <a href="/employee/change-password" class="navi-link py-4 {{ gettype(strpos(url()->full(), '/employee/change-password')) == 'integer' ? 'active' : null }}">
                                 <span class="navi-icon mr-2">
                                     <span class="svg-icon">
                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Communication/Shield-user.svg-->

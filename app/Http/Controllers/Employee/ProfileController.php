@@ -1,30 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Client;
+namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
+use App\Models\Employee;
+
 class ProfileController extends Controller
 {
     public function index(){
-        $user = Auth::guard('web')->user();
-        $name_split = Str::ucsplit(Auth::guard('web')->user()->name);
-        return view('client.profile.index',compact('user','name_split'));
+        $user = Auth::guard('employee')->user();
+        $name_split = Str::ucsplit(Auth::guard('employee')->user()->name);
+        return view('employee.profile.index',compact('user','name_split'));
     }
 
     public function password_index(){
-        $user = Auth::guard('web')->user();
-        return view('client.profile.change_password',compact('user'));
+        $user = Auth::guard('employee')->user();
+        return view('employee.profile.change_password',compact('user'));
     }
     
-    public function passwordEdit(Request $request, User $user){
+    public function passwordEdit(Request $request, Employee $user){
 
         $validated = Validator::make($request->all(),[
             'current_password' => 'required',
@@ -53,13 +54,13 @@ class ProfileController extends Controller
         
     }
 
-    public function profileEdit(Request $request, User $user){
-       
+    public function profileEdit(Request $request, Employee $user){
+    
         $name = str($request->first_name)->append(" ".$request->last_name);
         $current_time = Carbon::now();
         $formatted_date = $current_time->format('Y-m-d-h-i-s');
         $user_name = str()->slug($name);
-        $avatar_store =  $user->avatar;
+        $avatar_store = $user->avatar;
         $validated = Validator::make($request->all(),[
             'first_name' => 'required',
             'last_name' => 'required',
@@ -75,7 +76,7 @@ class ProfileController extends Controller
         if($request->file('profile_image') != null){
             $avatar_extension = $request->file('profile_image')->extension();
             $avatar_formated_file = $formatted_date . '-' . $user_name . '.' . $avatar_extension;
-            $avatar_store = $request->file('profile_image')->storeAs('client/avatar', $avatar_formated_file, 'public');
+            $avatar_store = $request->file('profile_image')->storeAs('employee/avatar', $avatar_formated_file, 'public');
         }
         
 

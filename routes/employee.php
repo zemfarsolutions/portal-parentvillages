@@ -6,7 +6,8 @@ use App\Http\Controllers\Employee\{
     TimeTrackingController,
     ReceiptController,
     ExpenseController,
-    EvaluationController
+    EvaluationController,
+    ProfileController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,9 @@ Route::middleware('auth.employee')->prefix('/employee')->group(function () {
     Route::resource('/expenses', ExpenseController::class);
     Route::post('/expenses/delete/{expense}', [ExpenseController::class, 'delete']);
     Route::get('/expenses/export/{employee}', [ExpenseController::class, 'export']);
+
+    Route::resource('/my-profile',ProfileController::class)->except(['store']);
+    Route::get('/change-password',[ProfileController::class, 'password_index']);
+    Route::post('/change-password/{user}',[ProfileController::class, 'passwordEdit']);
+    Route::post('/change-profile/{user}',[ProfileController::class, 'profileEdit']);
 });
