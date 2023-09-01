@@ -1377,17 +1377,17 @@
                     <!--begin::Copyright-->
                     <div class="text-dark order-2 order-md-1">
                         <span class="text-muted font-weight-bold mr-2">2023©</span>
-                        <a href="http://keenthemes.com/metronic" target="_blank"
+                        <a href="/client/dashboard" target="_blank"
                             class="text-dark-75 text-hover-primary">Parent Villages</a>
                     </div>
                     <!--end::Copyright-->
                     <!--begin::Nav-->
                     <div class="nav nav-dark">
-                        <a href="http://keenthemes.com/metronic" target="_blank"
+                        <a href="https://parentvillage.wetestlink.com/our-mission/" target="_blank"
                             class="nav-link pl-0 pr-5">About</a>
-                        <a href="http://keenthemes.com/metronic" target="_blank"
+                        <a href="https://parentvillage.wetestlink.com/board-staff/" target="_blank"
                             class="nav-link pl-0 pr-5">Team</a>
-                        <a href="http://keenthemes.com/metronic" target="_blank"
+                        <a href="https://parentvillage.wetestlink.com/contact-us/" target="_blank"
                             class="nav-link pl-0 pr-0">Contact</a>
                     </div>
                     <!--end::Nav-->
@@ -1418,7 +1418,7 @@
             <!--begin::Header-->
             <div class="d-flex align-items-center mt-5">
                 <div class="symbol symbol-100 mr-5">
-                    <div class="symbol-label" style="background-image:url('../assets/media/{{$user->avatar}}')"></div>
+                    <div class="symbol-label" style="background-image:url('../assets/media/{{Auth::guard('web')->user()->avatar}}')"></div>
                     <i class="symbol-badge bg-success"></i>
                 </div>
                 <div class="d-flex flex-column">
