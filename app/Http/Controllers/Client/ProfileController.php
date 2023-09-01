@@ -59,14 +59,13 @@ class ProfileController extends Controller
        
         $name = str($request->first_name)->append(" ".$request->last_name);
         $current_time = Carbon::now();
-        $formatted_date = $current_time->format('Y-m-d');
+        $formatted_date = $current_time->format('Y-m-d-h-i-s');
         $user_name = str()->slug($name);
-
+        $avatar_store = null;
         $validated = Validator::make($request->all(),[
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required',
-            'profile_image' => 'required',
         ]);
 
         if ($validated->fails()) {
@@ -75,9 +74,12 @@ class ProfileController extends Controller
             ->withInput();
         }
         
-        $avatar_extension = $request->file('profile_image')->extension();
-        $avatar_formated_file = $formatted_date . '-' . $user_name . '.' . $avatar_extension;
-        $avatar_store = $request->file('profile_image')->storeAs('client/avatar', $avatar_formated_file, 'public');
+        if($request->file('profile_image') != null){
+            $avatar_extension = $request->file('profile_image')->extension();
+            $avatar_formated_file = $formatted_date . '-' . $user_name . '.' . $avatar_extension;
+            $avatar_store = $request->file('profile_image')->storeAs('client/avatar', $avatar_formated_file, 'public');
+        }
+        
 
        
         $user->update([
