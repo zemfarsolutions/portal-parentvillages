@@ -1525,7 +1525,7 @@
                             </div>
                         </div>
                         <div class="navi-text">
-                            <div class="font-weight-bold">Password Change</div>
+                            <div class="font-weight-bold">Change Password </div>
                         </div>
                     </div>
                 </a>

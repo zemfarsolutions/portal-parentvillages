@@ -216,7 +216,7 @@
                                                             src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
                                                     @elseif (pathinfo($resource->path, PATHINFO_EXTENSION) === 'html')
                                                         <img alt="" class="max-h-20px"
-                                                            src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
+                                                            src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
                                                     @endif
                                             </span>
                                         </div>
