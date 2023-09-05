@@ -95,7 +95,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white"
             id="kt_login">
             <!--begin::Aside-->
-            <div class="login-aside d-flex flex-column flex-row-auto" style="background-color: #001728;">
+            <div class="login-aside login--bg--pattern d-flex flex-column flex-row-auto">
                 <!--begin::Aside Top-->
                 <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
                     <!--begin::Aside header-->
@@ -113,8 +113,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <!--end::Aside Top-->
                 <!--begin::Aside Bottom-->
-                <div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"
-                    style="background-image: url(/assets/media/login/parent-village-illustrations.png)"></div>
+                {{-- <div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"
+                    style="background-image: url(/assets/media/login/parent-village-illustrations.png)"></div> --}}
                 <!--end::Aside Bottom-->
             </div>
             <!--begin::Aside-->
