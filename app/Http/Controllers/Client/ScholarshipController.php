@@ -55,11 +55,15 @@ class ScholarshipController extends Controller
             'high_school' => 'required',
             'plan' => 'required',
             'acceptance_letter' => 'required|mimes:pdf,doc',
-            "guardian_one['name']" => 'required',
+
+            // "guardian_one" => 'required_array_keys:[name]',
+            // 'guardian_one["name"]' => 'required',
+            
             "guardian_one['email']" => 'required',
             "guardian_one['phone']" => 'required',
             "guardian_one['address']" => 'required',
-            "guardian_one['associate_degree']" => 'accepted',
+            "guardian_one['associate_degree']" => 'required',
+           
             "guardian_two['name']" => 'required',
             "guardian_two['email']" => 'required',
             "guardian_two['phone']" => 'required',
@@ -83,6 +87,8 @@ class ScholarshipController extends Controller
         ]);
 
         if ($validator->fails()) {
+            // dd($request->guardian_one["name"]);
+            dd($validator);
             return back()
                 ->withErrors($validator)
                 ->withInput();

@@ -156,7 +156,82 @@ var KTApexChartsDemo = function () {
         });
 		
 	}
+	var _timeTrackingChart = function () {
+		const apexChart = "#time_tracking_chart";
 
+        $.ajax({
+            url:HOST_URL + '/api/get-timetracking?id='+user_id,
+            method : 'GET',
+            success:function(response){
+				const event_hours = response['data']['event_hours'];
+                const months = response['data']['months'];
+				
+               	var options = {
+					series: [{
+						name: 'Event',
+						data: event_hours.event
+					}, {
+						name: 'Place',
+						data: event_hours.place
+					},],
+					chart: {
+						type: 'bar',
+						height: 250,
+						stacked: true,
+						toolbar: {
+							show: false
+						},
+					},
+					plotOptions: {
+						bar: {
+							horizontal: true,
+						},
+					},
+					stroke: {
+						width: 1,
+						colors: ['#fff']
+					},
+					title: {
+						text: ''
+					},
+					xaxis: {
+						categories: months,
+						labels: {
+							formatter: function (val) {
+								// return val + "K"
+							}
+						}
+					},
+					yaxis: {
+						title: {
+							text: undefined
+						},
+					},
+					tooltip: {
+						y: {
+							formatter: function (val) {
+								// return val + "K"
+							}
+						}
+					},
+					fill: {
+						opacity: 1
+					},
+					legend: {
+						position: 'top',
+						horizontalAlign: 'left',
+						offsetX: 40
+					},
+					colors: [primary, success, warning, danger, info]
+				};
+
+				var chart = new ApexCharts(document.querySelector(apexChart), options);
+				chart.render();
+            }
+        });
+		
+		
+	}
 	var _demo1 = function () {
 		const apexChart = "#chart_1";
 		var options = {
@@ -1183,6 +1258,7 @@ var KTApexChartsDemo = function () {
 		init: function () {
             _milageChart();
             _expenseChart();
+			_timeTrackingChart();
 			_demo1();
 			_demo2();
 			_demo3();
