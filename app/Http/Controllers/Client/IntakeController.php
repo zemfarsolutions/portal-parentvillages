@@ -37,73 +37,71 @@ class IntakeController extends Controller
             'gender' => 'required',
             'language' => 'required',
             'age' => 'required',
-            'question_1[]' => 'required',
+            'question_1' => 'array|required',
             'question_2' => 'required',
             'question_3' => 'required',
-            'question_4[]' => 'required',
+            'question_4' => 'array|required',
             'question_5' => 'required',
             'question_6' => 'required',
             'question_7' => 'required',
             'question_8' => 'required',
-            'question_9[]' => 'required',
-            'question_10[]' => 'required',
+            'question_9' => 'array|required',
+            'question_10' => 'array|required',
             'question_11' => 'required',
-            'question_12[]' => 'required',
+            'question_12' => 'array|required',
             'question_13' => 'required',
             'question_14' => 'required',
-            'question_15[]' => 'required',
+            'question_15' => 'array|required',
             'question_16' => 'required',
-            'question_17[]' => 'required',
+            'question_17' => 'array|required',
             'question_18' => 'required',
             'question_19' => 'required',
             'question_20' => 'required',
             'question_21' => 'required',
             'question_22' => 'required',
-            'question_23' => 'required',
-            'question_24[]' => 'required',
+            'question_23' => 'array|required',
+            'question_24' => 'array|required',
             'question_25' => 'required',
             'question_26' => 'required',
             'question_27' => 'required',
 
         ],
         $messages=[
-            'question_1[].required' => 'Field is required',
+            'question_1.required' => 'Field is required',
             'question_2.required' => 'Field is required',
             'question_3.required' => 'Field is required',
-            'question_4[].required' => 'Field is required',
+            'question_4.required' => 'Field is required',
             'question_5.required' => 'Field is required',
             'question_6.required' => 'Field is required',
             'question_7.required' => 'Field is required',
             'question_8.required' => 'Field is required',
-            'question_9[].required' => 'Field is required',
-            'question_10[].required' => 'Field is required',
+            'question_9.required' => 'Field is required',
+            'question_10.required' => 'Field is required',
             'question_11.required' => 'Field is required',
-            'question_12[].required' => 'Field is required',
+            'question_12.required' => 'Field is required',
             'question_13.required' => 'Field is required',
             'question_14.required' => 'Field is required',
-            'question_15[].required' => 'Field is required',
+            'question_15.required' => 'Field is required',
             'question_16.required' => 'Field is required',
-            'question_17[].required' => 'Field is required',
+            'question_17.required' => 'Field is required',
             'question_18.required' => 'Field is required',
             'question_19.required' => 'Field is required',
             'question_20.required' => 'Field is required',
             'question_21.required' => 'Field is required',
             'question_22.required' => 'Field is required',
             'question_23.required' => 'Field is required',
-            'question_24[].required' => 'Field is required',
+            'question_24.required' => 'Field is required',
             'question_25.required' => 'Field is required',
             'question_26.required' => 'Field is required',
             'question_27.required' => 'Field is required',
 
         ]
+
     );
-        // dd($validate);
         if($validate->fails()){
-            
             return back()
                 ->withErrors($validate)
                 ->withInput();
-           
         }
         $intake = Intake::create([
             'user_id' => $user_id,
@@ -190,13 +188,13 @@ class IntakeController extends Controller
             foreach ($request->toArray() as $key => $value) {
 
                 if (strpos($key, 'question') !== false) {
-    
+
                     $question_id = filter_var($key, FILTER_SANITIZE_NUMBER_INT);
-    
+
                     if (gettype($value) == "array") {
-    
+
                         for ($i = 0; $i < count($value); $i++) {
-    
+
                             IntakeAnswer::create([
                                 'intake_id' => $id,
                                 'question_id' => (int)$question_id,
@@ -204,7 +202,7 @@ class IntakeController extends Controller
                             ]);
                         }
                     } else {
-    
+
                         IntakeAnswer::create([
                             'intake_id' => $id,
                             'question_id' => (int)$question_id,
