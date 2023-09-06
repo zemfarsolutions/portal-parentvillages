@@ -53,16 +53,24 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label>Date:</label>
-                                        <input name="date" type="text" class="form-control" id="kt_datepicker_1"
-                                            readonly="readonly" placeholder="Select date" />
+                                        <input name="date" type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" placeholder="Select date" />
                                         <span class="form-text text-muted">Please select the date</span>
+                                        <span class="text_danger">
+                                            @error("date")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="typeSelect1">Number of Hours:</label>
-                                            <input required name="amount" type="text" id="numberInput" pattern="[0-9]*"
-                                                class="form-control" placeholder="Enter No. of hours" />
+                                            <input required name="number_of_hours" type="text" id="numberInput" pattern="[0-9]*" class="form-control" placeholder="Enter No. of hours" />
                                             <span class="form-text text-muted">Please Enter total number of hours.</span>
+                                            <span class="text_danger">
+                                                @error("number_of_hours")
+                                                    {{$message}}
+                                                @enderror
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -75,6 +83,11 @@
                                                 <option>Place</option>
                                             </select>
                                         </div>
+                                        <span class="text_danger">
+                                            @error("typeSelect1")
+                                                {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Description:</label>
@@ -82,13 +95,7 @@
                                         <span class="form-text text-muted">Please enter description</span>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-lg-12 text-danger">
-                                        @error('date')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="card-footer">
                                 <div class="row">
