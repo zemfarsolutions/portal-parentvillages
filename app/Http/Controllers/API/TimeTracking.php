@@ -10,14 +10,16 @@ use Carbon\Carbon;
 
 class TimeTracking extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
 
-        $records = EmployeeTimeTracking::where('employee_id', $request->id)->get();
+        $records = EmployeeTimeTracking::where('employee_id', $request->id)->orderBy('id', 'DESC')->get();
 
         return $records;
     }
 
-    public function time_track_chart(Request $request){
+    public function time_track_chart(Request $request)
+    {
         $records = EmployeeTimeTracking::where('employee_id', $request->id)->get();
 
         $total_hours = [
@@ -27,32 +29,32 @@ class TimeTracking extends Controller
         $months = [];
         $data = [];
         $types = [];
-        
-        $records = EmployeeTimeTracking::select('type', 'date')
-        ->where('employee_id',$request->id)
-        ->get();
 
-        for ($i=0; $i < count($records); $i++) { 
-            
+        $records = EmployeeTimeTracking::select('type', 'date')
+            ->where('employee_id', $request->id)
+            ->get();
+
+        for ($i = 0; $i < count($records); $i++) {
+
             $date = Carbon::createFromFormat('Y-m-d', $records[$i]->date);
             array_push($types, $records[$i]->type);
 
-            if (!in_array($date->format('F'), $months)) {    
+            if (!in_array($date->format('F'), $months)) {
 
                 array_push($months, $date->format('F'));
-            }   
+            }
 
             // dd($records[$i]->type, $types, in_array($records[$i]->type, $types));
 
-            if (in_array($date->format('F'), $months) && in_array($records[$i]->type, $types)) {    
-                
+            if (in_array($date->format('F'), $months) && in_array($records[$i]->type, $types)) {
+
                 $getHours = EmployeeTimeTracking::where('type', $records[$i]->type)
-                                                ->where('employee_id', $request->id)
-                                                ->whereMonth('date', (int)$date->format('m'))
-                                                ->sum('number_of_hours');
-                
+                    ->where('employee_id', $request->id)
+                    ->whereMonth('date', (int)$date->format('m'))
+                    ->sum('number_of_hours');
+
                 if (!in_array($getHours, $total_hours[$records[$i]->type])) {
-                    
+
                     array_push($total_hours[$records[$i]->type], $getHours);
                 }
             }
@@ -65,14 +67,14 @@ class TimeTracking extends Controller
         // dd($total_hours, $months);
         // dd($num_of_hours);
         // foreach($records as $record){
-                    
+
         //     $date = Carbon::createFromFormat('Y-m-d', $record->date);
-            
+
         //     if (!in_array($date->format('F'), $months)) {    
         //         array_push($months, $date->format('F'));
         //     }
 
-            
+
         //     foreach ($num_of_hours as $key => $value) { 
 
         //         if ($record->type == "place") {

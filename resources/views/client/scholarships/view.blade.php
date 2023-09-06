@@ -71,13 +71,15 @@
                                     {{-- <span>{{ $intake->phone }}</span> --}}
                                 </span>
                             </div>
-                            <div class="border-bottom w-100"></div>
                         </div>
                     </div>
-                    <!-- end: Invoice header-->
-                    <!-- begin: Invoice body-->
-                    <div class="row justify-content-center py-5 px-8 py-md-5 px-md-0">
-                        <div class="col-md-9">
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="/client/scholarships/{{ $scholarship->id }}/scholarship-form"
+                                    class="btn btn-primary mr-2">Apply</a>
+                                <a href="/client/scholarships" class="btn btn-secondary">Go Back</a>
+                            </div>
                         </div>
                     </div>
                     <!-- end: Invoice body-->

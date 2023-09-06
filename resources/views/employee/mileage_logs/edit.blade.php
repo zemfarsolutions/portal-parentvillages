@@ -48,20 +48,24 @@
                         <!--begin::Form-->
                         <form class="form" method="POST" action="/employee/milaege-logs/{{ $milaege_log->id }}">
 
-                            @method('PUT')
                             @csrf
-
+                            @method('PUT')
+                            <?php
+                            $date = date_create($milaege_log->date);
+                            ?>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label>Date:</label>
-                                        <input name="date" value="{{ $milaege_log->date }}" type="text" class="form-control" id="kt_datepicker_1"  placeholder="Select date" />
+                                        <input name="date" value="{{ date_format($date, 'm/d/Y') }}" type="text"
+                                            class="form-control" id="kt_datepicker_1" placeholder="Select date" />
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Number Of Mileage:</label>
-                                        <input required name="number_of_miles" value="{{ $milaege_log->number_of_miles }}"
-                                            type="number" class="form-control" placeholder="Enter No. of Mileage" />
+                                        <input maxlength="9" required name="number_of_miles"
+                                            value="{{ $milaege_log->number_of_miles }}" type="number" class="form-control"
+                                            placeholder="Enter No. of Mileage" />
                                         <span class="form-text text-muted">Please enter total number of mileage</span>
                                     </div>
                                 </div>
@@ -86,7 +90,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-primary mr-2">Update</button>
-                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                        <a href="/employee/milaege-logs" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </div>
                             </div>

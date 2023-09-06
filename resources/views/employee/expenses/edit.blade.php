@@ -50,20 +50,23 @@
 
                             @method('PUT')
                             @csrf
-
+                            <?php
+                            $date = date_create($expense->date);
+                            ?>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label>Date:</label>
-                                        <input name="date" value="{{ $expense->date }}" type="text"
+                                        <input name="date" value="{{ date_format($date, 'm/d/Y') }}" type="text"
                                             class="form-control" id="kt_datepicker_1" readonly="readonly"
                                             placeholder="Select date" />
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Amount:</label>
-                                        <input required name="amount" value="{{ $expense->amount }}" type="text" id="numberInput" pattern="[0-9]*"
-                                            class="form-control" placeholder="Enter contact number" />
+                                        <input maxlength="9" required name="amount" value="{{ $expense->amount }}"
+                                            type="text" id="numberInput" pattern="[0-9]*" class="form-control"
+                                            placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter total Amount</span>
                                     </div>
                                     {{-- <div class="col-lg-6">
@@ -96,7 +99,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-primary mr-2">Update</button>
-                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                        <a href="/employee/expenses" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </div>
                             </div>

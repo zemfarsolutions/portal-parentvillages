@@ -106,7 +106,7 @@
             </div>
             <!--end::Details-->
             <!--begin::Toolbar-->
-            
+
             <!--end::Toolbar-->
         </div>
     </div>
@@ -159,17 +159,12 @@
                             <!--end::Body-->
                             <!--begin::Footer-->
                             <div class="card-footer d-flex align-items-center">
-                                <div class="d-flex ">
-                                    
-                                    <div class="d-flex align-items-center mr-7">
-                                        <a href="/client/scholarships/{{ $record->id }}/view"
-                                            class="btn btn-primary btn-sm">View</a>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <a href="/client/scholarships/{{ $record->id }}/scholarship-form"
-                                            class="btn btn-primary btn-sm">Apply</a>
-                                    </div>
-                                </div>
+
+                                <a href="/client/scholarships/{{ $record->id }}/view"
+                                    class="btn btn-primary btn-sm float-start mr-7">View</a>
+
+                                <a href="/client/scholarships/{{ $record->id }}/scholarship-form"
+                                    class="btn btn-primary btn-sm float-end">Apply</a>
                             </div>
                             <!--end::Footer-->
                         </div>

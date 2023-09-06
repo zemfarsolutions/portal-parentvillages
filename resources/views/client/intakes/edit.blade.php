@@ -947,13 +947,12 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <canvas style="border: 1px solid black;">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-lg-6">
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            data-action="clear">Clear</button>
+                                        <label class="" for="">Signature:</label>
+                                        <br />
+                                        <div id="sig"></div>
+                                        <br />
+                                        <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
+                                        <textarea id="signature64" name="signed" style="display: none"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -961,10 +960,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-primary mr-2">Update</button>
-                                        <button type="reset" class="btn btn-secondary">Cancel</button>
-                                    </div>
-                                    <div class="col-lg-6 text-lg-right">
-                                        <button type="reset" class="btn btn-danger">Delete</button>
+                                        <a href="/client/intakes" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </div>
                             </div>
@@ -982,57 +978,23 @@
 @endsection
 
 @section('scripts')
-    <script>
-        const canvas = document.querySelector("canvas");
-        const signaturePad = new SignaturePad(canvas);
-        const clearPad = document.querySelector("[data-action=clear]");
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css"
+        rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
 
-        clearPad.addEventListener("click", () => {
-            signaturePad.clear();
+    <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
+
+    <script type="text/javascript">
+        var sig = $('#sig').signature({
+            syncField: '#signature64',
+            syncFormat: 'PNG'
         });
-
-        $('#submit_form').click(function() {
-            // get all the inputs into an array.
-            var $inputs = $('#IntakeForm :input');
-
-            // not sure if you wanted this, but I thought I'd add it.
-            // get an associative array of just the values.
-            var values = {};
-
-            $inputs.each(function() {
-                if (this.name) {
-
-                    // var input_name = this.name;
-                    // var check = "question";
-
-                    // if (input_name.indexOf(check) != -1) {
-
-                    //     var having = {
-                    //         question: $(this).attr("question"),
-                    //         answer: $(this).val()
-                    //     };
-
-                    //     values.push(having);
-
-                    // } else {
-
-                    values[this.name] = $(this).val();
-                    // }
-
-                }
-            });
-
-            console.log(values);
-
-            $.ajax({
-                type: "GET",
-                url: '/client/intake-form/submit',
-                data: values,
-                success: function(response) {
-
-                    console.log(response);
-                }
-            })
+        $('#clear').click(function(e) {
+            e.preventDefault();
+            sig.signature('clear');
+            $("#signature64").val('');
         });
     </script>
 @endsection

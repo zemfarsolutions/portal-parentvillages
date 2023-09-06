@@ -12,7 +12,7 @@ class Receipt extends Controller
     public function index(Request $request)
     {
 
-        $records = EmployeeReceipt::with('images')->where('employee_id', $request->id)->get();
+        $records = EmployeeReceipt::with('images')->where('employee_id', $request->id)->orderBy('id', 'DESC')->get();
         // dd($records);
         return $records;
     }

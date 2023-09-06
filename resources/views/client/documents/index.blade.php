@@ -68,7 +68,7 @@
                                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                                                         <!--begin::Navigation-->
                                                         <ul class="navi navi-hover py-5">
-                                                            
+
                                                             <li class="navi-item">
                                                                 <a href="/resources/{{ $record->id }}" class="navi-link">
                                                                     <span class="navi-icon">
@@ -142,8 +142,8 @@
                                                         src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
                                                 @endif
                                                 <!--begin: Title-->
-                                                <a href="{{ $record->path }}" target="_blank"
-                                                    class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $record->name . '.' . pathinfo($record->path, PATHINFO_EXTENSION) }}</a>    
+                                                <a href="/assets/media/{{ $record->path }}" target="_blank"
+                                                    class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $record->name . '.' . pathinfo($record->path, PATHINFO_EXTENSION) }}</a>
                                                 <!--end: Tite-->
                                             </div>
                                         </div>

@@ -68,7 +68,7 @@ var KTDatatableModal = function() {
 					template: function(row) {
 						return '\
                         <div style="display:flex;">\
-                                <a href="/employee/receipts/'+row.id+'" class="btn btn-sm btn-outline-info btn-icon btn-info mr-2" title="Edit details">\
+                                <a href="/employee/receipts/'+row.id+'" class="btn btn-sm btn-outline-primary btn-icon mr-2" title="Edit details">\
 									<i class="flaticon2-document"></i>\
 								</a>\
 								<a href="/employee/receipts/'+row.id+'/edit" class="btn btn-sm btn-clean btn-icon btn-outline-secondary	mr-2" title="Edit details">\

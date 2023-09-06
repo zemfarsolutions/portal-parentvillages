@@ -29,13 +29,6 @@
                 <!--end::Page Heading-->
             </div>
             <!--end::Info-->
-            <!--begin::Toolbar-->
-            <div class="d-flex align-items-center">
-                <!--begin::Actions-->
-                <a href="/client/documents/create" class="btn btn-light-primary font-weight-bolder btn-sm">Add Document</a>
-                <!--end::Actions-->
-            </div>
-            <!--end::Toolbar-->
         </div>
     </div>
     <!--end::Subheader-->
@@ -68,7 +61,7 @@
                                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                                                         <!--begin::Navigation-->
                                                         <ul class="navi navi-hover py-5">
-                                                            
+
                                                             <li class="navi-item">
                                                                 <a href="/resources/{{ $record->id }}" class="navi-link">
                                                                     <span class="navi-icon">
@@ -77,7 +70,7 @@
                                                                     <span class="navi-text">View File</span>
                                                                 </a>
                                                             </li>
-                                                           
+
                                                         </ul>
                                                         <!--end::Navigation-->
                                                     </div>
@@ -135,7 +128,7 @@
                                                 @endif
                                                 <!--begin: Title-->
                                                 <a href="{{ $record->path }}" target="_blank"
-                                                    class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $record->name . '.' . pathinfo($record->path, PATHINFO_EXTENSION) }}</a>    
+                                                    class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $record->name . '.' . pathinfo($record->path, PATHINFO_EXTENSION) }}</a>
                                                 <!--end: Tite-->
                                             </div>
                                         </div>

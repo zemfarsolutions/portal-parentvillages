@@ -12,7 +12,7 @@ class IntakeForm extends Controller
 {
     public function index(Request $request)
     {
-        $records = Intake::where('user_id',$request->id)->get();        
+        $records = Intake::where('user_id', $request->id)->orderBy('id', 'DESC')->get();
         return $records;
     }
 }

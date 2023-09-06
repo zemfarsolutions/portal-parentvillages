@@ -12,7 +12,7 @@ class Appointment extends Controller
 {
     public function index(Request $request)
     {
-        $records = UserAppointment::where('user_id',$request->id)->get();        
+        $records = UserAppointment::where('user_id', $request->id)->orderBy('id', 'DESC')->get();
         return $records;
     }
 }

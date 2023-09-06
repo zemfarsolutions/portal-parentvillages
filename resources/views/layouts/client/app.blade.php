@@ -46,9 +46,6 @@
     <link href="/assets/css/themes/layout/brand/dark9cd7.css?v=7.1.5" rel="stylesheet" type="text/css" />
     <link href="/assets/css/themes/layout/aside/dark9cd7.css?v=7.1.5" rel="stylesheet" type="text/css" />
 
-    <link href="/assets/css/pages/error/error-span.css" rel="stylesheet" type="text/css" />
-
-
     <!--end::Layout Themes-->
     <link rel="shortcut icon"
         href="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png" />
@@ -75,6 +72,17 @@
             a.appendChild(r);
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
+    <style>
+        .kbw-signature {
+            width: 100%;
+            height: 200px;
+        }
+
+        #sig canvas {
+            width: 100% !important;
+            height: auto;
+        }
+    </style>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -114,7 +122,8 @@
                     <!--begin::Logo-->
                     <a href="/client/dashboard" class="brand-logo">
                         {{-- <img alt="Logo" width="180px" class="mt-2" src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png" /> --}}
-                        <img alt="Logo" width="180px" class="mt-2" src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png">
+                        <img alt="Logo" width="180px" class="mt-2"
+                            src="https://ml5qkd9yohde.i.optimole.com/w:253/h:73/q:mauto/f:avif/https://parentvillage.wetestlink.com/wp-content/uploads/2023/06/Untitled-1-2-1.png">
                     </a>
                     <!--end::Logo-->
                     <!--begin::Toggle-->
@@ -415,7 +424,8 @@
                                     </a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                         <ul class="menu-subnav">
-                                            <li class="menu-item menu-item-active" aria-haspopup="true">
+                                            <li class="menu-item {{ gettype(strpos(url()->full(), '/client/dashboard')) == 'integer' ? 'menu-item-active' : null }}"
+                                                aria-haspopup="true">
                                                 <a href="/client/dashboard" class="menu-link">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Clothes/Briefcase.svg-->
@@ -441,8 +451,8 @@
                                             <li class="menu-item" aria-haspopup="true">
 
                                             </li>
-                                            <li class="menu-item menu-item-submenu" data-menu-toggle="hover"
-                                                aria-haspopup="true">
+                                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/client/intakes')) == 'integer' ? 'menu-item-open' : null }}"
+                                                data-menu-toggle="hover" aria-haspopup="true">
                                                 <a href="javascript:;" class="menu-link menu-toggle">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Code/CMD.svg-->
@@ -487,8 +497,8 @@
                                                     </ul>
                                                 </div>
                                             </li>
-                                            <li class="menu-item menu-item-submenu" data-menu-toggle="hover"
-                                                aria-haspopup="true">
+                                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/client/appointments')) == 'integer' ? 'menu-item-open' : null }}"
+                                                data-menu-toggle="hover" aria-haspopup="true">
                                                 <a href="index-2.html#.html" class="menu-link menu-toggle">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Communication/Mail-box.svg-->
@@ -512,7 +522,8 @@
                                                 </a>
                                                 <div class="menu-submenu menu-submenu-classic menu-submenu-right">
                                                     <ul class="menu-subnav">
-                                                        <li class="menu-item" aria-haspopup="true">
+                                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/client/appointments/create')) == 'integer' ? 'menu-item-active' : null }}"
+                                                            aria-haspopup="true">
                                                             <a href="/client/appointments/create" class="menu-link">
                                                                 <i class="menu-bullet menu-bullet-line">
                                                                     <span></span>
@@ -520,7 +531,8 @@
                                                                 <span class="menu-text">Add New Appointments</span>
                                                             </a>
                                                         </li>
-                                                        <li class="menu-item" aria-haspopup="true">
+                                                        <li class="menu-item {{ gettype(strpos(url()->full(), '/client/appointments')) == 'integer' ? 'menu-item-active' : null }}"
+                                                            aria-haspopup="true">
                                                             <a href="/client/appointments" class="menu-link">
                                                                 <i class="menu-bullet menu-bullet-line">
                                                                     <span></span>
@@ -528,11 +540,11 @@
                                                                 <span class="menu-text">My Appointments</span>
                                                             </a>
                                                         </li>
-
                                                     </ul>
                                                 </div>
                                             </li>
-                                            <li class="menu-item" aria-haspopup="true">
+                                            <li class="menu-item {{ gettype(strpos(url()->full(), '/client/scholarships')) == 'integer' ? 'menu-item-active' : null }}"
+                                                aria-haspopup="true">
                                                 <a href="/client/scholarships" class="menu-link">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Communication/Spam.svg-->
@@ -553,8 +565,8 @@
                                                     <span class="menu-text">Scholarshipss</span>
                                                 </a>
                                             </li>
-                                            <li class="menu-item menu-item-submenu" data-menu-toggle="hover"
-                                                aria-haspopup="true">
+                                            <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/client/documents')) == 'integer' ? 'menu-item-open' : null }}"
+                                                data-menu-toggle="hover" aria-haspopup="true">
                                                 <a href="javascript:;" class="menu-link menu-toggle">
                                                     <span class="svg-icon menu-icon">
                                                         <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Code/CMD.svg-->
@@ -590,16 +602,12 @@
                                                                 <span class="menu-text">My Documents</span>
                                                             </a>
                                                         </li>
-
                                                     </ul>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-
-
-
                                 <!--end::Header Nav-->
                         </div>
                         <!--end::Header Menu-->
@@ -1372,13 +1380,12 @@
             <!--begin::Footer-->
             <div class="footer bg-white py-4 d-flex flex-lg-column custom-footer" id="kt_footer">
                 <!--begin::Container-->
-                <div
-                    class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
                     <!--begin::Copyright-->
                     <div class="text-dark order-2 order-md-1">
                         <span class="text-muted font-weight-bold mr-2">2023©</span>
-                        <a href="/client/dashboard" target="_blank"
-                            class="text-dark-75 text-hover-primary">Parent Villages</a>
+                        <a href="/client/dashboard" target="_blank" class="text-dark-75 text-hover-primary">Parent
+                            Villages</a>
                     </div>
                     <!--end::Copyright-->
                     <!--begin::Nav-->
@@ -1418,18 +1425,25 @@
             <!--begin::Header-->
             <div class="d-flex align-items-center mt-5">
                 <div class="symbol symbol-100 mr-5">
-                    <div class="symbol-label" style="background-image:url('../assets/media/{{Auth::guard('web')->user()->avatar}}')"></div>
+                    <div class="symbol-label"
+                        style="background-image:url('../assets/media/{{ Auth::guard('web')->user()->avatar }}')">
+                    </div>
                     <i class="symbol-badge bg-success"></i>
                 </div>
                 <div class="d-flex flex-column">
                     <span href="#" class="font-weight-bold font-size-h5 text-muted">
                         <span class="svg-icon svg-icon-primary svg-icon-lg">
                             <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-10-29-133027/theme/html/demo1/dist/../src/media/svg/icons/General/User.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon points="0 0 24 0 24 24 0 24"/>
-                                    <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                    <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path
+                                        d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                    <path
+                                        d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                        fill="#000000" fill-rule="nonzero" />
                                 </g>
                             </svg>
                             <!--end::Svg Icon-->
@@ -1441,18 +1455,15 @@
                             <span class="navi-icon mr-1">
                                 <span class="svg-icon svg-icon-lg svg-icon-primary">
                                     <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Communication/Mail-notification.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                        height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none"
-                                            fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24"
-                                                height="24" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
                                             <path
                                                 d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
                                                 fill="#000000" />
-                                            <circle fill="#000000" opacity="0.3" cx="19.5"
-                                                cy="17.5" r="2.5" />
+                                            <circle fill="#000000" opacity="0.3" cx="19.5" cy="17.5"
+                                                r="2.5" />
                                         </g>
                                     </svg>
                                     <!--end::Svg Icon-->
@@ -1460,16 +1471,20 @@
                             </span>
                             <span class="navi-text text-muted">{{ Auth::guard('web')->user()->email }}</span>
                         </span>
-                        <a href="/client/logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5 mt-4">
+                        <a href="/client/logout"
+                            class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5 mt-4">
                             <span class="svg-icon svg-icon-primary svg-icon-sm">
                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-10-29-133027/theme/html/demo1/dist/../src/media/svg/icons/General/Lock.svg-->
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <mask fill="white">
-                                            <use xlink:href="#path-1"/>
+                                            <use xlink:href="#path-1" />
                                         </mask>
-                                        <g/>
-                                        <path d="M7,10 L7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 L17,10 L18,10 C19.1045695,10 20,10.8954305 20,12 L20,18 C20,19.1045695 19.1045695,20 18,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,12 C4,10.8954305 4.8954305,10 6,10 L7,10 Z M12,5 C10.3431458,5 9,6.34314575 9,8 L9,10 L15,10 L15,8 C15,6.34314575 13.6568542,5 12,5 Z" fill="#000000"/>
+                                        <g />
+                                        <path
+                                            d="M7,10 L7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 L17,10 L18,10 C19.1045695,10 20,10.8954305 20,12 L20,18 C20,19.1045695 19.1045695,20 18,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,12 C4,10.8954305 4.8954305,10 6,10 L7,10 Z M12,5 C10.3431458,5 9,6.34314575 9,8 L9,10 L15,10 L15,8 C15,6.34314575 13.6568542,5 12,5 Z"
+                                            fill="#000000" />
                                     </g>
                                 </svg><!--end::Svg Icon-->
                             </span>
@@ -1491,11 +1506,16 @@
                             <div class="symbol-label">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-10-29-133027/theme/html/demo1/dist/../src/media/svg/icons/General/User.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <polygon points="0 0 24 0 24 24 0 24"/>
-                                            <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                            <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
+                                            <polygon points="0 0 24 0 24 24 0 24" />
+                                            <path
+                                                d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                                fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                            <path
+                                                d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                                fill="#000000" fill-rule="nonzero" />
                                         </g>
                                     </svg>
                                     <!--end::Svg Icon-->
@@ -1513,11 +1533,16 @@
                             <div class="symbol-label">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-10-29-133027/theme/html/demo1/dist/../src/media/svg/icons/General/Shield-protected.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24"/>
-                                            <path d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z" fill="#000000" opacity="0.3"/>
-                                            <path d="M14.5,11 C15.0522847,11 15.5,11.4477153 15.5,12 L15.5,15 C15.5,15.5522847 15.0522847,16 14.5,16 L9.5,16 C8.94771525,16 8.5,15.5522847 8.5,15 L8.5,12 C8.5,11.4477153 8.94771525,11 9.5,11 L9.5,10.5 C9.5,9.11928813 10.6192881,8 12,8 C13.3807119,8 14.5,9.11928813 14.5,10.5 L14.5,11 Z M12,9 C11.1715729,9 10.5,9.67157288 10.5,10.5 L10.5,11 L13.5,11 L13.5,10.5 C13.5,9.67157288 12.8284271,9 12,9 Z" fill="#000000"/>
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <path
+                                                d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z"
+                                                fill="#000000" opacity="0.3" />
+                                            <path
+                                                d="M14.5,11 C15.0522847,11 15.5,11.4477153 15.5,12 L15.5,15 C15.5,15.5522847 15.0522847,16 14.5,16 L9.5,16 C8.94771525,16 8.5,15.5522847 8.5,15 L8.5,12 C8.5,11.4477153 8.94771525,11 9.5,11 L9.5,10.5 C9.5,9.11928813 10.6192881,8 12,8 C13.3807119,8 14.5,9.11928813 14.5,10.5 L14.5,11 Z M12,9 C11.1715729,9 10.5,9.67157288 10.5,10.5 L10.5,11 L13.5,11 L13.5,10.5 C13.5,9.67157288 12.8284271,9 12,9 Z"
+                                                fill="#000000" />
                                         </g>
                                     </svg>
                                     <!--end::Svg Icon-->
@@ -1544,14 +1569,22 @@
                     <h4 class="font-weight-bold m-0">Shopping Cart</h4>
                     <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary"
                         id="kt_quick_cart_close">
-                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-10-29-133027/theme/html/demo1/dist/../src/media/svg/icons/Navigation/Close.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
-                                    <rect x="0" y="7" width="16" height="2" rx="1"/>
-                                    <rect opacity="0.3" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000) " x="0" y="7" width="16" height="2" rx="1"/>
+                        <span
+                            class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-10-29-133027/theme/html/demo1/dist/../src/media/svg/icons/Navigation/Close.svg--><svg
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
+                                        fill="#000000">
+                                        <rect x="0" y="7" width="16" height="2"
+                                            rx="1" />
+                                        <rect opacity="0.3"
+                                            transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000) "
+                                            x="0" y="7" width="16" height="2"
+                                            rx="1" />
+                                    </g>
                                 </g>
-                            </g>
-                        </svg><!--end::Svg Icon--></span>
+                            </svg><!--end::Svg Icon--></span>
                     </a>
                 </div>
                 <!--end::Header-->

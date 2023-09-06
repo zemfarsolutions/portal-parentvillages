@@ -12,37 +12,36 @@ class MilaegeLog extends Controller
 {
     public function index(Request $request)
     {
-        $records = EmployeeMilaegeLog::where('employee_id', $request->id)->get();
+        $records = EmployeeMilaegeLog::where('employee_id', $request->id)->orderBy('id', 'DESC')->get();
         return $records;
     }
 
-    
-    public function milage_chart(Request $request){
-        
+
+    public function milage_chart(Request $request)
+    {
+
         $records = EmployeeMilaegeLog::where('employee_id', $request->id)->orderBy('date', 'asc')->get();
 
         $total_hours = [];
         $months = [];
         $data = [];
 
-        foreach($records as $record){
-            
+        foreach ($records as $record) {
+
             $date = Carbon::createFromFormat('Y-m-d', $record->date);
-            
+
             if (!in_array($date->format('F'), $months)) {
 
                 $num_of_hours = EmployeeMilaegeLog::select('number_of_miles')
-                                ->whereMonth('date', (int)$date->format('m'))
-                                ->get()
-                                ->pluck('number_of_miles')
-                                ->toArray();
-                
+                    ->whereMonth('date', (int)$date->format('m'))
+                    ->get()
+                    ->pluck('number_of_miles')
+                    ->toArray();
+
                 array_push($total_hours, array_sum($num_of_hours));
 
                 array_push($months, $date->format('F'));
-
             }
-
         }
 
         $data['miles'] = $total_hours;

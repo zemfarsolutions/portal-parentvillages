@@ -12,97 +12,122 @@ use Illuminate\Support\Facades\Auth;
 
 class IntakeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $user_id = Auth::guard('web')->user()->id;
-        $total_records = Intake::where('user_id',$user_id)->count();
-        return view('client.intakes.index',compact('total_records'));
+        $total_records = Intake::where('user_id', $user_id)->count();
+        return view('client.intakes.index', compact('total_records'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('client.intakes.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $user_id = Auth::guard('web')->user()->id;
 
-        $validate = Validator::make($request->all(),[
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'address_1' => 'required',
-            'address_2' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'postal_code' => 'required',
-            'gender' => 'required',
-            'language' => 'required',
-            'age' => 'required',
-            'question_1' => 'array|required',
-            'question_2' => 'required',
-            'question_3' => 'required',
-            'question_4' => 'array|required',
-            'question_5' => 'required',
-            'question_6' => 'required',
-            'question_7' => 'required',
-            'question_8' => 'required',
-            'question_9' => 'array|required',
-            'question_10' => 'array|required',
-            'question_11' => 'required',
-            'question_12' => 'array|required',
-            'question_13' => 'required',
-            'question_14' => 'required',
-            'question_15' => 'array|required',
-            'question_16' => 'required',
-            'question_17' => 'array|required',
-            'question_18' => 'required',
-            'question_19' => 'required',
-            'question_20' => 'required',
-            'question_21' => 'required',
-            'question_22' => 'required',
-            'question_23' => 'array|required',
-            'question_24' => 'array|required',
-            'question_25' => 'required',
-            'question_26' => 'required',
-            'question_27' => 'required',
+        $validate = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'address_1' => 'required',
+                'address_2' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'postal_code' => 'required',
+                'gender' => 'required',
+                'language' => 'required',
+                'age' => 'required',
+                'signed' => 'required',
+                'question_1' => 'array|required',
+                'question_2' => 'required',
+                'question_3' => 'required',
+                'question_4' => 'array|required',
+                'question_5' => 'required',
+                'question_6' => 'required',
+                'question_7' => 'required',
+                'question_8' => 'required',
+                'question_9' => 'array|required',
+                'question_10' => 'array|required',
+                'question_11' => 'required',
+                'question_12' => 'array|required',
+                'question_13' => 'required',
+                'question_14' => 'required',
+                'question_15' => 'array|required',
+                'question_16' => 'required',
+                'question_17' => 'array|required',
+                'question_18' => 'required',
+                'question_19' => 'required',
+                'question_20' => 'required',
+                'question_21' => 'required',
+                'question_22' => 'required',
+                'question_23' => 'array|required',
+                'question_24' => 'array|required',
+                'question_25' => 'required',
+                'question_26' => 'required',
+                'question_27' => 'required',
 
-        ],
-        $messages=[
-            'question_1.required' => 'Field is required',
-            'question_2.required' => 'Field is required',
-            'question_3.required' => 'Field is required',
-            'question_4.required' => 'Field is required',
-            'question_5.required' => 'Field is required',
-            'question_6.required' => 'Field is required',
-            'question_7.required' => 'Field is required',
-            'question_8.required' => 'Field is required',
-            'question_9.required' => 'Field is required',
-            'question_10.required' => 'Field is required',
-            'question_11.required' => 'Field is required',
-            'question_12.required' => 'Field is required',
-            'question_13.required' => 'Field is required',
-            'question_14.required' => 'Field is required',
-            'question_15.required' => 'Field is required',
-            'question_16.required' => 'Field is required',
-            'question_17.required' => 'Field is required',
-            'question_18.required' => 'Field is required',
-            'question_19.required' => 'Field is required',
-            'question_20.required' => 'Field is required',
-            'question_21.required' => 'Field is required',
-            'question_22.required' => 'Field is required',
-            'question_23.required' => 'Field is required',
-            'question_24.required' => 'Field is required',
-            'question_25.required' => 'Field is required',
-            'question_26.required' => 'Field is required',
-            'question_27.required' => 'Field is required',
+            ],
+            $messages = [
+                'question_1.required' => 'Field is required',
+                'question_2.required' => 'Field is required',
+                'question_3.required' => 'Field is required',
+                'question_4.required' => 'Field is required',
+                'question_5.required' => 'Field is required',
+                'question_6.required' => 'Field is required',
+                'question_7.required' => 'Field is required',
+                'question_8.required' => 'Field is required',
+                'question_9.required' => 'Field is required',
+                'question_10.required' => 'Field is required',
+                'question_11.required' => 'Field is required',
+                'question_12.required' => 'Field is required',
+                'question_13.required' => 'Field is required',
+                'question_14.required' => 'Field is required',
+                'question_15.required' => 'Field is required',
+                'question_16.required' => 'Field is required',
+                'question_17.required' => 'Field is required',
+                'question_18.required' => 'Field is required',
+                'question_19.required' => 'Field is required',
+                'question_20.required' => 'Field is required',
+                'question_21.required' => 'Field is required',
+                'question_22.required' => 'Field is required',
+                'question_23.required' => 'Field is required',
+                'question_24.required' => 'Field is required',
+                'question_25.required' => 'Field is required',
+                'question_26.required' => 'Field is required',
+                'question_27.required' => 'Field is required',
 
-        ]
+            ]
 
-    );
-        if($validate->fails()){
+        );
+
+        if ($validate->fails()) {
             return back()
                 ->withErrors($validate)
                 ->withInput();
         }
+
+        $folderPath = public_path('assets/media/client/signatures/');
+
+        $image_parts = explode(";base64,", $request->signed);
+
+        $image_type_aux = explode("image/", $image_parts[0]);
+
+        $image_type = $image_type_aux[1];
+
+        $image_base64 = base64_decode($image_parts[1]);
+
+        $file = $folderPath . uniqid() . '.' . $image_type;
+
+        $needle = 'signatures/';
+        $path = substr($file, strpos($file, $needle) + strlen($needle));
+
+        file_put_contents($file, $image_base64);
+
         $intake = Intake::create([
             'user_id' => $user_id,
             'name' => $request->name,
@@ -116,9 +141,9 @@ class IntakeController extends Controller
             'gender' => $request->gender,
             'language' => $request->language,
             'age' => $request->age,
+            'signature' => $path,
         ]);
 
-        // dd($intake->id);
         foreach ($request->toArray() as $key => $value) {
 
             if (strpos($key, 'question') !== false) {
@@ -146,10 +171,12 @@ class IntakeController extends Controller
             }
         }
 
+
         return back()->with('success', 'Participant Intake form submitted successfully.');
     }
 
-    public function view(Intake $intake){
+    public function view(Intake $intake)
+    {
         $records = Intake::where('id', $intake->id)
             ->with(['answers' => function ($query) {
 
@@ -160,31 +187,57 @@ class IntakeController extends Controller
         return view('client.intakes.view', compact('intake'));
     }
 
-    public function edit(Intake $intake){
-       return view('client.intakes.edit', compact('intake'));
+    public function edit(Intake $intake)
+    {
+        return view('client.intakes.edit', compact('intake'));
     }
 
-    public function update(Request $request,$id){
+    public function update(Request $request, $id)
+    {
         $user_id = Auth::guard('web')->user()->id;
 
-        $intake = Intake::where('id',$id)
-            ->update([
-            'user_id' => $user_id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address_1' => $request->address_1,
-            'address_2' => $request->address_2,
-            'city' => $request->city,
-            'state' => $request->state,
-            'postal_code' => $request->postal_code,
-            'gender' => $request->gender,
-            'language' => $request->language,
-            'age' => $request->age
-        ]);
+        if (isset($request->signed)) {
+            $folderPath = public_path('assets/media/client/signatures/');
 
-        $delete_intake_ans = IntakeAnswer::where('intake_id',$id)->delete();
-        if($delete_intake_ans){
+            $image_parts = explode(";base64,", $request->signed);
+
+            $image_type_aux = explode("image/", $image_parts[0]);
+
+            $image_type = $image_type_aux[1];
+
+            $image_base64 = base64_decode($image_parts[1]);
+
+            $file = $folderPath . uniqid() . '.' . $image_type;
+
+            $needle = 'signatures/';
+            $path = substr($file, strpos($file, $needle) + strlen($needle));
+
+            file_put_contents($file, $image_base64);
+
+            Intake::where('id', $id)
+                ->update([
+                    'signature' => $path
+                ]);
+        }
+
+        $intake = Intake::where('id', $id)
+            ->update([
+                'user_id' => $user_id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address_1' => $request->address_1,
+                'address_2' => $request->address_2,
+                'city' => $request->city,
+                'state' => $request->state,
+                'postal_code' => $request->postal_code,
+                'gender' => $request->gender,
+                'language' => $request->language,
+                'age' => $request->age
+            ]);
+
+        $delete_intake_ans = IntakeAnswer::where('intake_id', $id)->delete();
+        if ($delete_intake_ans) {
             foreach ($request->toArray() as $key => $value) {
 
                 if (strpos($key, 'question') !== false) {
@@ -212,10 +265,8 @@ class IntakeController extends Controller
                 }
             }
             return back()->with('success', 'Participant Intake form updated successfully.');
-        }
-        else{
+        } else {
             return back()->with('error', 'Fail to Update Participant Intake form.');
         }
-
     }
 }

@@ -46,21 +46,27 @@
                             <h3 class="card-title">Edit Record</h3>
                         </div>
                         <!--begin::Form-->
-                        <form class="form" method="POST" action="/employee/time-tracking/{{$time_tracking->id}}">
-                            
+                        <form class="form" method="POST" action="/employee/time-tracking/{{ $time_tracking->id }}">
+
                             @method('PUT')
                             @csrf
-
+                            <?php
+                            $date = date_create($time_tracking->date);
+                            ?>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label>Date:</label>
-                                        <input name="date" value="{{ $time_tracking->date }}" type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" placeholder="Select date" />
+                                        <input name="date" value="{{ date_format($date, 'm/d/Y') }}" type="text"
+                                            class="form-control" id="kt_datepicker_1" readonly="readonly"
+                                            placeholder="Select date" />
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Number Of Hours:</label>
-                                        <input required name="number_of_hours" value="{{ $time_tracking->number_of_hours }}" type="number" class="form-control" placeholder="Enter contact number" />
+                                        <input maxlength="9" required name="number_of_hours"
+                                            value="{{ $time_tracking->number_of_hours }}" type="number"
+                                            class="form-control" placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter total number of hours</span>
                                     </div>
                                 </div>
@@ -69,8 +75,10 @@
                                         <div class="form-group">
                                             <label for="typeSelect1">Type select</label>
                                             <select required name="type" class="form-control" id="typeSelect1">
-                                                <option {{ $time_tracking->type == "event" ? 'selected' : null }}>Event</option>
-                                                <option {{ $time_tracking->type == "place" ? 'selected' : null }}>Place</option>
+                                                <option {{ $time_tracking->type == 'event' ? 'selected' : null }}>Event
+                                                </option>
+                                                <option {{ $time_tracking->type == 'place' ? 'selected' : null }}>Place
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -85,7 +93,7 @@
                                 <div class="form-group row">
                                     <div class="col-lg-12 text-danger">
                                         @error('date')
-                                            {{$message}}
+                                            {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
@@ -94,7 +102,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-primary mr-2">Update</button>
-                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                        <a href="/employee/time-tracking" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </div>
                             </div>
@@ -111,5 +119,5 @@
 
 @section('scripts')
 
-<script src="/assets/js/pages/crud/forms/widgets/bootstrap-datepicker9cd7.js?v=7.1.5"></script>
+    <script src="/assets/js/pages/crud/forms/widgets/bootstrap-datepicker9cd7.js?v=7.1.5"></script>
 @endsection

@@ -64,8 +64,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="typeSelect1">Amount:</label>
-                                        <input required name="amount" type="text" id="numberInput" pattern="[0-9]*"
-                                            class="form-control" placeholder="Enter Amount" />
+                                        <input maxlength="9" required name="amount" type="text" id="numberInput"
+                                            pattern="[0-9]*" class="form-control" placeholder="Enter Amount" />
                                         <span class="form-text text-muted">Please enter the Amount.</span>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-primary mr-2">Save</button>
-                                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                                        <a href="/employee/expenses" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </div>
                             </div>

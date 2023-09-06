@@ -21,7 +21,8 @@ class Intake extends Model
         'postal_code',
         'gender',
         'language',
-        'age'
+        'age',
+        'signature'
     ];
 
     public function answers()
@@ -34,7 +35,6 @@ class Intake extends Model
         $result = array_filter($this->answers->toArray(), function ($answer) use ($id) {
 
             if ($answer['question_id'] == $id) return $answer;
-
         });
 
         return $result;
