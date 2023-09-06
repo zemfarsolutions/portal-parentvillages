@@ -165,22 +165,19 @@ var KTApexChartsDemo = function () {
             success:function(response){
 				const event_hours = response['data']['event_hours'];
                 const months = response['data']['months'];
-				
-               	var options = {
+				console.log(typeof(event_hours.event))
+				var options = {
 					series: [{
 						name: 'Event',
 						data: event_hours.event
 					}, {
 						name: 'Place',
 						data: event_hours.place
-					},],
+					}],
 					chart: {
 						type: 'bar',
-						height: 250,
+						height: 200,
 						stacked: true,
-						toolbar: {
-							show: false
-						},
 					},
 					plotOptions: {
 						bar: {
@@ -192,13 +189,13 @@ var KTApexChartsDemo = function () {
 						colors: ['#fff']
 					},
 					title: {
-						text: ''
+						text: 'Fiction Books Sales'
 					},
 					xaxis: {
 						categories: months,
 						labels: {
 							formatter: function (val) {
-								// return val + "K"
+								return val + "K"
 							}
 						}
 					},
@@ -210,7 +207,7 @@ var KTApexChartsDemo = function () {
 					tooltip: {
 						y: {
 							formatter: function (val) {
-								// return val + "K"
+								return val + "K"
 							}
 						}
 					},
@@ -224,7 +221,7 @@ var KTApexChartsDemo = function () {
 					},
 					colors: [primary, success, warning, danger, info]
 				};
-
+		
 				var chart = new ApexCharts(document.querySelector(apexChart), options);
 				chart.render();
             }

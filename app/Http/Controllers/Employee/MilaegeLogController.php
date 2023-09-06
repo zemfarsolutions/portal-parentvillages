@@ -25,7 +25,7 @@ class MilaegeLogController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'date' => 'required',
-            'number_of_hours' => 'required',
+            'number_of_miles' => 'required',
             'description' => 'required'
         ]);
 
@@ -38,7 +38,7 @@ class MilaegeLogController extends Controller
         EmployeeMilaegeLog::create([
             'employee_id' => Auth::guard('employee')->user()->id,
             'date' => date_format(date_create($request->date), "Y-m-d"),
-            'number_of_hours' => $request->number_of_hours,
+            'number_of_miles' => $request->number_of_miles,
             'description' => $request->description
         ]);
 
@@ -55,7 +55,7 @@ class MilaegeLogController extends Controller
 
         $validator = Validator::make($request->all(), [
             'date' => 'required',
-            'number_of_hours' => 'required',
+            'number_of_miles' => 'required',
             'description' => 'required'
         ]);
 
@@ -67,7 +67,7 @@ class MilaegeLogController extends Controller
 
         $milaege_log->update([
             'date' => date_format(date_create($request->date), "Y-m-d"),
-            'number_of_hours' => $request->number_of_hours,
+            'number_of_miles' => $request->number_of_miles,
             'description' => $request->description
         ]);
 
@@ -76,7 +76,7 @@ class MilaegeLogController extends Controller
 
     public function destroy(EmployeeMilaegeLog $milaege_log)
     {
-        dd($milaege_log);
+
         $milaege_log->delete();
 
         return redirect()->route('time-tracking.index')->with('success', 'Record deleted successfully.');

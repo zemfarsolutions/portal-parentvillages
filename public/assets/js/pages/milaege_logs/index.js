@@ -45,8 +45,8 @@ var KTDatatableAutoColumnHideDemo = function() {
 					title: 'Record ID',
 				},
 				{
-					field: 'number_of_hours',
-					title: 'Number Of Hours',
+					field: 'number_of_miles',
+					title: 'Number Of Miles',
 				},
 				{
 					field: 'date',

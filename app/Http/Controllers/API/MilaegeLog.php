@@ -31,10 +31,10 @@ class MilaegeLog extends Controller
             
             if (!in_array($date->format('F'), $months)) {
 
-                $num_of_hours = EmployeeMilaegeLog::select('number_of_hours')
+                $num_of_hours = EmployeeMilaegeLog::select('number_of_miles')
                                 ->whereMonth('date', (int)$date->format('m'))
                                 ->get()
-                                ->pluck('number_of_hours')
+                                ->pluck('number_of_miles')
                                 ->toArray();
                 
                 array_push($total_hours, array_sum($num_of_hours));

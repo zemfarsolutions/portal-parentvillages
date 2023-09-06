@@ -55,14 +55,12 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label>Date:</label>
-                                        <input name="date" value="{{ $milaege_log->date }}" type="text"
-                                            class="form-control" id="kt_datepicker_1" readonly="readonly"
-                                            placeholder="Select date" />
+                                        <input name="date" value="{{ $milaege_log->date }}" type="text" class="form-control" id="kt_datepicker_1"  placeholder="Select date" />
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Number Of Mileage:</label>
-                                        <input required name="number_of_hours" value="{{ $milaege_log->number_of_hours }}"
+                                        <input required name="number_of_miles" value="{{ $milaege_log->number_of_miles }}"
                                             type="number" class="form-control" placeholder="Enter No. of Mileage" />
                                         <span class="form-text text-muted">Please enter total number of mileage</span>
                                     </div>
