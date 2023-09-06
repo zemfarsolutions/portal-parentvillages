@@ -30,7 +30,7 @@ class TimeTrackingController extends Controller
             'type' => 'required',
             'description' => 'required'
         ]);
-
+    
         if ($validator->fails()) {
             return back()
                 ->withErrors($validator)
