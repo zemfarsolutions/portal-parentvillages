@@ -1,8 +1,9 @@
 @extends('layouts.client.app')
 
-@section('title', 'View Applicants Form')
+@section('title', 'View Appointment')
 
-@section('content')
+@section('section')
+
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -16,10 +17,10 @@
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item">
-                            <a href="/scholarships" class="text-muted">Scholarship</a>
+                            <a href="/client/applicants/" class="text-muted">Applications</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="/applicants" class="text-muted">Applicant Details</a>
+                            <a href="/client/applicants/view" class="text-muted">Application Details</a>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->
@@ -30,7 +31,7 @@
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <!--begin::Actions-->
-                <a href="/applicants" class="btn btn-light-primary font-weight-bolder btn-sm">Go back</a>
+                {{-- <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Download</a> --}}
                 <!--end::Actions-->
             </div>
             <!--end::Toolbar-->
@@ -274,7 +275,7 @@
                             </div>
                             @foreach ($userapplication->guardians as $guardian)
                                 <div class="d-flex justify-content-between pt-5">
-                                    <h6 class=" font-weight-boldest mb-5">{{$loop->iteration}}  Guardian Details</h6>
+                                    <h6 class=" font-weight-boldest mb-5">{{$loop->iteration}} ) Guardian Details</h6>
                                 </div>
                                 <div class="d-flex justify-content-between pt-6">
                                     <div class="d-flex flex-column flex-root">

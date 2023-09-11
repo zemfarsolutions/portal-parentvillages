@@ -49,7 +49,6 @@ class UserApplication extends Model
     }
     public function references(){
         
-        return $this->hasMany(UserApplicationReference::class, 'user_application_id', 'id');
+        return $this->hasMany(UserApplicationReferences::class, 'user_application_id', 'id');
     }
-
 }

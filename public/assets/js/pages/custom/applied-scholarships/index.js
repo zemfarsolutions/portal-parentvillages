@@ -12,7 +12,7 @@ var KTAppsUsersListDatatable = function() {
 				type: 'remote',
 				source: {
 					read: {
-                        url: HOST_URL + '/api/get-applied-scholarships',
+                        url: HOST_URL + '/api/get-applied-scholarships?id='+user_id,
 						method: 'GET'
 					},
 				},
@@ -44,36 +44,6 @@ var KTAppsUsersListDatatable = function() {
 				{
 					field: 'scholarship_id',
 					title: 'Scholarship Id',
-				},
-                {
-					field: 'user.name',
-					title: 'Client Name',
-					width: 250,
-					template: function(data) {
-
-						var stateNo = KTUtil.getRandomInt(0, 7);
-						var states = [
-							'success',
-							'primary',
-							'danger',
-							'success',
-							'warning',
-							'dark',
-							'primary',
-							'info'];
-						var state = states[stateNo];
-
-						var output = '<div class="d-flex align-items-center">\
-							<div class="symbol symbol-40 symbol-light-'+state+' flex-shrink-0">\
-								<span class="symbol-label font-size-h4 font-weight-bold">' + data.user.name.substring(0, 1) + '</span>\
-							</div>\
-							<div class="ml-4">\
-								<div class="text-dark-75 font-weight-bolder font-size-lg mb-0">' + data.user.name + '</div>\
-								<a href="#" class="text-muted font-weight-bold text-hover-primary">' + data.user.email + '</a>\
-						    </div>';
-
-						return output;
-					}
 				},
                 {
 					field: 'name',
@@ -151,7 +121,7 @@ var KTAppsUsersListDatatable = function() {
 					template: function(data) {
 						return '\
                             <div class="d-flex">\
-                                <a href="/applicants/'+data.slug+'/view" class="btn btn-sm btn-outline-primary btn-text-primary btn-hover-primary btn-icon mr-2" title="Edit details">\
+                                <a href="/client/applicants/'+data.slug+'/view" class="btn btn-sm btn-outline-primary btn-text-primary btn-hover-primary btn-icon mr-2" title="Edit details">\
                                     <i class="flaticon2-document"></i>\
                                 </a>\
                             </div>\

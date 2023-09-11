@@ -308,7 +308,6 @@
                                 aria-haspopup="true">
                                 <a href="/client/applicants" class="menu-link">
                                     <span class="svg-icon menu-icon">
-                                        <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                             viewBox="0 0 24 24" version="1.1">
@@ -322,7 +321,7 @@
                                         <!--end::Svg Icon-->
                                     </span>
                                     <span class="menu-text">Scholarship Applications</span>
-                                </a>
+                                    </a>
                             </li>
                             <li class="menu-item menu-item-submenu {{ gettype(strpos(url()->full(), '/client/documents/')) == 'integer' ? 'menu-item-open' : null }}"
                                 aria-haspopup="true" data-menu-toggle="hover">
