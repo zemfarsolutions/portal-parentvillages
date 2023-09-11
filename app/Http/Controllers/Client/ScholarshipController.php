@@ -43,7 +43,7 @@ class ScholarshipController extends Controller
         $current_time = Carbon::now();
         $formatted_date = $current_time->format('Y-m-d');
         $applicant_name = str()->slug($request['name']);
-        $applicant_slug = str()->slug($request->name.$request);
+        $applicant_slug = str()->slug($request->name.$scholarship_title);
 
         // $validator = Validator::make($request->all(), [
         //     'name' => 'required',

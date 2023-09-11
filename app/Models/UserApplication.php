@@ -29,5 +29,27 @@ class UserApplication extends Model
         'status'
 
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    public function scholarship()
+    {
+        return $this->belongsTo(Scholarship::class, 'scholarship_id', 'id');
+    }
+    public function guardians(){
+
+        return $this->hasMany(UserApplicationGuardian::class, 'user_application_id', 'id');
+
+    }
+    public function answers(){
+
+        return $this->hasMany(UserApplicationAnswer::class, 'user_application_id', 'id');
+
+    }
+    public function references(){
+        
+        return $this->hasMany(UserApplicationReference::class, 'user_application_id', 'id');
+    }
 
 }

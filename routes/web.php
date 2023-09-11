@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\{
     DashboardController,
+    ScholarshipApplicationController,
     IntakeController,
     AppointmentController,
     DocumentController,
@@ -52,6 +53,11 @@ Route::middleware('auth')->prefix('/client')->group(function () {
     Route::get('/change-password',[ProfileController::class, 'password_index']);
     Route::post('/change-password/{user}',[ProfileController::class, 'passwordEdit']);
     Route::post('/change-profile/{user}',[ProfileController::class, 'profileEdit']);
+
+    Route::resource('/applicants', ScholarshipApplicationController::class)->except(['show']);
+    Route::get('/applicants/{userapplication:slug}/view', [ScholarshipApplicationController::class, 'show']);
+    Route::get('/scholarship-applications/{userApplication}/accept', [ScholarshipApplicationController::class, 'acceptStatus']);
+    Route::get('/scholarship-applications/{userApplication}/reject', [ScholarshipApplicationController::class, 'rejectStatus']);
 
 
 });

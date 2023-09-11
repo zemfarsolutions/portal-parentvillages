@@ -8,7 +8,9 @@ use App\Http\Controllers\API\{
     TimeTracking,
     MilaegeLog,
     Receipt,
-    IntakeForm
+    IntakeForm,
+    AppliedScholarships
+
 };
 
 /*
@@ -37,3 +39,4 @@ Route::get('/get-files', [File::class, 'index']);
 Route::get('/get-milaege', [MilaegeLog::class, 'milage_chart']);
 Route::get('/get-expense', [Expense::class, 'expense_chart']);
 Route::get('/get-timetracking', [TimeTracking::class, 'time_track_chart']);
+Route::get('/get-applied-scholarships', [AppliedScholarships::class, 'index']);
