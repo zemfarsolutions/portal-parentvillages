@@ -12,6 +12,7 @@ class UserApplication extends Model
     protected $fillable = [
         'user_id',
         'scholarship_id',
+        'slug',
         'name',
         'email',
         'date',
@@ -25,6 +26,8 @@ class UserApplication extends Model
         'high_school',
         'plan',
         'acceptance_letter',
-        
+        'status'
+
     ];
+
 }

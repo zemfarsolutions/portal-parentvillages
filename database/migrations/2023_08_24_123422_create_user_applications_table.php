@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('scholarship_id')->constrained();
+            $table->string('slug')->unique();
             $table->string('name');
             $table->string('email');
             $table->date('date');
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->string('high_school');
             $table->string('plan');
             $table->string('acceptance_letter');
+            $table->enum('status',['accept','pending','reject']);
             $table->timestamps();
         });
     }
