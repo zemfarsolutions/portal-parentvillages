@@ -1,22 +1,10 @@
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Bootstrap 4 HTML, React, Angular 10 & VueJS Admin Dashboard Theme
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: https://1.envato.market/EA4JP
-Renew Support: https://1.envato.market/EA4JP
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+
 <html lang="en">
 <!--begin::Head-->
 
-<!-- Mirrored from preview.keenthemes.com/metronic/demo1/custom/pages/login/login-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Nov 2020 05:33:51 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!-- /Added by HTTrack -->
 
 <head>
     <!-- Google Tag Manager -->
@@ -40,7 +28,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <title>Login | Parent Villages</title>
     <meta name="description" content="Login page example" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -160,7 +148,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!--end::Form group-->
 
                             <div class="form-group row">
-                                <label class="col-3 col-form-label">Login as</label>
+                                <label class="font-size-h6 font-weight-bolder text-dark pt-6 pr-3">Login as</label>
                                 <div class="col-9 col-form-label">
                                     <div class="radio-inline">
                                         <label class="radio radio-outline radio-primary">
@@ -253,7 +241,12 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!--begin::Forgot-->
                     <div class="login-form login-forgot">
                         <!--begin::Form-->
-                        <form class="form" novalidate="novalidate" id="kt_login_forgot_form">
+                        <form class="form" id="kt_login_forgot_form">
+                            <input type="hidden" name="_next" value="/login">
+                            <input type="hidden" name="_subject" value="New submission!">
+
+                            
+                            <input type="hidden" id="forgotton_token" value="{{ csrf_token() }}">
                             <!--begin::Title-->
                             <div class="pb-13 pt-lg-0 pt-5">
                                 <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Forgotten
@@ -264,20 +257,19 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!--end::Title-->
                             <!--begin::Form group-->
                             <div class="form-group">
-                                <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6"
-                                    type="email" placeholder="Email" name="email" autocomplete="off" />
+                                <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" id="f_email" autocomplete="off" />
                             </div>
                             <!--end::Form group-->
 
                             <div class="form-group row">
-                                <label class="col-3 col-form-label">Your Role</label>
+                                <label class="font-size-h6 font-weight-bolder text-dark pt-6 pr-3">Your Role</label>
                                 <div class="col-9 col-form-label">
                                     <div class="radio-inline">
                                         <label class="radio radio-outline radio-primary">
-                                            <input type="radio" name="radios20" />
+                                            <input type="radio" name="f_radio" value="client"/>
                                             <span></span>Client</label>
                                         <label class="radio radio-outline radio-primary">
-                                            <input type="radio" name="radios20" />
+                                            <input type="radio" name="f_radio" value="employee"/>
                                             <span></span>Employee</label>
                                     </div>
                                     <span class="form-text text-muted">Select your role.</span>
@@ -286,10 +278,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                             <!--begin::Form group-->
                             <div class="form-group d-flex flex-wrap pb-lg-0">
-                                <button type="button" id="kt_login_forgot_submit"
-                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Submit</button>
-                                <button type="button" id="kt_login_forgot_cancel"
-                                    class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Cancel</button>
+                                <button type="submit" id="kt_login_forgot_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Submit</button>
+                                <button type="submit" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Cancel</button>
                             </div>
                             <!--end::Form group-->
                         </form>
