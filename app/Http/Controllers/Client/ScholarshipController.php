@@ -36,67 +36,43 @@ class ScholarshipController extends Controller
 
     public function store(Request $request)
     {
-        $scholarship_title = Scholarship::where('id',$request->scholarship_id)->pluck('title')->first();
-        $concatination = $scholarship_title.$request->name;
+        $scholarship_title = Scholarship::where('id', $request->scholarship_id)->pluck('title')->first();
+        $concatination = $scholarship_title . $request->name;
         $applicant_slug = str()->slug($concatination);
 
         $current_time = Carbon::now();
         $formatted_date = $current_time->format('Y-m-d');
         $applicant_name = str()->slug($request['name']);
-        $applicant_slug = str()->slug($request->name.$scholarship_title);
+        $applicant_slug = str()->slug($request->name . $scholarship_title);
 
-        // $validator = Validator::make($request->all(), [
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'date' => 'required',
-        //     'address' => 'required',
-        //     'city' => 'required',
-        //     'state' => 'required',
-        //     'postal_code' => 'required',
-        //     'phone' => 'required',
-        //     'award_letter' => 'required|mimes:pdf,doc',
-        //     'transcript_letter' => 'required|mimes:pdf,doc',
-        //     'high_school' => 'required',
-        //     'plan' => 'required',
-        //     'acceptance_letter' => 'required|mimes:pdf,doc',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'date' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postal_code' => 'required',
+            'phone' => 'required',
+            'award_letter' => 'required|mimes:pdf,doc',
+            'transcript_letter' => 'required|mimes:pdf,doc',
+            'high_school' => 'required',
+            'plan' => 'required',
+            'acceptance_letter' => 'required|mimes:pdf,doc',
+            "guardian_one" => 'required_array_keys:name,email,phone,address,education',
+            "guardian_two" => 'required_array_keys:name,email,phone,address,education',
+            "reference_one" => 'required_array_keys:name,email,phone,relationship,relation_length,reference_letter',
+            "reference_two" => 'required_array_keys:name,email,phone,relationship,relation_length,reference_letter',
+            'question_2' => 'required',
+            'question_3' => 'required',
+            'question_4' => 'required|mimes:pdf,doc'
+        ]);
 
-        //     // "guardian_one" => 'required_array_keys:[name]',
-        //     // 'guardian_one["name"]' => 'required',
-
-        //     "guardian_one['email']" => 'required',
-        //     "guardian_one['phone']" => 'required',
-        //     "guardian_one['address']" => 'required',
-        //     "guardian_one['associate_degree']" => 'required',
-
-        //     "guardian_two['name']" => 'required',
-        //     "guardian_two['email']" => 'required',
-        //     "guardian_two['phone']" => 'required',
-        //     "guardian_two['address']" => 'required',
-        //     "reference_one['name']" => 'required',
-        //     "reference_one['email']" => 'required',
-        //     "reference_one['phone']" => 'required',
-        //     "reference_one['relationship']" => 'required',
-        //     "reference_one['relation_length']" => 'required',
-        //     "reference_one['reference_letter']" => 'required|mimes:pdf,doc',
-        //     "reference_two['name']" => 'required',
-        //     "reference_two['email']" => 'required',
-        //     "reference_two['phone']" => 'required',
-        //     "reference_two['relationship']" => 'required',
-        //     "reference_two['relation_length']" => 'required',
-        //     "reference_two['reference_letter']" => 'required|mimes:pdf,doc',
-        //     'question_2' => 'required',
-        //     'question_3' => 'required',
-        //     'question_4' => 'required|mimes:pdf,doc',
-
-        // ]);
-
-        // if ($validator->fails()) {
-        //     // dd($request->guardian_one["name"]);
-        //     dd($validator);
-        //     return back()
-        //         ->withErrors($validator)
-        //         ->withInput();
-        // }
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $award_letter_extension = $request->file('award_letter')->extension();
         $award_letter_formated_file = $formatted_date . '-' . $applicant_name . '.' . $award_letter_extension;
@@ -138,18 +114,42 @@ class ScholarshipController extends Controller
 
         for ($i = 0; $i < count($guardians); $i++) {
 
-            UserApplicationGuardian::create([
+            $guardian = UserApplicationGuardian::create([
                 'user_application_id' => $user_application->id,
-                'name' =>  $guardians[$i]["'name'"],
-                'email' =>  $guardians[$i]["'email'"],
-                'phone' =>  $guardians[$i]["'phone'"],
-                'address' =>  $guardians[$i]["'address'"],
-                'high_school_diploma' =>  isset($guardians[$i]["'high_school_diploma'"]) ?  true : false,
-                'associate_degree' =>  isset($guardians[$i]["'associate_degree'"]) ?  true : false,
-                'bachelor_degree' =>  isset($guardians[$i]["'bachelor_degree'"]) ?  true : false,
-                'master_degree' => isset($guardians[$i]["'master_degree'"]) ?  true : false,
-                'doctoral_degree' => isset($guardians[$i]["'doctoral_degree'"]) ?  true : false
+                'name' =>  $guardians[$i]["name"],
+                'email' =>  $guardians[$i]["email"],
+                'phone' =>  $guardians[$i]["phone"],
+                'address' =>  $guardians[$i]["address"]
             ]);
+
+            foreach ($guardians[$i]['education'] as $key => $value) {
+
+                if ($value === "High School Diploma") {
+                    UserApplicationGuardian::where('id', $guardian->id)->update([
+                        'high_school_diploma'   =>    true
+                    ]);
+                }
+                if ($value === "Associate Degree") {
+                    UserApplicationGuardian::where('id', $guardian->id)->update([
+                        'associate_degree'   =>    true
+                    ]);
+                }
+                if ($value === "Bachelor Degree") {
+                    UserApplicationGuardian::where('id', $guardian->id)->update([
+                        'bachelor_degree'   =>    true
+                    ]);
+                }
+                if ($value === "Master Degree") {
+                    UserApplicationGuardian::where('id', $guardian->id)->update([
+                        'master_degree'   =>    true
+                    ]);
+                }
+                if ($value === "Doctoral Degree") {
+                    UserApplicationGuardian::where('id', $guardian->id)->update([
+                        'doctoral_degree'   =>    true
+                    ]);
+                }
+            }
         }
 
         $references = [
@@ -159,18 +159,18 @@ class ScholarshipController extends Controller
 
         for ($i = 0; $i < count($references); $i++) {
 
-            $reference_letter = $references[$i]["'reference_letter'"];
+            $reference_letter = $references[$i]["reference_letter"];
             $reference_letter_extension = $reference_letter->extension();
-            $reference_letter_formated_file = $formatted_date . '-' . str()->slug($references[$i]["'name'"]) . '.' . $reference_letter_extension;
-            $acceptance_letter_store = $references[$i]["'reference_letter'"]->storeAs('client/scholarships/reference-letters', $reference_letter_formated_file, 'public');
+            $reference_letter_formated_file = $formatted_date . '-' . str()->slug($references[$i]["name"]) . '.' . $reference_letter_extension;
+            $acceptance_letter_store = $references[$i]["reference_letter"]->storeAs('client/scholarships/reference-letters', $reference_letter_formated_file, 'public');
 
             UserApplicationReferences::create([
                 'user_application_id' => $user_application->id,
-                'name' =>  $references[$i]["'name'"],
-                'email' =>  $references[$i]["'email'"],
-                'phone' =>  $references[$i]["'phone'"],
-                'relation' =>  $references[$i]["'relationship'"],
-                'length' => $references[$i]["'relation_length'"],
+                'name' =>  $references[$i]["name"],
+                'email' =>  $references[$i]["email"],
+                'phone' =>  $references[$i]["phone"],
+                'relation' =>  $references[$i]["relationship"],
+                'length' => $references[$i]["relation_length"],
                 'letter' => $acceptance_letter_store,
             ]);
         }
