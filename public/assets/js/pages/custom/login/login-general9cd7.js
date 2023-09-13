@@ -59,8 +59,6 @@ var KTLogin = function() {
 				var type = $('input[name="l_radio"]:checked').val();
 				var token = $("#l_token").val();
 
-				console.log(token);
-
 		        if (status == 'Valid') {
 
                     $.ajax({
@@ -136,13 +134,6 @@ var KTLogin = function() {
 			form,
 			{
 				fields: {
-					fullname: {
-						validators: {
-							notEmpty: {
-								message: 'Username is required'
-							}
-						}
-					},
 					email: {
                         validators: {
 							notEmpty: {
@@ -288,9 +279,71 @@ var KTLogin = function() {
             e.preventDefault();
 
             validation.validate().then(function(status) {
-		        if (status == 'Valid') {
-                    // Submit form
-                    KTUtil.scrollTop();
+				
+				var email = $('#f_email').val();
+				var type = $('input[name="f_radio"]:checked').val();
+				var token = $("#forgotton_token").val();
+
+				if (status == 'Valid') {
+					$.ajax({
+						type:"POST",
+						url:"/forget-password",
+						data:{
+							email: email,
+							type : type,
+							_token: token
+						},
+						success: function(response) {
+							if(response.status == 200){
+								swal.fire({
+									text: "Email has been sent.",
+									icon: "success",
+									buttonsStyling: false,
+									confirmButtonText: "Ok, got it!",
+									customClass: {
+										confirmButton: "btn font-weight-bold btn-light-primary"
+									}
+								}).then(function(result) {	
+									if (result.isConfirmed) {
+										// $('#kt_login_forgot_form').attr('action','https://formsubmit.co/developerzemfar@gmail.com');
+										$('#kt_login_forgot_form').attr('method','GET').submit();
+									}
+									KTUtil.scrollTop();
+								});	
+								
+							}
+
+							else if(response.status == 404){
+								// $('#kt_login_forgot_form').attr('action','lorem').submit();
+								swal.fire({
+									text: "Sorry, provided email not found",
+									icon: "warning",
+									buttonsStyling: false,
+									confirmButtonText: "Ok, got it!",
+									customClass: {
+										confirmButton: "btn font-weight-bold btn-light-primary"
+									}
+								}).then(function() {
+									KTUtil.scrollTop();
+								});	
+								
+
+							}
+							else if (response.status == 500) {
+								swal.fire({
+									text: "Sorry, looks like there are some errors detected, please try again.",
+									icon: "error",
+									buttonsStyling: false,
+									confirmButtonText: "Ok, got it!",
+									customClass: {
+										confirmButton: "btn font-weight-bold btn-light-primary"
+									}
+								}).then(function() {
+									KTUtil.scrollTop();
+								});			
+							}
+						}
+					})
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",

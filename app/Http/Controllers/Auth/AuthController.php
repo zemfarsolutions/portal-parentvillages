@@ -6,10 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Carbon\Carbon; 
+use Illuminate\Support\Facades\Mail; 
+
+
 use App\Models\{
     User,
-    Employee
+    Employee,
+    PasswordReset
 };
+use Illuminate\Support\Facades\Mail as FacadesMail;
 
 class AuthController extends Controller
 {
@@ -85,5 +92,51 @@ class AuthController extends Controller
 
         Auth::guard('employee')->logout();
         return redirect()->route('login');
+    }
+
+    public function forgetPassword(Request $request){
+        
+        if($request->type == "client"){
+            $token = Str::random(64);
+          
+            $email_verification = User::where('email',$request->email)->first();
+            if($email_verification){
+                
+                $attributes = [
+                    'email' => $request->email,
+                    'token' => $token,
+                    'created_at' => Carbon::now()
+                ];
+                PasswordReset::create($attributes);
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Email Found.'
+                ]);
+            }
+            else{
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Email Not Found.'
+                ]);
+            }         
+            return response()->json([
+                'status' => 500,
+                'message' => 'Internal Server Error.'
+            ]);
+           
+        }   
+        if($request->type == "employee"){
+            $token = Str::random(64);
+
+        }
+
+        return response()->json([
+            'status' => 500,
+            'message' => 'Something went wrong please try again.'
+        ]);
+    }
+
+    public function resetPassword(){
+        return view('auth.reset_password');
     }
 }
