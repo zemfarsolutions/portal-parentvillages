@@ -46,7 +46,7 @@
                         <!--begin::Form-->
                         <form class="form" action="/client/scholarships/" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="scholarship_id" value="{{$scholarship->id}}">
+                            <input type="hidden" name="scholarship_id" value="{{ $scholarship->id }}">
                             <div class="card-body">
                                 <!-- Applicant Details Start  -->
                                 <div class="d-flex justify-content-between pt-1">
@@ -55,20 +55,22 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Name:</label>
-                                        <input name="name" type="text" class="form-control" placeholder="Enter full name"/>
+                                        <input name="name" type="text" class="form-control"
+                                            placeholder="Enter full name" />
                                         <span class="form-text text-muted">Please enter your full name</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('name')
                                                 {{ $message }}
                                             @enderror
                                         </span>
                                     </div>
-                                    
+
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Email:</label>
-                                        <input name="email" type="email" class="form-control" placeholder="Enter your email address" />
+                                        <input name="email" type="email" class="form-control"
+                                            placeholder="Enter your email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('email')
                                                 {{ $message }}
                                             @enderror
@@ -80,7 +82,7 @@
                                         <label>Date</label>
                                         <input name="date" type="date" class="form-control">
                                         <span class="form-text text-muted">Please enter date</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('date')
                                                 {{ $message }}
                                             @enderror
@@ -88,26 +90,29 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Address:</label>
-                                        <input name="address" type="text" class="form-control" placeholder="Enter your street address" />
+                                        <input name="address" type="text" class="form-control"
+                                            placeholder="Enter your street address" />
                                         <span class="form-text text-muted">Please enter your street address</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('address')
                                                 {{ $message }}
                                             @enderror
                                         </span>
                                     </div>
-                                </div>                            
-                                <div class="form-group row">   
+                                </div>
+                                <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Appartment / Unit #:</label>
-                                        <input name="appartment" type="text" class="form-control" placeholder="Enter your appartment" />
+                                        <input name="appartment" type="text" class="form-control"
+                                            placeholder="Enter your appartment" />
                                         <span class="form-text text-muted">Please enter your appartment / unit #</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">City:</label>
-                                        <input name="city" type="text" class="form-control" placeholder="Enter your city" />
+                                        <input name="city" type="text" class="form-control"
+                                            placeholder="Enter your city" />
                                         <span class="form-text text-muted">Please enter your city</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('city')
                                                 {{ $message }}
                                             @enderror
@@ -117,9 +122,10 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">State / Province</label>
-                                        <input name="state" type="text" class="form-control" placeholder="Enter state / province" />
+                                        <input name="state" type="text" class="form-control"
+                                            placeholder="Enter state / province" />
                                         <span class="form-text text-muted">Please enter your state / province</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('state')
                                                 {{ $message }}
                                             @enderror
@@ -127,9 +133,10 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Postal / Zip Code</label>
-                                        <input name="postal_code" type="text" class="form-control" placeholder="Enter postal / zip code" />
+                                        <input name="postal_code" type="text" class="form-control"
+                                            placeholder="Enter postal / zip code" />
                                         <span class="form-text text-muted">Please enter your postal / zip Code</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('postal_code')
                                                 {{ $message }}
                                             @enderror
@@ -139,9 +146,10 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Contact Number:</label>
-                                        <input name="phone" type="text" class="form-control" placeholder="Enter contact number" />
+                                        <input name="phone" type="text" class="form-control"
+                                            placeholder="Enter contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('phone')
                                                 {{ $message }}
                                             @enderror
@@ -149,9 +157,9 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Upload your Award Letter</label>
-                                        <input name="award_letter" type="file" class="form-control"/>
+                                        <input name="award_letter" type="file" class="form-control" />
                                         <span class="form-text text-muted">Please upload award letter</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('award_letter')
                                                 {{ $message }}
                                             @enderror
@@ -161,9 +169,9 @@
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Upload your Transcript Letter</label>
-                                        <input name="transcript_letter" type="file" class="form-control"/>
+                                        <input name="transcript_letter" type="file" class="form-control" />
                                         <span class="form-text text-muted">Please upload transcript letter</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('transcript_letter')
                                                 {{ $message }}
                                             @enderror
@@ -171,31 +179,36 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Current High School</label>
-                                        <input name="high_school" type="text" class="form-control" placeholder="Enter current high school" />
+                                        <input name="high_school" type="text" class="form-control"
+                                            placeholder="Enter current high school" />
                                         <span class="form-text text-muted">Please enter current high school</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('high_school')
                                                 {{ $message }}
                                             @enderror
                                         </span>
                                     </div>
                                 </div>
-                                <div class="form-group row"> 
+                                <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">What College/University do you plan to attend in Fall 2023?</label>
-                                        <input name="plan" type="text" class="form-control" placeholder="Enter plan" />
-                                        <span class="form-text text-muted">Please enter your plan to attend in Fall 2023?</span>
-                                        <span class="text_danger">
+                                        <label class="font-weight-bold">What College/University do you plan to attend in
+                                            Fall 2023?</label>
+                                        <input name="plan" type="text" class="form-control"
+                                            placeholder="Enter plan" />
+                                        <span class="form-text text-muted">Please enter your plan to attend in Fall
+                                            2023?</span>
+                                        <span class="text-danger">
                                             @error('plan')
                                                 {{ $message }}
                                             @enderror
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">Upload your College/University Acceptance Letter</label>
-                                        <input name="acceptance_letter" type="file" class="form-control"/>
+                                        <label class="font-weight-bold">Upload your College/University Acceptance
+                                            Letter</label>
+                                        <input name="acceptance_letter" type="file" class="form-control" />
                                         <span class="form-text text-muted">Please upload acceptance letter</span>
-                                        <span class="text_danger">
+                                        <span class="text-danger">
                                             @error('acceptance_letter')
                                                 {{ $message }}
                                             @enderror
@@ -207,48 +220,49 @@
                                 <!-- Guardians One Details Start  -->
                                 <div class="d-flex justify-content-between pt-5">
                                     <h6 class="display-7 font-weight-bold mb-5">First Guardians Detail</h6>
+                                    <div class="text-danger">
+                                        @error('guardian_one')
+                                            <p>{{ $message }}</p>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Full Name :</label>
-                                        <input name="guardian_one['name']" type="text" class="form-control" placeholder="Enter full name" />
+                                        <input name="guardian_one[name]" type="text" class="form-control"
+                                            placeholder="Enter full name" />
                                         <span class="form-text text-muted">Please enter your full name</span>
-                                        <span class="text_danger">
-                                            @error("guardian_one['name']")
-                                                <p>Gurdian name is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
-                                    <div class="col-lg-6">  
+                                    <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Email:</label>
-                                        <input name="guardian_one['email']" type="email" class="form-control" placeholder="Enter email address" />
+                                        <input name="guardian_one[email]" type="email" class="form-control"
+                                            placeholder="Enter email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
-                                        <span class="text_danger">
-                                            @error("guardian_one['email']")
-                                                <p>Gurdian email is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Contact Number :</label>
-                                        <input name="guardian_one['phone']" type="text" class="form-control" placeholder="Enter your contact number" />
+                                        <input name="guardian_one[phone]" type="text" class="form-control"
+                                            placeholder="Enter your contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
-                                        <span class="text_danger">
-                                            @error("guardian_one['phone']")
-                                                <p>Gurdian phone is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Address:</label>
-                                        <input name="guardian_one['address']" type="text" class="form-control" placeholder="Enter your address" />
+                                        <input name="guardian_one[address]" type="text" class="form-control"
+                                            placeholder="Enter your address" />
                                         <span class="form-text text-muted">Please enter your complete address</span>
-                                        <span class="text_danger">
-                                            @error("guardian_one['address']")
-                                                <p>Gurdian address is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                 </div>
@@ -257,30 +271,33 @@
                                         <label class="font-weight-bold">Guardian's Highest level of :</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
-                                                <input type="checkbox" value="High School Diploma" name="guardian_one['high_school_diploma']" />
+                                                <input type="checkbox" value="High School Diploma"
+                                                    name="guardian_one[education][]" />
                                                 <span></span>High School Diploma
                                             </label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Associate Degree" name="guardian_one['associate_degree']" />
+                                                <input type="checkbox" value="Associate Degree"
+                                                    name="guardian_one[education][]" />
                                                 <span></span>Associate Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Bachelor Degree" name="guardian_one['bechelor_degree']" />
+                                                <input type="checkbox" value="Bachelor Degree"
+                                                    name="guardian_one[education][]" />
                                                 <span></span>Bachelor Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Master Degree" name="guardian_one['master_degree']" />
+                                                <input type="checkbox" value="Master Degree"
+                                                    name="guardian_one[education][]" />
                                                 <span></span>Master Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Doctoral Degree" name="guardian_one['doctoral_degree']" />
+                                                <input type="checkbox" value="Doctoral Degree"
+                                                    name="guardian_one[education][]" />
                                                 <span></span>Doctoral Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="None" name="guardian_one['none']" />
+                                                <input type="checkbox" value="None" name="guardian_one[education][]" />
                                                 <span></span>None</label>
                                         </div>
-                                        {{--<span class="text_danger">
-                                            @error("guardian_one['phone']")
-                                                <p>Gurdian Phone is Required</p>
-                                            @enderror
-                                        </span>--}}
+                                        <span class="text-danger">
+
+                                        </span>
                                     </div>
                                 </div>
                                 <!-- Guardians One Details End  -->
@@ -288,48 +305,49 @@
                                 <!-- Guardians Two Details Start  -->
                                 <div class="d-flex justify-content-between pt-5">
                                     <h6 class="display-7 font-weight-bold mb-5">Second Guardians Detail</h6>
+                                    <div class="text-danger">
+                                        @error('guardian_two')
+                                            <p>{{ $message }}</p>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Full Name :</label>
-                                        <input name="guardian_two['name']" type="text" class="form-control" placeholder="Enter full name" />
+                                        <input name="guardian_two[name]" type="text" class="form-control"
+                                            placeholder="Enter full name" />
                                         <span class="form-text text-muted">Please enter your full name</span>
-                                        <span class="text_danger">
-                                            @error("guardian_two['name']")
-                                                <p>Gurdian name is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Email:</label>
-                                        <input name="guardian_two['email']" type="email" class="form-control" placeholder="Enter email address" />
+                                        <input name="guardian_two[email]" type="email" class="form-control"
+                                            placeholder="Enter email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
-                                        <span class="text_danger">
-                                            @error("guardian_two['email']")
-                                                <p>Gurdian email is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Contact Number :</label>
-                                        <input name="guardian_two['phone']" type="text" class="form-control" placeholder="Enter your contact number" />
+                                        <input name="guardian_two[phone]" type="text" class="form-control"
+                                            placeholder="Enter your contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
-                                        <span class="text_danger">
-                                            @error("guardian_two['phone']")
-                                                <p>Gurdian phone is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Guardian's Address:</label>
-                                        <input name="guardian_two['address']" type="text" class="form-control" placeholder="Enter your address" />
+                                        <input name="guardian_two[address]" type="text" class="form-control"
+                                            placeholder="Enter your address" />
                                         <span class="form-text text-muted">Please enter your complete address</span>
-                                        <span class="text_danger">
-                                            @error("guardian_two['address']")
-                                                <p>Gurdian address is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                 </div>
@@ -338,25 +356,33 @@
                                         <label class="font-weight-bold">Guardian's Highest level of :</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
-                                                <input type="checkbox" value="High School Diploma" name="guardian_two['high_school_diploma']" />
+                                                <input type="checkbox" value="High School Diploma"
+                                                    name="guardian_two[education][]" />
                                                 <span></span>High School Diploma
                                             </label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Associate Degree" name="guardian_two['associate_degree']" />
+                                                <input type="checkbox" value="Associate Degree"
+                                                    name="guardian_two[education][]" />
                                                 <span></span>Associate Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Bachelor Degree" name="guardian_two['bachelor_degree']" />
+                                                <input type="checkbox" value="Bachelor Degree"
+                                                    name="guardian_two[education][]" />
                                                 <span></span>Bachelor Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Master Degree" name="guardian_two['master_degree']" />
+                                                <input type="checkbox" value="Master Degree"
+                                                    name="guardian_two[education][]" />
                                                 <span></span>Master Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="Doctoral Degree" name="guardian_two['doctoral_degree']" />
+                                                <input type="checkbox" value="Doctoral Degree"
+                                                    name="guardian_two[education][]" />
                                                 <span></span>Doctoral Degree</label>
                                             <label class="checkbox">
-                                                <input type="checkbox" value="None" name="guardian_two['none']" />
+                                                <input type="checkbox" value="None" name="guardian_two[education][]" />
                                                 <span></span>None</label>
                                         </div>
+                                        <span class="text-danger">
+
+                                        </span>
                                     </div>
                                 </div>
                                 <!-- Guardians Two Details End  -->
@@ -365,185 +391,199 @@
                                 <!-- Reference One Details Start  -->
                                 <div class="d-flex justify-content-between pt-5">
                                     <h6 class="display-7 font-weight-bold mb-5">First Reference Detail</h6>
+                                    <div class="text-danger">
+                                        @error('reference_one')
+                                            <p>{{ $message }}</p>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Full Name :</label>
-                                        <input name="reference_one['name']" type="text" class="form-control" placeholder="Enter full name" />
+                                        <input name="reference_one[name]" type="text" class="form-control"
+                                            placeholder="Enter full name" />
                                         <span class="form-text text-muted">Please enter your full name</span>
-                                        <span class="text_danger">
-                                            @error("reference_one['name']")
-                                                <p>Reference name is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Email:</label>
-                                        <input name="reference_one['email']" type="email" class="form-control" placeholder="Enter email address" />
+                                        <input name="reference_one[email]" type="email" class="form-control"
+                                            placeholder="Enter email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
-                                        <span class="text_danger">
-                                            @error("reference_one['email']")
-                                                <p>Reference email is required</p>
-                                            @enderror
+                                        <span class="text-danger">
                                         </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Contact Number :</label>
-                                        <input name="reference_one['phone']" type="text" class="form-control" placeholder="Enter your contact number" />
+                                        <input name="reference_one[phone]" type="text" class="form-control"
+                                            placeholder="Enter your contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
-                                        <span class="text_danger">
-                                            @error("reference_one['phone']")
-                                                <p>Reference phone is required</p>
-                                            @enderror
+                                        <span class="text-danger">
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Relationship To You:</label>
-                                        <input name="reference_one['relationship']" type="text" class="form-control" placeholder="Enter your relationship with you" />
+                                        <input name="reference_one[relationship]" type="text" class="form-control"
+                                            placeholder="Enter your relationship with you" />
                                         <span class="form-text text-muted">Please enter your relationship with you</span>
-                                        <span class="text_danger">
-                                            @error("reference_one['relationship']")
-                                                <p>Reference relationship is required</p>
-                                            @enderror
+                                        <span class="text-danger">
                                         </span>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">Reference's Relationship Length  :</label>
+                                        <label class="font-weight-bold">Reference's Relationship Length :</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
-                                                <input type="radio" value="1-2 years" name="reference_one['relation_length']" />
+                                                <input type="radio" value="1-2 years"
+                                                    name="reference_one[relation_length]" />
                                                 <span></span>1-2 years
                                             </label>
                                             <label class="checkbox">
-                                                <input type="radio" value="3-5 years" name="reference_one['relation_length']" />
+                                                <input type="radio" value="3-5 years"
+                                                    name="reference_one[relation_length]" />
                                                 <span></span>3-5 years</label>
                                             <label class="checkbox">
-                                                <input type="radio" value="6-10 years" name="reference_one['relation_length']" />
+                                                <input type="radio" value="6-10 years"
+                                                    name="reference_one[relation_length]" />
                                                 <span></span>6-10 years</label>
                                             <label class="checkbox">
-                                                <input type="radio" value="10+ years" name="reference_one['relation_length']" />
+                                                <input type="radio" value="10+ years"
+                                                    name="reference_one[relation_length]" />
                                                 <span></span>10+ years</label>
                                         </div>
+                                        <span class="text-danger">
+                                        </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference Letter</label>
-                                        <input name="reference_one['reference_letter']" type="file" class="form-control"/>
+                                        <input name="reference_one[reference_letter]" type="file"
+                                            class="form-control" />
                                         <span class="form-text text-muted">Please upload reference letter</span>
-                                        <span class="text_danger">
-                                            @error("reference_one['reference_letter']")
-                                                <p>Reference letter is required</p>
-                                            @enderror
+                                        <span class="text-danger">
                                         </span>
-                                    </div>   
+                                    </div>
                                 </div>
                                 <!-- Reference One Details Start  -->
 
                                 <!-- Reference Two Details Start  -->
                                 <div class="d-flex justify-content-between pt-5">
                                     <h6 class="display-7 font-weight-bold mb-5">Second Reference Detail</h6>
+                                    <div class="text-danger">
+                                        @error('reference_one')
+                                            <p>{{ $message }}</p>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Full Name :</label>
-                                        <input name="reference_two['name']" type="text" class="form-control" placeholder="Enter full name" />
+                                        <input name="reference_two[name]" type="text" class="form-control"
+                                            placeholder="Enter full name" />
                                         <span class="form-text text-muted">Please enter your full name</span>
-                                        <span class="text_danger">
-                                            @error("reference_two['name']")
-                                                <p>Reference name is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Email:</label>
-                                        <input name="reference_two['email']" type="email" class="form-control" placeholder="Enter email address" />
+                                        <input name="reference_two[email]" type="email" class="form-control"
+                                            placeholder="Enter email address" />
                                         <span class="form-text text-muted">Please enter your email address</span>
-                                        <span class="text_danger">
-                                            @error("reference_two['email']")
-                                                <p>Reference email is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Contact Number :</label>
-                                        <input name="reference_two['phone']" type="text" class="form-control" placeholder="Enter your contact number" />
+                                        <input name="reference_two[phone]" type="text" class="form-control"
+                                            placeholder="Enter your contact number" />
                                         <span class="form-text text-muted">Please enter your contact number</span>
-                                        <span class="text_danger">
-                                            @error("reference_two['phone']")
-                                                <p>Reference phone is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference's Relationship To You:</label>
-                                        <input name="reference_two['relationship']" type="text" class="form-control" placeholder="Enter your relationship with you" />
+                                        <input name="reference_two[relationship]" type="text" class="form-control"
+                                            placeholder="Enter your relationship with you" />
                                         <span class="form-text text-muted">Please enter your relationship with you</span>
-                                        <span class="text_danger">
-                                            @error("reference_two['relationship']")
-                                                <p>Reference relationship is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label class="font-weight-bold">Reference's Relationship Length  :</label>
+                                        <label class="font-weight-bold">Reference's Relationship Length :</label>
                                         <div class="checkbox-list">
                                             <label class="checkbox">
-                                                <input type="radio" value="1-2 years" name="reference_two['relation_length']" />
+                                                <input type="radio" value="1-2 years"
+                                                    name="reference_two[relation_length]" />
                                                 <span></span>1-2 years
                                             </label>
                                             <label class="checkbox">
-                                                <input type="radio" value="3-5 years" name="reference_two['relation_length']" />
+                                                <input type="radio" value="3-5 years"
+                                                    name="reference_two[relation_length]" />
                                                 <span></span>3-5 years</label>
                                             <label class="checkbox">
-                                                <input type="radio" value="6-10 years" name="reference_two['relation_length']" />
+                                                <input type="radio" value="6-10 years"
+                                                    name="reference_two[relation_length]" />
                                                 <span></span>6-10 years</label>
                                             <label class="checkbox">
-                                                <input type="radio" value="10+ years" name="reference_two['relation_length']" />
+                                                <input type="radio" value="10+ years"
+                                                    name="reference_two[relation_length]" />
                                                 <span></span>10+ years</label>
                                         </div>
-                                    </div>  
+                                        <span class="text-danger">
+
+                                        </span>
+                                    </div>
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Reference Letter</label>
-                                        <input name="reference_two['reference_letter']" type="file" class="form-control"/>
+                                        <input name="reference_two[reference_letter]" type="file"
+                                            class="form-control" />
                                         <span class="form-text text-muted">Please upload reference letter</span>
-                                        <span class="text_danger">
-                                            @error("reference_two['reference_letter']")
-                                                <p>Reference letter is required</p>
-                                            @enderror
+                                        <span class="text-danger">
+
                                         </span>
-                                    </div>    
+                                    </div>
                                 </div>
                                 <!-- Reference Two Details End  -->
 
                                 <div class="justify-content-between pt-5">
-                                    <h6 class="display-7 font-weight-bold mb-5">Community Service, Civic Engagement and Extracurricular Activities</h6>
+                                    <h6 class="display-7 font-weight-bold mb-5">Community Service, Civic Engagement and
+                                        Extracurricular Activities</h6>
                                     <p>Please list all community service and civic engagement you've participated with</p>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-12">
-                                        <label class="font-weight-bold">Please list your extracurricular activities (sports, faith-based groups/activities, arts, etc.):</label>
+                                        <label class="font-weight-bold">Please list your extracurricular activities
+                                            (sports, faith-based groups/activities, arts, etc.):</label>
                                         <textarea name="question_2" cols="30" rows="10" class="form-control"></textarea>
-                                        <span class="form-text text-muted">Please enter your extracurricular activities</span>
-                                        <span class="text_danger">
-                                            @error("question_2")
+                                        <span class="form-text text-muted">Please enter your extracurricular
+                                            activities</span>
+                                        <span class="text-danger">
+                                            @error('question_2')
                                                 <p>Field is required</p>
                                             @enderror
                                         </span>
                                     </div>
                                     <div class="col-lg-12 mt-3">
-                                        <label class="font-weight-bold">Please list your community service and/or civic engagement activities:</label>
+                                        <label class="font-weight-bold">Please list your community service and/or civic
+                                            engagement activities:</label>
                                         <textarea name="question_3" cols="30" rows="10" class="form-control"></textarea>
-                                        <span class="form-text text-muted">Please enter your service and/or civic engagement activities</span>
-                                        <span class="text_danger">
-                                            @error("question_3")
+                                        <span class="form-text text-muted">Please enter your service and/or civic
+                                            engagement activities</span>
+                                        <span class="text-danger">
+                                            @error('question_3')
                                                 <p>Field is required</p>
                                             @enderror
                                         </span>
@@ -563,10 +603,10 @@
                                 <div class="form-group">
                                     <div class="col-lg-6">
                                         <label class="font-weight-bold">Essay</label>
-                                        <input name="question_4" type="file" class="form-control"/>
+                                        <input name="question_4" type="file" class="form-control" />
                                         <span class="form-text text-muted">Please upload essay</span>
-                                        <span class="text_danger">
-                                            @error("question_4")
+                                        <span class="text-danger">
+                                            @error('question_4')
                                                 <p>Please upload Essay</p>
                                             @enderror
                                         </span>
