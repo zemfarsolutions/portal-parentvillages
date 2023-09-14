@@ -20,4 +20,5 @@ Route::post('/check', [AuthController::class, 'check']);
 Route::get('/client/logout', [AuthController::class, 'destroyClient']);
 Route::get('/employee/logout', [AuthController::class, 'destroyEmployee']);
 Route::post('/forget-password', [AuthController::class, 'forgetPassword']);
-Route::get('/reset-password', [AuthController::class, 'resetPassword']);
+Route::get('/reset-password/{id}', [AuthController::class, 'resetPassword']);
+Route::post('/reset-password/store', [AuthController::class, 'resetPasswordStore']);

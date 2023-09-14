@@ -109,8 +109,10 @@
                     <!--begin::Forgot-->
                     <div class="login-form ">
                         <!--begin::Form-->
-                        <form class="form">
-                            <input type="hidden" id="forgotton_token" value="{{ csrf_token() }}">
+                        <form class="form" action="/reset-password/store" method="POST">
+                            @csrf
+                            <input type="hidden" name="forgotton_token" id="forgotton_token" value="{{$request->id}}">
+
                             <!--begin::Title-->
                             <div class="pb-13 pt-lg-0 pt-5">
                                 <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Reset Password</h3>
@@ -120,9 +122,19 @@
                             <!--begin::Form group-->
                             <div class="form-group">
                                 <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="New Password" name="password" id="password" autocomplete="off" />
+                                <span class="text-danger">
+                                    @error('password')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="form-group">
-                                <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirm Password" name="new_password" id="new_password" autocomplete="off" />
+                                <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirm Password" name="password_confirmation" id="confirm_password" autocomplete="off" />
+                                <span class="text-danger">
+                                    @error('password_confirmation')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <!--end::Form group-->
 

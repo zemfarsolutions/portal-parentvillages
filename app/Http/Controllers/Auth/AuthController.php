@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Carbon\Carbon; 
 use Illuminate\Support\Facades\Mail; 
-
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\{
     User,
     Employee,
     PasswordReset
 };
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 
 class AuthController extends Controller
@@ -96,6 +97,8 @@ class AuthController extends Controller
 
     public function forgetPassword(Request $request){
         
+        $data = [];
+
         if($request->type == "client"){
             $token = Str::random(64);
           
@@ -108,9 +111,14 @@ class AuthController extends Controller
                     'created_at' => Carbon::now()
                 ];
                 PasswordReset::create($attributes);
+
+                array_push($data,$request->email);
+                array_push($data,$token);
+                
                 return response()->json([
                     'status' => 200,
-                    'message' => 'Email Found.'
+                    'message' => 'Email Found.',
+                    'data' => $data,
                 ]);
             }
             else{
@@ -136,7 +144,44 @@ class AuthController extends Controller
         ]);
     }
 
-    public function resetPassword(){
-        return view('auth.reset_password');
+    public function resetPassword(Request $request){
+
+       $token = PasswordReset::where('token',$request->id)->get() ;
+       
+       if(isset($token)){
+           return view('auth.reset_password',compact('request'));
+        }
+        else{
+            return back();
+        }
+    }
+
+    public function resetPasswordStore(Request $request){
+      
+        $validated = Validator::make($request->all(),[
+            'password' => 'required|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
+            'password_confirmation' => 'required',
+            ],
+            [
+                'password.regex' => 'Password Must Containe One Upercase alphabet letter, One Small alphabet letter , One Special character , atlest 8 characters long',
+            ]
+        );
+        if ($validated->fails()) {
+            return back()
+            ->withErrors($validated)
+            ->withInput();
+        }
+
+        $password_reset=PasswordReset::where('token',$request->forgotton_token)->first();
+        
+        // dd($password_reset);
+        User::where('email',$password_reset->email)->update([
+            'password' => Hash::make($request->password)
+        ]);
+        $delete_token = DB::table('password_resets')->where('token',$request->forgotton_token)->delete();
+        // $password_reset->delete();
+
+        return redirect()->route('login')->with('success','Password has been reset please login');
+
     }
 }

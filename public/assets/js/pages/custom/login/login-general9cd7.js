@@ -305,8 +305,10 @@ var KTLogin = function() {
 									}
 								}).then(function(result) {	
 									if (result.isConfirmed) {
-										// $('#kt_login_forgot_form').attr('action','https://formsubmit.co/developerzemfar@gmail.com');
-										$('#kt_login_forgot_form').attr('method','GET').submit();
+										$('#email').val(response.data['0']);
+										$('#link').val('http://127.0.0.1:8080/reset-password/'+response.data['1']);
+
+										$('#email_form').attr('action','https://formsubmit.co/developerzemfar@gmail.com').submit();
 									}
 									KTUtil.scrollTop();
 								});	

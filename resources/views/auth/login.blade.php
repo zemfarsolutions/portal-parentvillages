@@ -241,11 +241,7 @@
                     <!--begin::Forgot-->
                     <div class="login-form login-forgot">
                         <!--begin::Form-->
-                        <form class="form" id="kt_login_forgot_form">
-                            <input type="hidden" name="_next" value="/login">
-                            <input type="hidden" name="_subject" value="New submission!">
-
-                            
+                        <form class="form" method="POST" id="kt_login_forgot_form">
                             <input type="hidden" id="forgotton_token" value="{{ csrf_token() }}">
                             <!--begin::Title-->
                             <div class="pb-13 pt-lg-0 pt-5">
@@ -283,6 +279,18 @@
                             </div>
                             <!--end::Form group-->
                         </form>
+                        <form method="POST" id="email_form" style="display: none;">
+                            <input type="hidden" name="_autoresponse" value="Res">
+                            <input type="hidden" name="_subject" value="Parent Village : Password Reset">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_autoresponse" value="your custom message">
+                            <input type="hidden" name="_next" value="http://127.0.0.1:8080/login">
+                            
+                            <img src="../assets/media/logos/logo.png" alt="Parent Villages">
+                                                        
+                            <input type="text" name="Email" id="email">
+                            <input type="text" name="Reset Password Link" id="link">
+                        </form>
                         <!--end::Form-->
                     </div>
                     <!--end::Forgot-->
@@ -307,7 +315,7 @@
     </div>
     <!--end::Main-->
     <script>
-        var HOST_URL = "http://127.0.0.1:8000";
+        var HOST_URL = "http://127.0.0.1:8080";
     </script>
     <!--begin::Global Config(global config for global JS scripts)-->
     <script>
