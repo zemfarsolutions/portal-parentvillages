@@ -98,7 +98,8 @@ class AuthController extends Controller
     public function forgetPassword(Request $request){
         
         $data = [];
-
+        $currenttime = Carbon::now()->format('H:i:s');
+        
         if($request->type == "client"){
             $token = Str::random(64);
           
@@ -107,7 +108,42 @@ class AuthController extends Controller
                 
                 $attributes = [
                     'email' => $request->email,
+                    'role' => $request->type,
                     'token' => $token,
+                    'start_time' => $currenttime,
+                    'created_at' => Carbon::now()
+                ];
+                PasswordReset::create($attributes);
+
+                array_push($data,$request->email);
+                array_push($data,$token);
+                
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Email Found.',
+                    'data' => $data,
+                ]);
+            }
+            else{
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Email Not Found.'
+                ]);
+            }
+           
+        }   
+        if($request->type == "employee"){
+            $token = Str::random(64);
+
+            $email_verification = Employee::where('email',$request->email)->first();
+            
+            if($email_verification){
+                
+                $attributes = [
+                    'email' => $request->email,
+                    'role' => $request->type,
+                    'token' => $token,
+                    'start_time' => $currenttime,
                     'created_at' => Carbon::now()
                 ];
                 PasswordReset::create($attributes);
@@ -131,11 +167,6 @@ class AuthController extends Controller
                 'status' => 500,
                 'message' => 'Internal Server Error.'
             ]);
-           
-        }   
-        if($request->type == "employee"){
-            $token = Str::random(64);
-
         }
 
         return response()->json([
@@ -146,18 +177,18 @@ class AuthController extends Controller
 
     public function resetPassword(Request $request){
 
-       $token = PasswordReset::where('token',$request->id)->get() ;
-       
-       if(isset($token)){
+       $token = PasswordReset::where('token',$request->id)->first() ;
+ 
+       if($token != null){
            return view('auth.reset_password',compact('request'));
         }
         else{
-            return back();
+            return redirect()->route('login');
         }
     }
 
     public function resetPasswordStore(Request $request){
-      
+        
         $validated = Validator::make($request->all(),[
             'password' => 'required|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
             'password_confirmation' => 'required',
@@ -173,14 +204,19 @@ class AuthController extends Controller
         }
 
         $password_reset=PasswordReset::where('token',$request->forgotton_token)->first();
+        if($password_reset->role == 'client'){
+            User::where('email',$password_reset->email)->update([
+                'password' => Hash::make($request->password)
+            ]);
+        }
+        elseif($password_reset->role == 'employee'){
+            Employee::where('email',$password_reset->email)->update([
+                'password' => Hash::make($request->password)
+            ]);
+        }
         
-        // dd($password_reset);
-        User::where('email',$password_reset->email)->update([
-            'password' => Hash::make($request->password)
-        ]);
         $delete_token = DB::table('password_resets')->where('token',$request->forgotton_token)->delete();
-        // $password_reset->delete();
-
+        
         return redirect()->route('login')->with('success','Password has been reset please login');
 
     }
