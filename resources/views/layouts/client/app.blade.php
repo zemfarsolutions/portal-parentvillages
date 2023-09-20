@@ -438,7 +438,7 @@
                                 <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active"
                                     data-menu-toggle="click" aria-haspopup="true">
                                     <a href="javascript:;" class="menu-link menu-toggle" style="cursor:pointer">
-                                        <span class="menu-text">Modules</span>
+                                        <span class="menu-text">Quick Links</span>
                                         <i class="menu-arrow"></i>
                                     </a>
                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
@@ -3096,7 +3096,7 @@
             </div>
             <!--end::Demo Panel-->
             <script>
-                var HOST_URL = "http://127.0.0.1:8080";
+                var HOST_URL = "http://127.0.0.1:8000";
             </script>
             <!--begin::Global Config(global config for global JS scripts)-->
             <script>

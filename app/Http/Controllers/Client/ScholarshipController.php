@@ -187,14 +187,14 @@ class ScholarshipController extends Controller
 
                 UserApplicationAnswer::create([
                     'scholarship_question_id' => $i,
-                    'user_application_id' => 2,
+                    'user_application_id' => $user_application->id,
                     'answer' => $array['question_' . $i]
                 ]);
             } else {
 
                 UserApplicationAnswer::create([
                     'scholarship_question_id' => $i,
-                    'user_application_id' => 2,
+                    'user_application_id' => $user_application->id,
                     'answer' => $essay_store
                 ]);
             }
