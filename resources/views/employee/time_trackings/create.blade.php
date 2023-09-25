@@ -55,7 +55,7 @@
                                         <label>Date:</label>
                                         <input name="date" type="text" class="form-control" id="kt_datepicker_1"
                                             readonly="readonly" placeholder="Select date" />
-                                        <span class="form-text text-muted">Please select the date</span>
+                                        {{-- <span class="form-text text-muted">Please select the date</span> --}}
                                         <span class="text_danger">
                                             @error('date')
                                                 {{ $message }}
@@ -68,7 +68,7 @@
                                             <input maxlength="9" required name="number_of_hours" type="text"
                                                 id="numberInput" pattern="[0-9]*" class="form-control"
                                                 placeholder="Enter No. of hours" />
-                                            <span class="form-text text-muted">Please Enter total number of hours.</span>
+                                            {{-- <span class="form-text text-muted">Please Enter total number of hours.</span> --}}
                                             <span class="text_danger">
                                                 @error('number_of_hours')
                                                     {{ $message }}
@@ -95,7 +95,7 @@
                                     <div class="col-lg-6">
                                         <label>Description:</label>
                                         <textarea required name="description" class="form-control" id="exampleTextarea" rows="1"></textarea>
-                                        <span class="form-text text-muted">Please enter description</span>
+                                        {{-- <span class="form-text text-muted">Please enter description</span> --}}
                                     </div>
                                 </div>
 

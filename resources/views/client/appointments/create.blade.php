@@ -53,7 +53,7 @@
                                         <label class="font-weight-bold">Calendy Link:</label>
                                         <input name="calendy_link" type="text" class="form-control"
                                             placeholder="Enter your calendy link" />
-                                        <span class="form-text text-muted">Calendy Link</span>
+                                        {{-- <span class="form-text text-muted">Calendy Link</span> --}}
                                     </div>
                                     <span class="text_danger">
                                         @error("calendy_link")

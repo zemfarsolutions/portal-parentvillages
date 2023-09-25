@@ -81,6 +81,26 @@
                             <div class="card card-custom gutter-b card-stretch">
                                 <div class="card-header border-0">
                                     <h3 class="card-title"></h3>
+                                    <a href="{{ $record->path }}" class="btn btn-secondary font-weight-bold btn-sm float-right mt-4" target="_blank" style="height:35px">
+                                        <span class="svg-icon" style="margin: 0">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="30px"
+                                                height="30px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24"
+                                                        height="24" />
+                                                    <path
+                                                        d="M3,12 C3,12 5.45454545,6 12,6 C16.9090909,6 21,12 21,12 C21,12 16.9090909,18 12,18 C5.45454545,18 3,12 3,12 Z"
+                                                        fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                    <path
+                                                        d="M12,15 C10.3431458,15 9,13.6568542 9,12 C9,10.3431458 10.3431458,9 12,9 C13.6568542,9 15,10.3431458 15,12 C15,13.6568542 13.6568542,15 12,15 Z"
+                                                        fill="#000000" opacity="0.3" />
+                                                </g>
+                                            </svg><!--end::Svg Icon-->
+                                        </span>
+                                    </a>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,6 +157,7 @@
                                             class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $record->name . '.' . pathinfo($record->path, PATHINFO_EXTENSION) }}</a>
                                         <!--end: Tite-->
                                     </div>
+                                    
                                 </div>
                             </div>
                             <!--end:: Card-->

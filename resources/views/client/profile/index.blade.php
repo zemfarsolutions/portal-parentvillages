@@ -73,12 +73,12 @@
                 <div class="form-group row">
                     <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
                     <div class="col-lg-9 col-xl-6">
-                        <div class="input-group input-group-lg input-group-solid">
-                            <div class="input-group-prepend">
+                        <div>
+                            {{-- <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="la la-at"></i>
                                 </span>
-                            </div>
+                            </div> --}}
                             <input type="text" class="form-control form-control-lg form-control-solid" value="{{$user->email}}" placeholder="Email" name="email" />
                         </div>
                     </div>

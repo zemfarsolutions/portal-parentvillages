@@ -54,8 +54,8 @@ var KTDatatableAutoColumnHideDemo = function() {
 				},
 				{
 					field: 'description',
-					title: 'Description',
-					autoHide: true
+					title: 'Place',
+					autoHide: false
 				}, {
 					field: 'Actions',
 					title: 'Actions',

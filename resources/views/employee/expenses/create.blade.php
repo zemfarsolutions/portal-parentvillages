@@ -60,20 +60,20 @@
                                         <label>Date:</label>
                                         <input name="date" type="text" class="form-control" id="kt_datepicker_1"
                                             readonly="readonly" placeholder="Select date" />
-                                        <span class="form-text text-muted">Please select the date</span>
+                                        {{-- <span class="form-text text-muted">Please select the date</span> --}}
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="typeSelect1">Amount:</label>
                                         <input maxlength="9" required name="amount" type="text" id="numberInput"
                                             pattern="[0-9]*" class="form-control" placeholder="Enter Amount" />
-                                        <span class="form-text text-muted">Please enter the Amount.</span>
+                                        {{-- <span class="form-text text-muted">Please enter the Amount.</span> --}}
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <label>Name:</label>
+                                        <label>Expense Description:</label>
                                         <textarea required name="name" class="form-control" id="exampleTextarea" rows="1"></textarea>
-                                        <span class="form-text text-muted">Please enter name</span>
+                                        {{-- <span class="form-text text-muted">Please enter name</span> --}}
                                     </div>
                                 </div>
                                 <div class="form-group row">
