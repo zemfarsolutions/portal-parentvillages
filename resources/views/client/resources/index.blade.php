@@ -51,7 +51,7 @@
                                         <div class="card-header border-0">
                                             <h3 class="card-title"></h3>
                                             <div class="card-toolbar">
-                                                <div class="dropdown dropdown-inline" data-toggle="tooltip"
+                                                {{-- <div class="dropdown dropdown-inline" data-toggle="tooltip"
                                                     title="Quick actions" data-placement="left">
                                                     <a href="#"
                                                         class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
@@ -74,7 +74,28 @@
                                                         </ul>
                                                         <!--end::Navigation-->
                                                     </div>
-                                                </div>
+                                                </div> --}}
+                                                {{-- <a href="{{ $record->path }}"
+                                                    class="btn btn-secondary font-weight-bold btn-sm float-right"
+                                                    target="_blank">
+                                                    <span class="svg-icon" style="margin: 0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="30px"
+                                                            height="30px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none"
+                                                                fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24"
+                                                                    height="24" />
+                                                                <path
+                                                                    d="M3,12 C3,12 5.45454545,6 12,6 C16.9090909,6 21,12 21,12 C21,12 16.9090909,18 12,18 C5.45454545,18 3,12 3,12 Z"
+                                                                    fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                                <path
+                                                                    d="M12,15 C10.3431458,15 9,13.6568542 9,12 C9,10.3431458 10.3431458,9 12,9 C13.6568542,9 15,10.3431458 15,12 C15,13.6568542 13.6568542,15 12,15 Z"
+                                                                    fill="#000000" opacity="0.3" />
+                                                            </g>
+                                                        </svg><!--end::Svg Icon-->
+                                                    </span>
+                                                </a> --}}
                                             </div>
                                             <!-- Modal -->
                                             <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -103,28 +124,48 @@
                                         <div class="card-body ">
                                             <div class="d-flex flex-column align-items-center">
                                                 @if (pathinfo($record->path, PATHINFO_EXTENSION) === 'pdf')
-                                                    <img alt="" class="max-h-65px"
-                                                        src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/pdf.svg" />
+                                                    <a href="{{ $record->path }}" target="_blank">
+                                                        <img alt="" class="max-h-65px"
+                                                            src="/assets/media/extensions/download.png" />
+                                                    </a>
                                                 @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'png')
+                                                <a href="{{ $record->path }}" target="_blank">
                                                     <img alt="" class="max-h-65px"
-                                                        src="	https://static.thenounproject.com/png/4147238-200.png" />
-                                                @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'docx')
-
+                                                        src="/assets/media/extensions/png.png" />
+                                                </a>
+                                                @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'docx' || pathinfo($record->path, PATHINFO_EXTENSION) === 'docx')
+                                                <a href="{{ $record->path }}" target="_blank">
+                                                    <img alt="" class="max-h-65px"
+                                                        src="/assets/media/extensions/docx.png" />\
+                                                </a>
+                                                
                                                 @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'jpg' || pathinfo($record->path, PATHINFO_EXTENSION) === 'jpeg')
+                                                <a href="{{ $record->path }}" target="_blank">
                                                     <img alt="" class="max-h-65px"
-                                                        src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/jpg.svg" />
+                                                        src="/assets/media/extensions/png.png" />
+                                                </a>
+
                                                 @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'zip')
+                                                <a href="{{ $record->path }}" target="_blank">
                                                     <img alt="" class="max-h-65px"
-                                                        src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/zip.svg" />
+                                                        src="/assets/media/extensions/zip.png" />
+                                                </a>
+
                                                 @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'psd')
+                                                <a href="{{ $record->path }}" target="_blank">
                                                     <img alt="" class="max-h-65px"
-                                                        src="https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-adobe-photoshop-psd-ps-icon-png-image_4952703.png" />
+                                                        src="/assets/media/extensions/psd.png" />
+                                                </a>
                                                 @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'xml')
+                                                <a href="{{ $record->path }}" target="_blank">
                                                     <img alt="" class="max-h-65px"
-                                                        src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
+                                                        src="/assets/media/extensions/xml.png" />
+                                                </a>
                                                 @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'html')
+                                                <a href="{{ $record->path }}" target="_blank">
                                                     <img alt="" class="max-h-65px"
-                                                        src="	https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/files/html.svg" />
+                                                        src="/assets/media/extensions/html.png" />
+                                                </a>
                                                 @endif
                                                 <!--begin: Title-->
                                                 <p class="text-dark-75 font-weight-bold mt-15 font-size-lg">
@@ -133,26 +174,6 @@
                                                 <!--end: Tite-->
                                             </div>
                                             {{-- <form action="/client{{ $record->path }}" method=""></form> --}}
-                                            <a href="{{ $record->path }}" class="btn btn-secondary font-weight-bold btn-sm float-right" target="_blank">
-                                                <span class="svg-icon" style="margin: 0">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="30px"
-                                                        height="30px" viewBox="0 0 24 24" version="1.1">
-                                                        <g stroke="none" stroke-width="1" fill="none"
-                                                            fill-rule="evenodd">
-                                                            <rect x="0" y="0" width="24"
-                                                                height="24" />
-                                                            <path
-                                                                d="M3,12 C3,12 5.45454545,6 12,6 C16.9090909,6 21,12 21,12 C21,12 16.9090909,18 12,18 C5.45454545,18 3,12 3,12 Z"
-                                                                fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                                                            <path
-                                                                d="M12,15 C10.3431458,15 9,13.6568542 9,12 C9,10.3431458 10.3431458,9 12,9 C13.6568542,9 15,10.3431458 15,12 C15,13.6568542 13.6568542,15 12,15 Z"
-                                                                fill="#000000" opacity="0.3" />
-                                                        </g>
-                                                    </svg><!--end::Svg Icon-->
-                                                </span>
-                                            </a>
                                         </div>
                                     </div>
                                     <!--end:: Card-->

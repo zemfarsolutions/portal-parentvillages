@@ -127,6 +127,57 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center">
+                                        @if (pathinfo($record->path, PATHINFO_EXTENSION) === 'pdf')
+                                            <a href="{{ $record->path }}" target="_blank">
+                                                <img alt="" class="max-h-65px"
+                                                    src="/assets/media/extensions/download.png" />
+                                            </a>
+                                        @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'png')
+                                        <a href="{{ $record->path }}" target="_blank">
+                                            <img alt="" class="max-h-65px"
+                                                src="/assets/media/extensions/png.png" />
+                                        </a>
+                                        @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'docx' || pathinfo($record->path, PATHINFO_EXTENSION) === 'docx')
+                                        <a href="{{ $record->path }}" target="_blank">
+                                            <img alt="" class="max-h-65px"
+                                                src="/assets/media/extensions/docx.png" />\
+                                        </a>
+                                        
+                                        @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'jpg' || pathinfo($record->path, PATHINFO_EXTENSION) === 'jpeg')
+                                        <a href="{{ $record->path }}" target="_blank">
+                                            <img alt="" class="max-h-65px"
+                                                src="/assets/media/extensions/png.png" />
+                                        </a>
+
+                                        @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'zip')
+                                        <a href="{{ $record->path }}" target="_blank">
+                                            <img alt="" class="max-h-65px"
+                                                src="/assets/media/extensions/zip.png" />
+                                        </a>
+
+                                        @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'psd')
+                                        <a href="{{ $record->path }}" target="_blank">
+                                            <img alt="" class="max-h-65px"
+                                                src="/assets/media/extensions/psd.png" />
+                                        </a>
+                                        @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'xml')
+                                        <a href="{{ $record->path }}" target="_blank">
+                                            <img alt="" class="max-h-65px"
+                                                src="/assets/media/extensions/xml.png" />
+                                        </a>
+                                        @elseif (pathinfo($record->path, PATHINFO_EXTENSION) === 'html')
+                                        <a href="{{ $record->path }}" target="_blank">
+                                            <img alt="" class="max-h-65px"
+                                                src="/assets/media/extensions/html.png" />
+                                        </a>
+                                        @endif
+                                        <!--begin: Title-->
+                                        <p class="text-dark-75 font-weight-bold mt-15 font-size-lg">
+                                            {{ $record->name . '.' . pathinfo($record->path, PATHINFO_EXTENSION) }}
+                                        </p>
+                                        <!--end: Tite-->
+                                    </div>
+                                    {{-- <div class="d-flex flex-column align-items-center">
                                         <!--begin: Icon-->
                                         @if (pathinfo($record->path, PATHINFO_EXTENSION) === 'pdf')
                                             <img alt="" class="max-h-65px"
@@ -156,7 +207,7 @@
                                         <a href="{{ $record->path }}" target="_blank"
                                             class="text-dark-75 font-weight-bold mt-15 font-size-lg">{{ $record->name . '.' . pathinfo($record->path, PATHINFO_EXTENSION) }}</a>
                                         <!--end: Tite-->
-                                    </div>
+                                    </div> --}}
                                     
                                 </div>
                             </div>
