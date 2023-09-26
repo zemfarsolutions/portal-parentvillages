@@ -3,24 +3,28 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
-
 use App\Models\Scholarship;
+use App\Models\User;
 use App\Models\UserApplication;
 use App\Models\UserApplicationAnswer;
 use App\Models\UserApplicationGuardian;
 use App\Models\UserApplicationReferences;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ScholarshipController extends Controller
 {
     public function index()
     {
-        $total_scholarships = Scholarship::all()->count();
+        $total_scholarships = Scholarship::count();
+        $user_applied = UserApplication::where('user_id', Auth::guard('web')->user()->id)
+            ->get();
+
         $records = Scholarship::all();
-        return view('client.scholarships.index', compact('total_scholarships', 'records'));
+    
+        return view('client.scholarships.index', compact('total_scholarships', 'records', 'user_applied'));
     }
 
     public function view(Scholarship $scholarship)
@@ -65,7 +69,7 @@ class ScholarshipController extends Controller
             "reference_two" => 'required_array_keys:name,email,phone,relationship,relation_length,reference_letter',
             'question_2' => 'required',
             'question_3' => 'required',
-            'question_4' => 'required|mimes:pdf,doc'
+            'question_4' => 'required|mimes:pdf,doc',
         ]);
 
         if ($validator->fails()) {
@@ -104,49 +108,49 @@ class ScholarshipController extends Controller
             'high_school' => $request->high_school,
             'plan' => $request->plan,
             'acceptance_letter' => $acceptance_letter_store,
-            'status' => 'pending'
+            'status' => 'pending',
         ]);
 
         $guardians = [
             $request->guardian_one,
-            $request->guardian_two
+            $request->guardian_two,
         ];
 
         for ($i = 0; $i < count($guardians); $i++) {
 
             $guardian = UserApplicationGuardian::create([
                 'user_application_id' => $user_application->id,
-                'name' =>  $guardians[$i]["name"],
-                'email' =>  $guardians[$i]["email"],
-                'phone' =>  $guardians[$i]["phone"],
-                'address' =>  $guardians[$i]["address"]
+                'name' => $guardians[$i]["name"],
+                'email' => $guardians[$i]["email"],
+                'phone' => $guardians[$i]["phone"],
+                'address' => $guardians[$i]["address"],
             ]);
 
             foreach ($guardians[$i]['education'] as $key => $value) {
 
                 if ($value === "High School Diploma") {
                     UserApplicationGuardian::where('id', $guardian->id)->update([
-                        'high_school_diploma'   =>    true
+                        'high_school_diploma' => true,
                     ]);
                 }
                 if ($value === "Associate Degree") {
                     UserApplicationGuardian::where('id', $guardian->id)->update([
-                        'associate_degree'   =>    true
+                        'associate_degree' => true,
                     ]);
                 }
                 if ($value === "Bachelor Degree") {
                     UserApplicationGuardian::where('id', $guardian->id)->update([
-                        'bachelor_degree'   =>    true
+                        'bachelor_degree' => true,
                     ]);
                 }
                 if ($value === "Master Degree") {
                     UserApplicationGuardian::where('id', $guardian->id)->update([
-                        'master_degree'   =>    true
+                        'master_degree' => true,
                     ]);
                 }
                 if ($value === "Doctoral Degree") {
                     UserApplicationGuardian::where('id', $guardian->id)->update([
-                        'doctoral_degree'   =>    true
+                        'doctoral_degree' => true,
                     ]);
                 }
             }
@@ -166,10 +170,10 @@ class ScholarshipController extends Controller
 
             UserApplicationReferences::create([
                 'user_application_id' => $user_application->id,
-                'name' =>  $references[$i]["name"],
-                'email' =>  $references[$i]["email"],
-                'phone' =>  $references[$i]["phone"],
-                'relation' =>  $references[$i]["relationship"],
+                'name' => $references[$i]["name"],
+                'email' => $references[$i]["email"],
+                'phone' => $references[$i]["phone"],
+                'relation' => $references[$i]["relationship"],
                 'length' => $references[$i]["relation_length"],
                 'letter' => $acceptance_letter_store,
             ]);
@@ -188,14 +192,14 @@ class ScholarshipController extends Controller
                 UserApplicationAnswer::create([
                     'scholarship_question_id' => $i,
                     'user_application_id' => $user_application->id,
-                    'answer' => $array['question_' . $i]
+                    'answer' => $array['question_' . $i],
                 ]);
             } else {
 
                 UserApplicationAnswer::create([
                     'scholarship_question_id' => $i,
                     'user_application_id' => $user_application->id,
-                    'answer' => $essay_store
+                    'answer' => $essay_store,
                 ]);
             }
         }

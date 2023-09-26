@@ -159,12 +159,16 @@
                             <!--end::Body-->
                             <!--begin::Footer-->
                             <div class="card-footer d-flex align-items-center">
-
-                                <a href="/client/scholarships/{{ $record->id }}/view"
-                                    class="btn btn-primary btn-sm float-start mr-7">View</a>
-
-                                <a href="/client/scholarships/{{ $record->id }}/scholarship-form"
-                                    class="btn btn-primary btn-sm float-end">Apply</a>
+                                @if ($user_applied->contains('scholarship_id', $record->id))
+                                    <a href="/client/scholarships/{{ $record->id }}/view"
+                                        class="btn btn-primary btn-sm float-start mr-7">View</a>
+                                    <button class="btn btn-primary btn-sm float-start mr-7" disabled>Applied</button>
+                                @else
+                                    <a href="/client/scholarships/{{ $record->id }}/view"
+                                        class="btn btn-primary btn-sm float-start mr-7">View</a>
+                                    <a href="/client/scholarships/{{ $record->id }}/scholarship-form"
+                                        class="btn btn-primary btn-sm float-end">Apply</a>
+                                @endif
                             </div>
                             <!--end::Footer-->
                         </div>
