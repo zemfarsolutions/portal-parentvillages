@@ -61,22 +61,30 @@
                                         <input name="date" type="text" class="form-control" id="kt_datepicker_1"
                                             readonly="readonly" value="{{ date_format($date, 'm/d/Y') }}"
                                             placeholder="Select date" />
-                                        <span class="form-text text-muted">Please select the date</span>
+                                        {{-- <span class="form-text text-muted">Please select the date</span> --}}
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Place:</label>
                                         <input required value="{{ $receipt->place }}" name="place" type="text"
                                             class="form-control" placeholder="Enter place name" />
-                                        <span class="form-text text-muted">Please the receipt place.</span>
+                                        {{-- <span class="form-text text-muted">Please the receipt place.</span> --}}
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="typeSelect1">Amount:</label>
-                                            <input maxlength="9" required name="amount" type="text" id="numberInput"
-                                                pattern="[0-9]*" class="form-control" placeholder="Enter receipt amount" />
-                                            <span class="form-text text-muted">Please the receipt amount.</span>
+                                            <div class="input-group input-group-lg ">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="la la-dollar"></i>
+                                                    </span>
+                                                </div>
+                                                <input maxlength="9" required name="amount" type="text"
+                                                    id="numberInput" pattern="[0-9]*" class="form-control"
+                                                    placeholder="Enter receipt amount" />
+                                            </div>
+                                            {{-- <span class="form-text text-muted">Please the receipt amount.</span> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -86,7 +94,7 @@
                                             <input required multiple name="receipt[]" type="file" class="form-control"
                                                 placeholder="Enter receipt receipt" />
 
-                                            <span class="form-text text-muted">Please the receipt receipt.</span>
+                                            {{-- <span class="form-text text-muted">Please the receipt receipt.</span> --}}
                                         </div>
                                     </div>
                                 </div>

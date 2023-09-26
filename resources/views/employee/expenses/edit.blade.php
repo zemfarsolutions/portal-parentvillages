@@ -63,11 +63,20 @@
                                         <span class="form-text text-muted">Please select the date</span>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label>Amount:</label>
-                                        <input maxlength="9" required name="amount" value="{{ $expense->amount }}"
-                                            type="text" id="numberInput" pattern="[0-9]*" class="form-control"
-                                            placeholder="Enter contact number" />
-                                        <span class="form-text text-muted">Please enter total Amount</span>
+                                        <div class="form-group">
+                                            <label for="typeSelect1">Amount:</label>
+                                            <div class="input-group input-group-lg ">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="la la-dollar"></i>
+                                                    </span>
+                                                </div>
+                                                <input maxlength="9" required name="amount" type="text"
+                                                    id="numberInput" pattern="[0-9]*" class="form-control"
+                                                    placeholder="Enter receipt amount" value="{{ $expense->amount }}" />
+                                            </div>
+                                            {{-- <span class="form-text text-muted">Please the receipt amount.</span> --}}
+                                        </div>
                                     </div>
                                     {{-- <div class="col-lg-6">
                                         <div class="form-group">
