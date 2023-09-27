@@ -130,7 +130,7 @@
                                     <div class="d-flex flex-column mr-auto">
                                         <!--begin: Title-->
                                         <div class="d-flex flex-column mr-auto">
-                                            <a href="#"
+                                            <a href=""
                                                 class="text-dark text-hover-primary font-size-h4 font-weight-bolder mb-1">{{ $record->title }}</a>
                                         </div>
                                         <!--end::Title-->
